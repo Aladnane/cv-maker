@@ -1,0 +1,28 @@
+@import "./global/variables/variables";
+@import "../fonts/inter.css";
+
+html, body
+{
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+body,
+p
+{
+  margin: 0;
+  padding: 0;
+}
+
+
+li
+{
+  list-style: none;
+}
+
+a
+{
+  text-decoration: none;
+  color: $link-color;
+}
