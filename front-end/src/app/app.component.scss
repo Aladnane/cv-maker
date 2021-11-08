@@ -14,12 +14,22 @@
     width: 90%;
     height: 95vh;
     position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: $main-background-color;
-    border-radius: 35px 35px 0 0;
+    transform: translate(-50%, -50%);
+    background-color: #1F1D2B;
+    border-radius: 15px;
     overflow: hidden;
     box-sizing: border-box;
+    display: flex;
+    box-shadow: 0 0 8px 0px #1f1d2b;
+    color: white;
+
+    .content
+    {
+      padding: 20px 24px;
+      box-sizing: border-box;
+      width: 100%;
+    }
   }
 }

@@ -1,15 +1,23 @@
 @import "./global/variables/variables";
-@import "../fonts/inter.css";
+@import "./global/scrollbar/scrollbar.scss";
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url("../fonts/Inter-SemiBold.ttf");
+}
+
 
 html, body
 {
   height: 100vh;
   overflow: hidden;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body,
-p
+p,
+h5
 {
   margin: 0;
   padding: 0;

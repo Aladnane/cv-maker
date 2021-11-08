@@ -1,0 +1,39 @@
+@import "/src/assets/styles/global/variables/variables";
+
+header
+{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  .search
+  {
+      background-color: #353340;
+      border: none;
+      padding: 7px 14px;
+      box-sizing: border-box;
+      width: 350px;
+      outline: none;
+      font-size: 1rem;
+      border-radius: 3px;
+
+      &::placeholder
+      {
+        color: #605F63;
+      }
+  }
+
+  .user
+  {
+    display: flex;
+
+    .pers-info
+    {
+      display: flex;
+
+      .name
+      {
+      }
+    }
+  }
+}
