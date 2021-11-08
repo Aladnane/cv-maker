@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './components/pages/errors/page-not-found/
 import { ConnectionComponent } from './components/pages/connection/layout/connection.component';
 import { SignUpComponent } from './components/pages/connection/sign-up/sign-up.component';
 import { LoginComponent } from './components/pages/connection/login/login.component';
+import { InputComponent } from './components/partials/inputs/input/input.component';
+import { ButtonComponent } from './components/partials/buttons/button/button.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { LoginComponent } from './components/pages/connection/login/login.compon
     SignUpComponent,
     PageNotFoundComponent,
     ConnectionComponent,
-    LoginComponent
+    LoginComponent,
+    InputComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

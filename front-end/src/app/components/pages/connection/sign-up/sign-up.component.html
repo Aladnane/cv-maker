@@ -1,1 +1,18 @@
-<p>sign-up works!</p>
+<form>
+  <div class="block block-photo">
+      <div class="img">
+        <img src="/assets/images/user-placeholder.jpeg">
+      </div>
+      <app-button text='{{"Browse Photo"}}' icon_classes='{{"las la-camera-retro"}}' btn='flat'></app-button>
+      <input type="file" class='hidden'>
+  </div>
+  <div class="block">
+    <app-input label="{{'Firstname'}}"></app-input>
+    <app-input label="{{'Lastname'}}"></app-input>
+  </div>
+  <div class="block hidden">
+    <app-input label="{{'Email'}}" type='email'></app-input>
+    <app-input label="{{'Password'}}" type='password'></app-input>
+    <app-input label="{{'Confirm Password'}}" type='password'></app-input>
+  </div>
+</form>

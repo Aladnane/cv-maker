@@ -1,0 +1,25 @@
+@import "/src/assets/styles/global/variables/variables";
+
+.input
+{
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+  margin: 5px 0;
+
+  label
+  {
+
+  }
+
+  input
+  {
+    background-color: $main-background-color-light;
+    border: 0;
+    outline: none;
+    padding: 8px 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    color: $main-color-light;
+  }
+}

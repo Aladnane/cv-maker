@@ -13,7 +13,7 @@ header
 
       input
       {
-        background-color: #353340;
+        background-color: $main-background-color-light;
         border: none;
         padding: 7px 14px;
         box-sizing: border-box;
@@ -22,7 +22,7 @@ header
         font-size: 1rem;
         border-radius: 3px;
         color: $main-color-light;
-  
+
         &::placeholder
         {
           color: #605F63;
@@ -43,7 +43,7 @@ header
   {
     display: flex;
     align-items: center;
-    
+
     .pers-info
     {
       display: flex;
@@ -57,7 +57,7 @@ header
         overflow: hidden;
         border-radius: 50%;
         box-shadow: 0 0px 5px 2px #111016;
-        
+
         img{width: 100%;}
       }
       .name
@@ -74,7 +74,7 @@ header
         {
           font-size: 1.4rem;
         }
-        
+
         &.active
         {
           .mark
