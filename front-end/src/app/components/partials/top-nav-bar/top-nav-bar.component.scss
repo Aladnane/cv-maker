@@ -4,35 +4,119 @@ header
 {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 
   .search
   {
-      background-color: #353340;
-      border: none;
-      padding: 7px 14px;
-      box-sizing: border-box;
-      width: 350px;
-      outline: none;
-      font-size: 1rem;
-      border-radius: 3px;
+      position: relative;
 
-      &::placeholder
+      input
       {
-        color: #605F63;
+        background-color: #353340;
+        border: none;
+        padding: 7px 14px;
+        box-sizing: border-box;
+        width: 350px;
+        outline: none;
+        font-size: 1rem;
+        border-radius: 3px;
+        color: $main-color-light;
+  
+        &::placeholder
+        {
+          color: #605F63;
+        }
+      }
+
+      .icon
+      {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
       }
   }
 
   .user
   {
     display: flex;
-
+    align-items: center;
+    
     .pers-info
     {
       display: flex;
+      align-items: inherit;
+      margin-right: 10px;
 
+      .img
+      {
+        width: 35px;
+        height: 35px;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: 0 0px 5px 2px #111016;
+        
+        img{width: 100%;}
+      }
       .name
       {
+        margin: 0 10px;
+      }
+    }
+    .notifications
+    {
+      .icon
+      {
+        position: relative;
+        i
+        {
+          font-size: 1.4rem;
+        }
+        
+        &.active
+        {
+          .mark
+          {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: indianred;
+            border-radius: 50%;
+            right: 1px;
+            top: 1px;
+          }
+        }
+      }
+    }
+  }
+
+  .connection
+  {
+    ul
+    {
+      display: flex;
+      gap: 0 40px;
+
+      .sign-up
+      {
+        padding: 5px 10px;
+        border: 1px solid #fff;
+        border-radius:30px;
+      }
+
+      .active
+      {
+          color: white;
+          font-weight: bold;
+          text-decoration: underline;
+
+          &.sign-up
+          {
+            background-color: white;
+            color: $main-background-color;
+          }
       }
     }
   }

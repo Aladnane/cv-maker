@@ -1,11 +1,29 @@
 <header>
-  <input type="text" class="search" placeholder='Search'>
-  <div class="user">
+  <div class="search">
+    <input type="text" class="search" placeholder='Search' #search>
+    <i class="las la-search icon" (click)='focusOnSearchInput()'></i>
+  </div>
+
+  <div class="user" *ngIf='authentified'>
     <div class="pers-info">
-        <img src="">
+        <div class="img">
+          <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG4WubjfkOKUg/profile-displayphoto-shrink_800_800/0/1595429954190?e=1642032000&v=beta&t=ZXEkReHLUXgNoRbY2_1L_9wiNcKGKFoZZ7QAvhK_k3I">
+        </div>
         <h5 class="name">Younes ADNANE</h5>
         <i class="las la-angle-down"></i>
     </div>
-    <i class="las la-bell"></i>
+    <div class="notifications">
+      <div class="icon active">
+        <i class="las la-bell"></i>
+        <span class="mark"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="connection" *ngIf="!authentified">
+    <ul>
+      <li><a routerLink="login" routerLinkActive="active">Login</a></li>
+      <li><a routerLink="sign-up" routerLinkActive="active" class='sign-up'>Sign Up</a></li>
+    </ul>
   </div>
 </header>

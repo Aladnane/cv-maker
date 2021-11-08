@@ -1,0 +1,32 @@
+@import "/src/assets/styles/global/variables/variables";
+
+.connection
+{
+    width: 400px;
+    // background-color: $main-background-color-light;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 7px 1px #111;
+
+    header,
+    .container
+    {padding: 10px;}
+
+    header
+    {
+        background-color: $main-background-color-light;
+
+        .title
+        {
+            
+        }
+    }
+    .container
+    {
+        
+    }
+}
