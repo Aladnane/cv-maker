@@ -1,12 +1,27 @@
+@import "/src/assets/styles/global/animations/animations.scss";
+@import "/src/app/components/partials/inputs/input/input.component.scss";
+
 .inputs
 {
-  display: flex;
+  // display: flex;
+  position: relative;
   max-width: 100%;
-  overflow-x: hidden;
+  height: 333px;
+  // overflow-x: hidden;
 
   .block
   {
       min-width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+      &:not(.active){display: none;}
+      
+      &.active
+      {
+        animation: ToggleBlock .3s ease-in-out alternate forwards;
+      }
 
       .block-photo
       {
@@ -38,4 +53,9 @@
   display: flex;
   justify-content: space-between;
   margin: 20px 0 10px;
+
+  .btn-left
+  {
+    margin-left: auto;
+  }
 }

@@ -9,7 +9,7 @@ nav
   height: 95vh;
   overflow: auto;
   // box-shadow: 0 0 13px -1px #00000085;
-  background:#110c10;
+  // background:#110c10;
 
   header
   {
@@ -58,8 +58,9 @@ nav
           }
 
           &.active,
-          &:hover i,
-          &:hover
+          &.active i,
+          &:hover,
+          &:hover i
           {color: white;}
         }
       }

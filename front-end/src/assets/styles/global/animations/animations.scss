@@ -1,0 +1,15 @@
+@keyframes ToggleBlock
+{
+  0%
+  {
+    opacity: 0;
+    transform: scale(.9);
+    display: none;
+  }
+  100%
+  {
+    opacity: 1;
+    transform: scale(1);
+    display: block;
+  }
+}

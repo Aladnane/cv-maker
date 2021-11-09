@@ -23,7 +23,7 @@
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
-    box-shadow: 0 0 8px 0px $main-background-color;
+    box-shadow: 0 0 35px 11px rgb(21 13 13 / 85%);
     color: $main-color-light;
 
     .content
@@ -32,7 +32,7 @@
       box-sizing: border-box;
       width: 100%;
       position: relative;
-      background: $main-background-color;
+      // background: $main-background-color;
     }
   }
 }

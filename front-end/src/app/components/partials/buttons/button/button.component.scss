@@ -4,26 +4,21 @@
 {
   padding: 5px 10px;
   border: 1px solid $link-color-active;
-  box-shadow: 0 3px 5px 3px #161616a6;
+  box-shadow: 0 3px 3px 0px #161616a6;
   border-radius: 2px;
   width: max-content;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0 3px;
-  color: $main-color-dark;
+  color: $main-background-color-light;
+  transition: all .3s;
 
   &:hover
   {
-    box-shadow: 0 3px 5px 3px #0d0d0da6;
+    box-shadow: 0 2px 15px 0px #0d0d0da6;
   }
-
-  &.flat
-  {
-    background: $link-color-active;
-    color: $main-background-color;
-  }
-
+  
   i
   {
       font-size: 1.3rem;
@@ -33,6 +28,20 @@
   span
   {
       order: 2
+  }
+
+  
+  &.flat
+  {
+    background: $link-color-active;
+    color: $main-background-color;
+  }
+
+  &.submit
+  {
+    background: $submit-background;
+    border-color: $submit-background;
+    color: $submit-color;
   }
 }
 

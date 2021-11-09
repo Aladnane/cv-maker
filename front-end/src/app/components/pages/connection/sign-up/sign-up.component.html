@@ -1,7 +1,7 @@
-<form>
+<form [formGroup]="form">
   <div class="inputs">
     <!-- Personnel Info -->
-    <div class="block">
+    <div class="block" [class.active]='block_active == "personnel"'>
       <div class="block-photo">
           <div class="img">
             <img src="/assets/images/user-placeholder.jpeg">
@@ -9,20 +9,45 @@
           <app-button text='{{"Browse Photo"}}' icon_classes='{{"las la-camera-retro"}}' btn='flat'></app-button>
           <input type="file" class='hidden'>
       </div>
-      <app-input label="{{'Firstname'}}"></app-input>
-      <app-input label="{{'Lastname'}}"></app-input>
+
+      <app-input label="{{'Firstname'}}" class="input">
+        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' minlength="3" maxlength="6" required>
+      </app-input>
+
+      <app-input label="{{'Lastname'}}" class="input">
+        <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' minlength="3" maxlength="6" required>
+      </app-input>
     </div>
 
     <!-- Email + Password -->
-    <div class="block">
-      <app-input label="{{'Email'}}" type='email'></app-input>
-      <app-input label="{{'Password'}}" type='password'></app-input>
-      <app-input label="{{'Confirm Password'}}" type='password'></app-input>
+    <div class="block" [class.active]='block_active == "connection"'>
+      <app-input label="{{'Email'}}" class="input">
+        <input type="email" placeholder="Email" name='email' autocomplete="off" formControlName='email' required>
+      </app-input>
+
+      <app-input label="{{'Password'}}" class="input">
+        <input type="password" placeholder="Password" name='password' autocomplete="off" formControlName='password' minlength="8" required>
+      </app-input>
+
+      <app-input label="{{'Confirm Password'}}" class="input">
+        <input type="password" placeholder="Password Confirmation" name='password_confirmation' autocomplete="off" formControlName='password_confirmation' minlength="8" required>
+      </app-input>
+
+      <app-input label="{{'Subscribe to get the following new templates first'}}" class="input" [is_checkbox]=true>
+        <input type="checkbox" name='subscriber' formControlName='subscriber' required>
+      </app-input>
     </div>
   </div>
 
   <div class="buttons">
-    <app-button text='{{"Previous"}}' icon_classes='{{"las la-hand-point-left"}}' btn='flat'></app-button>
-    <app-button text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}' btn='flat' direction='rtl'></app-button>
+    <app-button text='{{"Previous"}}' icon_classes='{{"las la-hand-point-left"}}' btn='flat'
+    (click)="block_active = 'personnel'" *ngIf='block_active == "connection"'></app-button>
+
+    <div class='btn-left'>
+      <app-button text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}' btn='flat' direction='rtl'
+      (click)="block_active = 'connection'" *ngIf='block_active == "personnel"'></app-button>
+
+      <app-button text='{{"Sign-Up"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' direction='rtl' *ngIf='block_active == "connection"'></app-button>
+    </div>
   </div>
 </form>

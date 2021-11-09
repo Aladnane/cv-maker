@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormGroupSignUpService } from 'src/app/services/binding/form-group/form-group-sign-up.service';
 
 @Component({
   selector: 'app-input',
@@ -8,11 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InputComponent implements OnInit {
 
   @Input() label: string = "";
-  @Input() type: string = "text";
+  @Input() is_checkbox: boolean = false;
+  public value: string = "";
 
-  constructor() { }
+  get form(){return this.form_group_sign_up_service.form_sign_up;}
 
-  ngOnInit(): void {
+
+  constructor(public form_group_sign_up_service : FormGroupSignUpService) { }
+
+  ngOnInit(): void {}
+
+  public emitValue()
+  {
+      this.form.controls["first_name"].setValue(this.value);
   }
 
 }

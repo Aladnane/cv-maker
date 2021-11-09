@@ -9,7 +9,6 @@
 
   label
   {
-
   }
 
   input
@@ -21,5 +20,11 @@
     font-size: 1.1rem;
     border-radius: 5px;
     color: $main-color-light;
+  }
+
+  &.checkbox
+  {
+    flex-direction: row-reverse;
+    filter: hue-rotate(47deg);
   }
 }

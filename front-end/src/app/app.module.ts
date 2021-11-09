@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+//Components
 import { AppComponent } from './app.component';
 import { LeftNavBarComponent } from './components/partials/left-nav-bar/left-nav-bar.component';
 import { DiscoverComponent } from './components/pages/discover/discover.component';
@@ -17,6 +20,7 @@ import { SignUpComponent } from './components/pages/connection/sign-up/sign-up.c
 import { LoginComponent } from './components/pages/connection/login/login.component';
 import { InputComponent } from './components/partials/inputs/input/input.component';
 import { ButtonComponent } from './components/partials/buttons/button/button.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { ButtonComponent } from './components/partials/buttons/button/button.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [WithoutSpacesPipe],
   bootstrap: [AppComponent]
