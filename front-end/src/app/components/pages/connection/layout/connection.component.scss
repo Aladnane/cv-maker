@@ -3,10 +3,11 @@
 .connection
 {
     width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin:auto;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
 
     .info-progress
     {
@@ -19,7 +20,7 @@
       {
         flex-grow: 1;
         height: 5px;
-        background-color: $main-background-color-light;
+        background-color: #eeeeee3d;
         border-radius: 3px;
 
         &.active

@@ -1,4 +1,4 @@
 <div class="btn {{btn_class}}">
-  <i *ngIf='icon_classes' class='{{icon_classes}}'></i>
-  <span>{{text}}</span>
+  <i *ngIf='icon_classes' class='{{icon_classes}}' [style.order]='direction == "ltr" ? 1 : 2'></i>
+  <span [style.order]='direction == "ltr" ? 2 : 1'>{{text}}</span>
 </div>

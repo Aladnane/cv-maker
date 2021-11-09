@@ -1,3 +1,5 @@
+@import "/src/assets/styles/global/variables/variables";
+
 nav
 {
   padding: 10px 20px 0;
@@ -7,6 +9,7 @@ nav
   height: 95vh;
   overflow: auto;
   // box-shadow: 0 0 13px -1px #00000085;
+  background:#110c10;
 
   header
   {
@@ -23,7 +26,7 @@ nav
   {
     .title
     {
-      color: #fff7f780;
+      color: $link-color-active;
       font-size: .9rem;
       margin-bottom: 15px;
     }
@@ -48,9 +51,9 @@ nav
             padding: 6px;
             margin-right: 10px;
             border-radius: 8px;
-            background-color: #353340;
+            background-color: $main-background-color-light;
             font-size: 1.1rem;
-            color: #ccc;
+            color: $link-color;
             box-sizing: border-box;
           }
 
@@ -75,7 +78,7 @@ nav
 
   hr
   {
-    border-color: #ffffff1f;
+    border-color: $separator-border;
     border-radius: 5px;
     width: 80%;
     margin: 20px auto;

@@ -10,6 +10,7 @@ export class ButtonComponent implements OnInit {
   @Input() icon_classes: string = "";
   @Input() text: string = "";
   @Input("btn") btn_class: string = "";
+  @Input() direction: string = "ltr";
 
   constructor() { }
 

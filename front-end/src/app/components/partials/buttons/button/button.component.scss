@@ -3,7 +3,7 @@
 .btn
 {
   padding: 5px 10px;
-  border: 1px solid #fff;
+  border: 1px solid $link-color-active;
   box-shadow: 0 3px 5px 3px #161616a6;
   border-radius: 2px;
   width: max-content;
@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   gap: 0 3px;
+  color: $main-color-dark;
 
   &:hover
   {
@@ -19,13 +20,19 @@
 
   &.flat
   {
-    background-color: white;
+    background: $link-color-active;
     color: $main-background-color;
   }
 
   i
   {
       font-size: 1.3rem;
+      order: 1
+  }
+
+  span
+  {
+      order: 2
   }
 }
 
