@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FormGroupSignUpService 
+export class FormGroupSignUpService
 {
   public form_sign_up: FormGroup;
+  public inputs_valids_subject = new BehaviorSubject<{[key: string]: boolean}>({"": false});
+  public inputs_valids = this.inputs_valids_subject.asObservable();
 
   constructor(private form_builder: FormBuilder)
   {

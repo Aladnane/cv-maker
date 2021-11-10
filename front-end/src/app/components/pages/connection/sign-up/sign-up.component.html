@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="on_submit()">
   <div class="inputs">
     <!-- Personnel Info -->
     <div class="block" [class.active]='block_active == "personnel"'>
@@ -11,7 +11,7 @@
       </div>
 
       <app-input label="{{'Firstname'}}" class="input">
-        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' minlength="3" maxlength="6" required>
+        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='change_input_status("first_name", first_name.touched && first_name.valid)' (blur)='change_input_status("first_name", first_name.valid)' minlength="3" maxlength="6" required>
       </app-input>
 
       <app-input label="{{'Lastname'}}" class="input">
@@ -47,7 +47,7 @@
       <app-button text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}' btn='flat' direction='rtl'
       (click)="block_active = 'connection'" *ngIf='block_active == "personnel"'></app-button>
 
-      <app-button text='{{"Sign-Up"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' direction='rtl' *ngIf='block_active == "connection"'></app-button>
+      <app-button text='{{"Sign-Up"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' type='submit' direction='rtl' *ngIf='block_active == "connection"'></app-button>
     </div>
   </div>
 </form>

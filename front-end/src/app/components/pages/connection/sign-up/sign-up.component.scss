@@ -3,11 +3,9 @@
 
 .inputs
 {
-  // display: flex;
   position: relative;
   max-width: 100%;
   height: 333px;
-  // overflow-x: hidden;
 
   .block
   {
@@ -15,9 +13,9 @@
       position: absolute;
       top: 0;
       left: 0;
-      
+
       &:not(.active){display: none;}
-      
+
       &.active
       {
         animation: ToggleBlock .3s ease-in-out alternate forwards;
