@@ -1,11 +1,12 @@
 <section class="connection">
     <div class="info-progress">
       <!-- For Loop -->
-      <div class="info"></div>
-      <div class="info"></div>
-      <div class="info"></div>
-      <div class="info"></div>
-      <div class="info"></div>
+      <div class="info" [class.active]='inputs_valids.first_name'></div>
+      <div class="info" [class.active]='inputs_valids.last_name'></div>
+      <div class="info" [class.active]='inputs_valids.email'></div>
+      <div class="info" [class.active]='inputs_valids.password'></div>
+      <div class="info" [class.active]='inputs_valids.password_confirmation'></div>
+      <div class="info" [class.active]='inputs_valids.subscriber'></div>
     </div>
 
     <div class="container">

@@ -12,7 +12,12 @@ export class SignUpComponent implements OnInit {
 
   //Getters
   get form(){return this.form_group_sign_up_service.form_sign_up;}
-  get first_name(){return this.form_group_sign_up_service.form_sign_up.controls["first_name"];}
+  get first_name(){return this.form.controls.first_name;}
+  get last_name(){return this.form.controls.last_name;}
+  get email(){return this.form.controls.email;}
+  get password(){return this.form.controls.password;}
+  get password_confirmation(){return this.form.controls.password_confirmation;}
+  get subscriber(){return this.form.controls.subscriber;}
 
   constructor(public form_group_sign_up_service : FormGroupSignUpService){}
 
@@ -26,8 +31,7 @@ export class SignUpComponent implements OnInit {
 
   public change_input_status(input: string, is_valid: boolean)
   {
-      // this.inputs_valids[input] = is_valid;
-      this.form_group_sign_up_service.inputs_valids_subject.next({first_name: is_valid});
+      this.form_group_sign_up_service.inputs_valids_subject.next({[input]: is_valid});
   }
 
 

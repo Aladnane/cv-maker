@@ -20,8 +20,10 @@ export class ConnectionComponent implements OnInit
   constructor(private form_group_sign_up_service: FormGroupSignUpService)
   {
       this.form_group_sign_up_service.inputs_valids.subscribe(input => {
-        console.log(input);
-        // this.inputs_valids[input] =
+
+        const input_name = Object.keys(input as object)[0];
+
+        this.inputs_valids[input_name] = (input as {[key: string]: boolean})[input_name];
       })
   }
 
