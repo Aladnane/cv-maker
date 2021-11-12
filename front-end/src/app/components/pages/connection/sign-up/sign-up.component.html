@@ -11,26 +11,26 @@
       </div>
 
       <app-input label="{{'Firstname'}}" class="input">
-        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='change_input_status("first_name",first_name.valid)' (blur)='change_input_status("first_name", first_name.valid)' minlength="3" maxlength="6" required>
+        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='change_input_status("first_name",first_name.valid)' (blur)='change_input_status("first_name", first_name.valid)' required>
       </app-input>
 
       <app-input label="{{'Lastname'}}" class="input">
-        <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' (input)='change_input_status("last_name",last_name.valid)' (blur)='change_input_status("last_name", last_name.valid)' minlength="3" maxlength="6" required>
+        <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' (input)='change_input_status("last_name",last_name.valid)' (blur)='change_input_status("last_name", last_name.valid)' required>
       </app-input>
     </div>
 
     <!-- Email + Password -->
     <div class="block" [class.active]='block_active == "connection"'>
       <app-input label="{{'Email'}}" class="input">
-        <input type="email" placeholder="Email" name='email' autocomplete="off"  (input)='change_input_status("email",email.valid)' (blur)='change_input_status("email", email.valid)' formControlName='email' required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <input type="email" placeholder="Email" name='email' autocomplete="off"  (input)='change_input_status("email",email.valid)' (blur)='change_input_status("email", email.valid)' formControlName='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
       </app-input>
 
       <app-input label="{{'Password'}}" class="input">
-        <input type="password" placeholder="Password" name='password' autocomplete="off"  (input)='change_input_status("password",password.valid)' (blur)='change_input_status("password", password.valid)' formControlName='password' minlength="8" maxlength="100" required>
+        <input type="password" placeholder="Password" name='password' autocomplete="off"  (input)='change_input_status("password",password.valid)' (blur)='change_input_status("password", password.valid)' formControlName='password' required>
       </app-input>
 
       <app-input label="{{'Confirm Password'}}" class="input">
-        <input type="password" placeholder="Password Confirmation" name='password_confirmation' autocomplete="off"  (input)='change_input_status("password_confirmation",password_confirmation.valid)' (blur)='change_input_status("password_confirmation", password_confirmation.valid)' formControlName='password_confirmation' minlength="8" maxlength="100"  required>
+        <input type="password" placeholder="Password Confirmation" name='password_confirmation' autocomplete="off"  (input)='change_input_status("password_confirmation",password_confirmation.valid)' (blur)='change_input_status("password_confirmation", password_confirmation.valid)' formControlName='password_confirmation' required>
       </app-input>
 
       <app-input label="{{'Subscribe to get the following new templates first'}}" class="input" [is_checkbox]=true>

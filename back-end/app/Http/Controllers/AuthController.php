@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserSignUpRequest;
 
@@ -34,7 +35,12 @@ class AuthController extends Controller
 
     public function sign_up(UserSignUpRequest $request)
     {
-        return $request->all();
+        if(User::create($request->all()))
+        {
+            return $this->login();
+        }
+
+        return response()->json(["msg"=> "Erreur"], 400);
     }
 
     /**
