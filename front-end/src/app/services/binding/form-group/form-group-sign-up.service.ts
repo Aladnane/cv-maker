@@ -22,8 +22,8 @@ export class FormGroupSignUpService
       "first_name": ["", [Validators.required, Validators.minLength, Validators.maxLength]],
       "last_name": ["", [Validators.required, Validators.minLength, Validators.maxLength]],
       "email": ["", [Validators.required, Validators.minLength, Validators.maxLength, Validators.pattern]],
-      "password": ["", Validators.required, Validators.minLength, Validators.maxLength],
-      "password_confirmation": ["", Validators.required, Validators.minLength, Validators.maxLength],
+      "password": ["", [Validators.required, Validators.minLength, Validators.maxLength]],
+      "password_confirmation": ["", [Validators.required, Validators.minLength, Validators.maxLength]],
       "subscriber": [""],
     });
   }
