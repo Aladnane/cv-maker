@@ -1,9 +1,5 @@
 .discover
 {
-    height: -webkit-fill-available;
-    overflow: auto;
-    padding: 0 10px 50px;
-
     section
     {
         margin: 10px 0 50px;
@@ -12,25 +8,25 @@
         {
             font-size: 1.4rem;
         }
-    
+
         .sub-title
         {
             font-size: 1.2rem;
             font-weight: 100;
         }
-    
+
         .blocks-container
         {
             display: flex;
             justify-content: space-between;
             gap: 0 20px;
-        
-        
+
+
             app-full-block
             {
                 width: 200px;
                 flex-grow: 1;
-                
+
                 &[data-grow='2']{flex-grow: 2;}
                 &[data-grow='3']{flex-grow: 3;}
                 &[data-grow='4']{flex-grow: 4;}

@@ -40,3 +40,10 @@ a
 {
   display: none;
 }
+
+.component-container
+{
+    height: -webkit-fill-available;
+    overflow: auto;
+    padding: 0 10px 50px;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WithoutSpacesPipe } from 'src/app/pipes/without-spaces/without-spaces.pipe';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -9,9 +10,11 @@ import { WithoutSpacesPipe } from 'src/app/pipes/without-spaces/without-spaces.p
 export class TopNavBarComponent implements OnInit {
 
   @ViewChild("search") search: any;
-  public authentified: boolean = false;
 
-  constructor(private withoutSpacesPipe: WithoutSpacesPipe) { }
+  constructor(
+                private withoutSpacesPipe: WithoutSpacesPipe,
+                public auth_service: AuthenticationService
+              ) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +29,7 @@ export class TopNavBarComponent implements OnInit {
     }
 
     //Search
-    // console.log("without");        
   }
+
 
 }

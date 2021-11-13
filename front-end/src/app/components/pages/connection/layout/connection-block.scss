@@ -1,0 +1,92 @@
+@import "/src/assets/styles/global/animations/animations.scss";
+@import "/src/app/components/partials/inputs/input/input.component.scss";
+
+.sign-up
+{
+  .inputs
+  {
+    height: 333px;
+    .block:not(.active){display: none;}
+  }
+
+  .buttons
+  {
+    justify-content: space-between;
+    margin: 20px 0 10px;
+
+    .btn-left { margin-left: auto; }
+  }
+}
+
+.login
+{
+  .inputs
+  {
+    height: 180px;
+  }
+
+  .buttons
+  {
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .btn
+    {
+      padding: 5px 60px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.sign-up,
+.login
+{
+  .inputs
+  {
+    position: relative;
+    max-width: 100%;
+
+    .block
+    {
+        min-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &.active
+        {
+          animation: ToggleBlock .3s ease-in-out alternate forwards;
+        }
+
+        .block-photo
+        {
+          display: flex;
+          align-items:center;
+          flex-direction: column;
+          margin: 20px 0;
+          gap: 10px 0;
+
+
+          .img
+          {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+
+            img
+            {
+              width: 100%;
+              border-radius: inherit;
+            }
+          }
+        }
+    }
+  }
+
+  .buttons
+  {
+    display: flex;
+  }
+}
+

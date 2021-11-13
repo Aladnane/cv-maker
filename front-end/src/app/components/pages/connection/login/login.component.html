@@ -1,1 +1,18 @@
-<p>login works!</p>
+<form [formGroup]="form" class='login' (ngSubmit)="on_submit()">
+  <div class="inputs">
+    <div class="block">
+      <app-input label="{{'Email'}}" class="input">
+        <input type="email" placeholder="Email" name='email' autocomplete="off" formControlName='email' (input)='connection_service.change_input_status("email",email.valid)' (blur)='connection_service.change_input_status("email", email.valid)' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+      </app-input>
+
+      <app-input label="{{'Password'}}" class="input">
+        <input type="password" placeholder="Password" name='password' autocomplete="off" formControlName='password' (input)='connection_service.change_input_status("password",password.valid)' (blur)='connection_service.change_input_status("password", password.valid)' required>
+      </app-input>
+
+    </div>
+  </div>
+
+  <div class="buttons">
+      <app-button text='{{"Login"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' type='submit' direction='rtl'></app-button>
+  </div>
+</form>

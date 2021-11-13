@@ -21,6 +21,7 @@ import { SignUpComponent } from './components/pages/connection/sign-up/sign-up.c
 import { LoginComponent } from './components/pages/connection/login/login.component';
 import { InputComponent } from './components/partials/inputs/input/input.component';
 import { ButtonComponent } from './components/partials/buttons/button/button.component';
+import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ButtonComponent } from './components/partials/buttons/button/button.com
     LoginComponent,
     InputComponent,
     ButtonComponent,
+    CvListComponent,
   ],
   imports: [
     BrowserModule,

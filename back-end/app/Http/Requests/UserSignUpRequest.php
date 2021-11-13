@@ -29,7 +29,7 @@ class UserSignUpRequest extends FormRequest
             "email"=>"required|email|max:100|unique:App\Models\User,email",
             "password"=>"required|string|min:8|max:100|confirmed",
             "password_confirmation"=>"required|string|min:8|max:100",
-            //"subscriber"=>"boolean"
+            "subscriber"=>""
         ];
     }
 }

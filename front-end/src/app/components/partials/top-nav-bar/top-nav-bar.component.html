@@ -4,7 +4,14 @@
     <i class="las la-search icon" (click)='focusOnSearchInput()'></i>
   </div>
 
-  <div class="user" *ngIf='authentified'>
+  <div class="connection"  *ngIf='!this.auth_service.is_authenticated()'>
+    <ul>
+      <li><a routerLink="login" routerLinkActive="active" class='login'>Login</a></li>
+      <li><a routerLink="sign-up" routerLinkActive="active" class='sign-up'>Sign Up</a></li>
+    </ul>
+  </div>
+
+  <div class="user" *ngIf='this.auth_service.is_authenticated()'>
     <div class="pers-info">
         <div class="img">
           <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG4WubjfkOKUg/profile-displayphoto-shrink_800_800/0/1595429954190?e=1642032000&v=beta&t=ZXEkReHLUXgNoRbY2_1L_9wiNcKGKFoZZ7QAvhK_k3I">
@@ -18,12 +25,8 @@
         <span class="mark"></span>
       </div>
     </div>
+
+    <span class='logout' (click)='this.auth_service.disconnect()'>Logout</span>
   </div>
 
-  <div class="connection" *ngIf="!authentified">
-    <ul>
-      <li><a routerLink="login" routerLinkActive="active">Login</a></li>
-      <li><a routerLink="sign-up" routerLinkActive="active" class='sign-up'>Sign Up</a></li>
-    </ul>
-  </div>
 </header>

@@ -108,20 +108,34 @@ header
         color: $link-color-active;
       }
 
-      .active
+      .active.sign-up
       {
-        font-weight: bold;
-        text-decoration: underline;
-
-        &:not(.sign-up){color: $link-color-active;}
-
-        &.sign-up
-        {
-            color: $main-color-dark;
-            background: $main-color-light;
-            color: $main-background-color;
-          }
+        color: $main-color-dark;
+        background: $main-color-light;
+        color: $main-background-color;
       }
+    }
+
+  }
+
+  .user
+  {
+    .logout{cursor:pointer}
+
+  }
+
+  .connection,
+  .user
+  {
+    .login.active,
+    .sign-up.active,
+    .login:hover,
+    .logout:hover
+    {
+      font-weight: bold;
+      text-decoration: underline;
+
+      &:not(.sign-up){color: $link-color-active;}
     }
   }
 }

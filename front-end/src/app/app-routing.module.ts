@@ -7,6 +7,7 @@ import { SignUpComponent } from './components/pages/connection/sign-up/sign-up.c
 import { TrendingComponent } from './components/pages/trending/trending.component';
 import { ConnectionComponent } from './components/pages/connection/layout/connection.component';
 import { LoginComponent } from './components/pages/connection/login/login.component';
+import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
 
 const routes: Routes = [
   {path: "discover", component: DiscoverComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path: "login", component: LoginComponent}
     ]
   },
-  {path: "**", component: PageNotFoundComponent},
+  {path: "cv-list", component: CvListComponent},
+  {path: "**", component: PageNotFoundComponent}
 
 ];
 
