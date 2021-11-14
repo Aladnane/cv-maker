@@ -1,0 +1,47 @@
+<section class="cv-maker component-container">
+  <header>
+    <ul class="progress-bar">
+      <li [class.active]="block_active == 'heading'" (click)="block_active = 'heading'">
+        <span class='index'>1</span> Heading
+      </li>
+
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'work history'" (click)="block_active = 'work history'">
+        <span class='index'>2</span> Work History
+      </li>
+
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'education'" (click)="block_active = 'education'">
+        <span class='index'>3</span> Education
+      </li>
+
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'skills'" (click)="block_active = 'skills'">
+        <span class='index'>4</span> Skills
+      </li>
+
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'summary'" (click)="block_active = 'summary'">
+        <span class='index'>5</span> Summary
+      </li>
+
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'finalize'" (click)="block_active = 'finalize'">
+        <span class='index'>6</span> Finalize
+      </li>
+
+    </ul>
+  </header>
+
+  <section class="cv-creator">
+    <!-- Form -->
+      <section class="form">
+          <app-cv-form [block_active]='block_active'></app-cv-form>
+      </section>
+
+      <!-- Preview -->
+      <section class="preview">
+          <app-cv-preview></app-cv-preview>
+      </section>
+  </section>
+</section>

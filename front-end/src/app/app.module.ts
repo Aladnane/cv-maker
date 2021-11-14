@@ -22,6 +22,9 @@ import { LoginComponent } from './components/pages/connection/login/login.compon
 import { InputComponent } from './components/partials/inputs/input/input.component';
 import { ButtonComponent } from './components/partials/buttons/button/button.component';
 import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
+import { CvMakerComponent } from './components/pages/cv/cv-maker/cv-maker.component';
+import { CvFormComponent } from './components/partials/cv/cv-form/cv-form.component';
+import { CvPreviewComponent } from './components/partials/cv/cv-preview/cv-preview.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component
     InputComponent,
     ButtonComponent,
     CvListComponent,
+    CvMakerComponent,
+    CvFormComponent,
+    CvPreviewComponent,
   ],
   imports: [
     BrowserModule,

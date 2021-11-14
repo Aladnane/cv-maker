@@ -2,96 +2,180 @@
 
 nav
 {
-  padding: 10px 20px 0;
-  box-sizing: border-box;
   width: 200px;
-  color: white;
-  height: 95vh;
-  overflow: auto;
-  // box-shadow: 0 0 13px -1px #00000085;
-  // background:#110c10;
+  position: relative;
 
-  header
+  > .container
   {
-    .title
-    {
-      margin: 30px 0 50px;
-      text-align: center;
-      font-size: 1.5rem;
-      text-shadow: 0 4px black;
-    }
-  }
+    padding: 10px 15px 0;
+    box-sizing: border-box;
+    width: 100%;
+    color: white;
+    height: 95vh;
+    overflow: auto;
 
-  .block
-  {
-    .title
+    header
     {
-      color: $link-color-active;
-      font-size: .9rem;
-      margin-bottom: 15px;
-    }
-
-    ul
-    {
-      padding: 0;
-      margin: 0;
-
-      li
+      .title
       {
-        a
-        {
-          width: 100%;
-          padding: 7px 5px;
-          display: block;
-          cursor: pointer;
-          font-weight: 500;
-          transition: all .25s ease-in-out;
-
-          i
-          {
-            padding: 6px;
-            margin-right: 10px;
-            border-radius: 8px;
-            background-color: $main-background-color-light;
-            font-size: 1.1rem;
-            color: $link-color;
-            box-sizing: border-box;
-          }
-
-          &.active
-          {
-            background: #ffffffd6;
-            color: #412c3d !important;
-            border-radius: 5px;
-
-            &:hover{background-color: #FFF;}
-          }
-
-          &.active,
-          &.active i,
-          &:hover,
-          &:hover i
-          {color: white;}
-        }
+        margin: 30px 0 50px;
+        text-align: center;
+        font-size: 1.5rem;
+        text-shadow: 0 4px black;
       }
-      li:nth-child(odd):hover i,
-      li:nth-child(odd) .active i
-      {background-color: #32A7E2;box-shadow: 0 0 1px 1px #32A7E2;}
-      li:nth-child(even):hover i,
-      li:nth-child(even) .active i
-      {background-color: #6C5ECF;box-shadow: 0 0 1px 1px #6C5ECF;}
-      li:first-child:hover i,
-      li:first-child .active i
-      {background-color: #FF7551;box-shadow: 0 0 1px 1px #FF7551;}
+    }
+
+    .block
+    {
+      font-size: 1rem;
+
+      .title
+      {
+        color: $link-color-active;
+        font-size: .9em;
+        margin-bottom: 15px;
+      }
+
+      ul
+      {
+        padding: 0;
+        margin: 0;
+
+        li
+        {
+          a
+          {
+            width: 100%;
+            padding: 7px 5px;
+            display: block;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all .2s ease-in-out;
+
+            i
+            {
+              padding: 6px;
+              margin-right: 10px;
+              border-radius: 8px;
+              background-color: $main-background-color-light;
+              font-size: 1.1em;
+              color: $link-color;
+              box-sizing: border-box;
+            }
+
+            &.active
+            {
+              background-color: #000000ad;
+              color: $main-color-light-2 !important;
+              border-radius: 5px;
+              text-shadow: 0 2px black;
+              filter: drop-shadow(2px 4px 6px black);
+
+              // &:hover{box-shadow: 0 0 4px 1px #000 inset;}
+            }
+
+            &.active,
+            &.active i,
+            &:hover,
+            &:hover i
+            {color: white;}
+          }
+        }
+        li:nth-child(odd):hover i,
+        li:nth-child(odd) .active i
+        {background-color: #32A7E2;box-shadow: 0 0 1px 1px #32A7E2;}
+        li:nth-child(even):hover i,
+        li:nth-child(even) .active i
+        {background-color: #6C5ECF;box-shadow: 0 0 1px 1px #6C5ECF;}
+        li:first-child:hover i,
+        li:first-child .active i
+        {background-color: #FF7551;box-shadow: 0 0 1px 1px #FF7551;}
+      }
+    }
+
+
+    hr
+    {
+      border-color: $separator-border;
+      border-radius: 5px;
+      width: 80%;
+      margin: 20px auto;
     }
   }
 
-
-  hr
+  .toggle-display
   {
-    border-color: $separator-border;
-    border-radius: 5px;
-    width: 80%;
-    margin: 20px auto;
+    position: absolute;
+    top: 13%;
+    background-color: #000000;
+    padding: 8px 10px;
+    border-radius: 50%;
+    text-align: center;
+    right: 0;
+    transform: translateX(43%);
+    box-shadow: 0 0 7px 2px #000;
+    cursor: pointer;
+    z-index: 1;
+
+    &.rotate
+    {
+      i{transform: rotateZ(180deg);}
+    }
   }
+
+  &.short
+  {
+    width: 90px;
+
+    > .container
+    {
+      padding-left: 2px;
+      padding-right: 2px;
+
+      header .title{visibility: hidden}
+
+      .block
+      {
+        font-size: .8rem;
+
+        .title
+        {
+          color: white;
+          font-size: 1.1em;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+        ul
+        {
+          li
+          {
+            a
+            {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 80%;
+              margin: auto;
+              gap: 4px 0;
+
+              i
+              {
+                margin-right: 0;
+                font-size: 2em
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &,
+  .toggle-display i
+  {
+    transition: all .3s ease-in-out;
+  }
+
 }

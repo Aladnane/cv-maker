@@ -8,6 +8,7 @@ import { TrendingComponent } from './components/pages/trending/trending.componen
 import { ConnectionComponent } from './components/pages/connection/layout/connection.component';
 import { LoginComponent } from './components/pages/connection/login/login.component';
 import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
+import { CvMakerComponent } from './components/pages/cv/cv-maker/cv-maker.component';
 
 const routes: Routes = [
   {path: "discover", component: DiscoverComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
     ]
   },
   {path: "cv-list", component: CvListComponent},
+  {path: "cv-maker", component: CvMakerComponent},
   {path: "**", component: PageNotFoundComponent}
 
 ];

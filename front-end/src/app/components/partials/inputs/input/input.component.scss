@@ -13,14 +13,14 @@
 
   input
   {
-    background-color: $input-background-color-light;
+    background-color: $input-background-transparent;
     border: 0;
     outline: none;
     padding: 8px 10px;
     font-size: 1.1rem;
     border-radius: 3px;
-    box-shadow: 0 0 4px 1px #000 inset;
-    color: $input-color-light;
+    box-shadow: 0 0 4px 1px #000000b5 inset;
+    color: $input-color-transparent;
   }
 
   &.checkbox

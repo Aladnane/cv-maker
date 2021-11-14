@@ -1,57 +1,27 @@
 <!-- Filter -->
 <section class="cv-list component-container">
     <ul>
-      <!-- <li *ngFor='let cv of cv_list'></li> -->
-      <li>
-
+      <li *ngFor='let cv of cv_list'>
         <div class="thumbnail">
-          <img src="/assets/images/cv-template.png">
+          <img src="{{cv.thumbnail_url}}">
+          <div class="tools">
+            <a class='tool'>
+              <i class="las la-pen-alt"></i>
+              <small>Create</small>
+            </a>
+            <div class="separator"></div>
+            <a class='tool'>
+              <i class="las la-expand"></i>
+              <small>Preview</small>
+            </a>
+          </div>
         </div>
 
         <div class="presentation">
-          <h2 class="title">Model 1</h2>
-          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facilis</p>
+          <h2 class="title">{{cv.name}}</h2>
+          <p class="desc">{{cv.desc}}</p>
           <ul class="tags">
-            <li>Professional</li>
-            <li class='active'>Programming</li>
-            <li>Perfect</li>
-            <li>Dark Colors</li>
-          </ul>
-        </div>
-      </li>
-
-      <li>
-
-        <div class="thumbnail">
-          <img src="/assets/images/cv-template.png">
-        </div>
-
-        <div class="presentation">
-          <h2 class="title">Model 1</h2>
-          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facilis</p>
-          <ul class="tags">
-            <li>Professional</li>
-            <li class='active'>Programming</li>
-            <li>Perfect</li>
-            <li>Dark Colors</li>
-          </ul>
-        </div>
-      </li>
-
-      <li>
-
-        <div class="thumbnail">
-          <img src="/assets/images/cv-template.png">
-        </div>
-
-        <div class="presentation">
-          <h2 class="title">Model 1</h2>
-          <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facilis</p>
-          <ul class="tags">
-            <li>Professional</li>
-            <li class='active'>Programming</li>
-            <li>Perfect</li>
-            <li>Dark Colors</li>
+            <li *ngFor='let tag of cv.tags'>{{tag}}</li>
           </ul>
         </div>
       </li>
