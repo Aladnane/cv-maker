@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 //Components
 import { AppComponent } from './app.component';
 import { LeftNavBarComponent } from './components/partials/left-nav-bar/left-nav-bar.component';

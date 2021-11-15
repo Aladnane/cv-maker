@@ -14,31 +14,31 @@
 
         <!-- Fields -->
         <app-input label="{{'First Name'}}" class="input" data-field='first-name'>
-          <input type="text" placeholder="First Name" name='first_name' formControlName='first_name' required>
+          <input type="text" placeholder="First Name" name='first_name' formControlName='first_name' (input)='this.cv_info_service.change_value("first_name", form["first_name"].value)' required>
         </app-input>
 
         <app-input label="{{'Last Name'}}" class="input" data-field='last-name'>
-          <input type="text" placeholder="Last Name" name='last_name' formControlName='last_name' required>
+          <input type="text" placeholder="Last Name" name='last_name' formControlName='last_name' (input)='this.cv_info_service.change_value("last_name", form["last_name"].value)' required>
         </app-input>
 
         <app-input label="{{'Profession'}}" class="input"  data-field='profession'>
-          <input type="text" placeholder="Profession" name='profession' formControlName='profession' required>
+          <input type="text" placeholder="Profession" name='profession' formControlName='profession' (input)='this.cv_info_service.change_value("profession", form["profession"].value)' required>
         </app-input>
 
         <app-input label="{{'Email'}}" class="input"  data-field='email'>
-          <input type="email" placeholder="Email" name='email' formControlName='email' required>
+          <input type="email" placeholder="Email" name='email' formControlName='email' (input)='this.cv_info_service.change_value("email", form["email"].value)' required>
         </app-input>
 
         <app-input label="{{'Phone Number'}}" class="input"  data-field='phone'>
-          <input type="tel" placeholder="Phone Number" name='phone' formControlName='phone' required>
+          <input type="tel" placeholder="Phone Number" name='phone' formControlName='phone' (input)='this.cv_info_service.change_value("phone", form["phone"].value)' required>
         </app-input>
 
         <app-input label="{{'Address'}}" class="input"  data-field='address'>
-          <input type="text" placeholder="Address" name='address' formControlName='address' required>
+          <input type="text" placeholder="Address" name='address' formControlName='address' (input)='this.cv_info_service.change_value("address", form["address"].value)' required>
         </app-input>
 
         <app-input label="{{'City'}}" class="input"  data-field='city'>
-          <input type="tel" placeholder="City" name='city' formControlName='city' required>
+          <input type="tel" placeholder="City" name='city' formControlName='city' (input)='this.cv_info_service.change_value("city", form["city"].value)' required>
         </app-input>
   </div>
 

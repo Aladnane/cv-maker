@@ -10,6 +10,7 @@
   transform: translate(-50%, -50%);
   border-radius: 3px;
   overflow: hidden;
+  font-size: .8rem;
 
   .pers,
   .prof
@@ -18,26 +19,18 @@
   .pers
   {
       width: 40%;
-      background-color:#051A37;
-
-      .title
-      {
-
-      }
-      .info
-      {
-          font-size: .8em;
-          color: #ccc;
-      }
-      .center
-      {
-        align-self: center;
-      }
+      background: linear-gradient(126deg, #051A37, #1e334f);
 
       > *
       {
         display: flex;
         flex-direction: column;
+      }
+
+      .center
+      {
+        justify-self: center;
+        text-align: center;
       }
 
       header
@@ -76,6 +69,61 @@
           }
         }
       }
+
+      .details-info
+      {
+        > header
+        {
+          position: relative;
+          margin: 10px 0;
+
+          .line
+          {
+            border-top: 5px dotted #FFF;
+          }
+          .icon
+          {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 3px 5px;
+            background-color: #FFF;
+            border-radius: 50%;
+
+            i
+            {
+              color: #051A37;
+            }
+          }
+        }
+        .info
+        {
+          display: flex;
+
+          .title
+          {
+            color: white;
+            font-size: .9em;
+          }
+          .value
+          {
+              font-size: .8em;
+              color: #ccc;
+          }
+
+          &.center
+          {
+            flex-direction: column;
+          }
+        }
+
+      }
+
+
+
+
+
   }
   .prof
   {
