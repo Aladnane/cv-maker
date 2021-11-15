@@ -7,6 +7,6 @@ export class CV
       public profession : string = "",
       public phone : string = "",
       public address : string = "",
-      public city : string = "",
+      public date_birth : string = "",
   ){}
 }

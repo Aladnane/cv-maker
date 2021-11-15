@@ -1,84 +1,100 @@
+@import "/src/assets/styles/global/variables/variables";
 form
 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
   padding: 5px 10px 10px;
+  box-sizing: border-box;
 
-  .heading
+  .block
   {
-    .block-photo
+    // display: none;
+    position: absolute;
+    width: 95%;
+    z-index: 0;
+    background: $main-background-color-light;
+
+    &.heading
     {
-      display: flex;
-      align-items:center;
-      flex-direction: column;
-      margin: 20px 0;
-      gap: 10px 0;
-
-
-      .img
+      .block-photo
       {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
+        display: flex;
+        align-items:center;
+        flex-direction: column;
+        margin: 20px 0;
+        gap: 10px 0;
 
-        img
+
+        .img
         {
-          width: 100%;
-          border-radius: inherit;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+
+          img
+          {
+            width: 100%;
+            border-radius: inherit;
+          }
+        }
+      }
+
+      .fields-block
+      {
+        display: grid;
+        grid-template-columns: repeat(3, 33%);
+        max-width: 100%;
+        gap: 0 5px;
+
+        .block-photo
+        {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+
+        .input[data-field='first-name']
+        {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+          align-self: center;
+        }
+        .input[data-field='last-name']
+        {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+          align-self: center;
+        }
+        .input[data-field='profession']
+        {
+          grid-column: 2 / 4;
+          grid-row: 2 / 3;
+          align-self: start;
+        }
+        .input[data-field='email']
+        {
+          grid-column: 1 / 3;
+          grid-row: 3 / 4;
+        }
+        .input[data-field='phone']
+        {
+          grid-column: 3 / 4;
+          grid-row: 3 / 4;
+        }
+        .input[data-field='address']
+        {
+          grid-column: 1 / 3;
+          grid-row: 4 / 5;
+        }
+        .input[data-field='city']
+        {
+          grid-column: 3 / 4;
+          grid-row: 4 / 5;
         }
       }
     }
 
-    .fields-block
-    {
-      display: grid;
-      grid-template-columns: repeat(3, 33%);
-      max-width: 100%;
-      gap: 0 5px;
-
-      .block-photo
-      {
-        grid-column: 1 / 2;
-        grid-row: 1 / 3;
-      }
-
-      .input[data-field='first-name']
-      {
-        grid-column: 2 / 3;
-        grid-row: 1 / 2;
-        align-self: center;
-      }
-      .input[data-field='last-name']
-      {
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
-        align-self: center;
-      }
-      .input[data-field='profession']
-      {
-        grid-column: 2 / 4;
-        grid-row: 2 / 3;
-        align-self: start;
-      }
-      .input[data-field='email']
-      {
-        grid-column: 1 / 3;
-        grid-row: 3 / 4;
-      }
-      .input[data-field='phone']
-      {
-        grid-column: 3 / 4;
-        grid-row: 3 / 4;
-      }
-      .input[data-field='address']
-      {
-        grid-column: 1 / 3;
-        grid-row: 4 / 5;
-      }
-      .input[data-field='city']
-      {
-        grid-column: 3 / 4;
-        grid-row: 4 / 5;
-      }
-    }
   }
 
   .buttons
@@ -86,6 +102,8 @@ form
     display: flex;
     justify-content: space-between;
     margin: 20px 0 10px;
+    width: 100%;
+    align-self: flex-end;
 
     .btn-left { margin-left: auto; }
   }

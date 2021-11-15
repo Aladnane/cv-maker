@@ -30,7 +30,7 @@ export class CvFormComponent
         "profession": [""],
         "phone": [""],
         "address": [""],
-        "city": [""],
+        "date_birth": [""],
       });
   }
 

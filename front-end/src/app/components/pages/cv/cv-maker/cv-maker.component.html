@@ -30,12 +30,17 @@
         <span class='index'>6</span> Finalize
       </li>
 
+      <div class="separator"></div>
+      <li [class.active]="block_active == 'donwload'" (click)="block_active = 'donwload'">
+        <span class='index'>7</span> Download
+      </li>
+
     </ul>
   </header>
 
-  <section class="cv-creator">
+  <section class="cv-creator" [class.full-preview]="block_active === 'donwload'">
     <!-- Form -->
-      <section class="form">
+      <section class="form" *ngIf="block_active !== 'donwload'">
           <app-cv-form [block_active]='block_active'></app-cv-form>
       </section>
 

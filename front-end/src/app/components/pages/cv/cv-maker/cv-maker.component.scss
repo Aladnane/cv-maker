@@ -54,7 +54,6 @@
     }
   }
 
-
   .cv-creator
   {
     margin-top: 50px;
@@ -65,17 +64,24 @@
     .preview
     {
       width: 50%;
-      min-height: 300px;
+      min-height: 420px;
     }
 
-    .form
-    {
-
-    }
+    .form{}
 
     .preview
     {
       position: relative;
+      flex-grow: 1;
+    }
+
+    &.full-preview
+    {
+      .preview
+      {
+          // transform: scale(2);
+          // width: 700px;
+      }
     }
   }
 }

@@ -14,8 +14,6 @@ import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service'
 export class CvPreviewComponent implements OnInit {
 
   public cv: CV = new CV();
-  // @ViewChild('pdf', {static: true}) test?: ElementRef;
-  // @ViewChild('pdf') test?: ElementRef;
 
   constructor(private cv_info_service: CvInfoService)
   {
@@ -27,30 +25,15 @@ export class CvPreviewComponent implements OnInit {
 
   public download_cv()
   {
-    /*// var cv = <HTMLElement>document.getElementById("pdf");
-
-    // // console.log(cv);
-
-    // html2canvas(<HTMLElement>document.getElementById("pdf")).then(function(canvas){
-    //   console.log(canvas);
-    //   (<HTMLElement>document.getElementById("test")).appendChild(canvas);
-      // var imgData = canvas.toDataURL('image/png');
-
-      // var doc = new jsPDF();
-
-      // doc.addImage(imgData,0,0, 208, 500);
-
-      // doc.save("cv.pdf");
-    });
-
-
-      // let cv = new jsPDF('p', 'pt', 'a4');
-      // cv.text("TTEST", 20, 20);
-      // cv.save();
-
-      // cv.html(this.test?.nativeElement.innerHtml, {
-      //   callback: (cv)=>{ cv.save("CV.pdf"); }
-      // });*/
+    html2canvas(document.getElementById("pdf") as HTMLCanvasElement).then(canvas => {
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      var width = pdf.internal.pageSize.getWidth();
+      var height = canvas.height * width / canvas.width;
+      pdf.addImage(contentDataURL, 'PNG', 0, 0, width, height);
+      let pdf_name = "CV"+((this.cv.first_name || this.cv.last_name) ? ` - ${this.cv.first_name} ${this.cv.last_name}` : "")+".pdf";
+      pdf.save(pdf_name);
+      });
   }
 
 

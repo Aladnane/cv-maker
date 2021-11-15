@@ -12,7 +12,7 @@ import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_m
 })
 export class CvMakerComponent
 {
-  public block_active: string = "heading";
+  public block_active: string = "heading";//"donwload";
 
   // // @ViewChild('#cv_preview', {static: true}) test?: ElementRef;
 
