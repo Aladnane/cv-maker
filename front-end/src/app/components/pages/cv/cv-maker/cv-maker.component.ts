@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_menu/reduce-left-menu.service';
 
 @Component({
   selector: 'app-cv-maker',
   templateUrl: './cv-maker.component.html',
-  styleUrls: ['./cv-maker.component.scss']
+  styleUrls: ['./cv-maker.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CvMakerComponent implements OnInit {
 

@@ -4,14 +4,13 @@
 {
   > ul
   {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
     gap: 80px 0px;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
     > li
     {
-
+      justify-self: center;
       background: #353340;
       padding: 8px;
       box-sizing: border-box;
@@ -70,11 +69,12 @@
             {
               color: #ccc;
               font-size: 1.5rem;
+            }
 
-              &:hover
-              {
-                color: #FFF;
-              }
+            &:hover,
+            &:hover i
+            {
+              color: #FFF;
             }
           }
 

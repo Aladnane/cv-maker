@@ -1,76 +1,81 @@
 @import "/src/assets/styles/global/variables/variables";
 
-header,
-.cv-creator
+.cv-maker
 {
-  background: $main-background-color-light;
-  border-radius: 4px;
-  box-shadow: 0 0 2px #000;
-}
-
-header
-{
-  font-family: 'Inter-Light', 'Inter-Bold';
-  margin-right: 70;
-
-  ul
+  > header,
+  .cv-creator
   {
-      display: flex;
-      gap: 0 10px;
-      align-items: center;
+    background: $main-background-color-light;
+    border-radius: 4px;
+    box-shadow: 0 0 2px #000;
+  }
 
-      li
-      {
-        color: $link-color;
-        font-size: 1.2em;
-        padding: 7px 10px;
-        filter: brightness(0.8);
-        cursor: pointer;
+  > header
+  {
+    font-family: 'Inter-Light', 'Inter-Bold';
+    margin-right: 70;
 
-        &.active
+    ul
+    {
+        display: flex;
+        gap: 0 10px;
+        align-items: center;
+
+        li
         {
-          color: $link-color-active;
-          filter: drop-shadow(2px 4px 6px black);
-        }
+          color: $link-color;
+          font-size: 1.2em;
+          padding: 7px 10px;
+          filter: brightness(0.8);
+          cursor: pointer;
 
-        span
+          &.active
+          {
+            color: $link-color-active;
+            filter: drop-shadow(2px 4px 6px black);
+          }
+
+          span
+          {
+            padding: 1px 5px;
+            border-radius: 15%;
+            box-sizing: border-box;
+            font-weight: bold;
+            font-size: .8em;
+            box-shadow: 0 0 0 2px $main-color-light-2;
+          }
+        }
+        .separator
         {
-          padding: 1px 5px;
-          border-radius: 15%;
-          box-sizing: border-box;
-          font-weight: bold;
-          font-size: .8em;
-          box-shadow: 0 0 0 2px $main-color-light-2;
+          width: 25px;
+          height: 2px;
+          background-color: $main-color-light-2;
         }
-      }
-      .separator
-      {
-        width: 25px;
-        height: 2px;
-        background-color: $main-color-light-2;
-      }
-  }
-}
-
-
-.cv-creator
-{
-  margin-top: 50px;
-  display: flex;
-
-  .form,
-  .preview
-  {
-    width: 50%;
-    min-height: 300px;
+    }
   }
 
-  .form
-  {
 
-  }
-  .preview
+  .cv-creator
   {
+    margin-top: 50px;
+    display: flex;
+    position: relative;
 
+    .form,
+    .preview
+    {
+      width: 50%;
+      min-height: 300px;
+    }
+
+    .form
+    {
+
+    }
+
+    .preview
+    {
+      position: relative;
+    }
   }
 }
