@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CV } from 'src/app/classes/cv';
+import { CV } from 'src/app/classes/cv/cv';
 
 @Injectable({
   providedIn: 'root'

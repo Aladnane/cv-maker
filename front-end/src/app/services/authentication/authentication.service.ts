@@ -12,7 +12,7 @@ export class AuthenticationService {
 
   public is_authenticated(): boolean
   {
-	return !!this.token_service.get();
+	  return !!this.token_service.get();
   }
 
   public disconnect(): void

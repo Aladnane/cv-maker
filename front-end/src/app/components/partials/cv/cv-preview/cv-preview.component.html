@@ -1,53 +1,57 @@
-<header>
-  <app-button text='{{"Download"}}' icon_classes='{{"las la-hand-point-down"}}' btn='flat' (click)='download_cv()'></app-button>
-</header>
+<section class="preview-block">
+  <header *ngIf="block_active === 'download'">
+    <app-button text='{{"Download"}}' class='btn' icon_classes='{{"las la-hand-point-down"}}' btn='flat' (click)='download_cv()'></app-button>
+  </header>
 
-<div class="cv" [class.full-preview]="block_active == 'download'">
-  <div class="container" id='pdf'>
-    <div class="pers">
-        <header>
-          <div class="img">
-            <!-- <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG4WubjfkOKUg/profile-displayphoto-shrink_800_800/0/1595429954190?e=1642032000&v=beta&t=ZXEkReHLUXgNoRbY2_1L_9wiNcKGKFoZZ7QAvhK_k3I" alt=""> -->
-            <img src="/assets/images/user.jpeg" alt="">
-          </div>
-          <div class="full-name">
-            <h4 class="first-name title">{{cv.first_name}}</h4>
-            <h4 class="last-name title">{{cv.last_name}}</h4>
-          </div>
-          <span class="center profession">
-            {{cv.profession}}
-          </span>
-        </header>
-        <div class="details-info" *ngIf='cv.email !== "" || cv.phone !== "" || cv.address !== "" || cv.date_birth !== ""'>
+  <div class="cv" [class.full-preview]="block_active == 'download'">
+    <div class="container" #pdf>
+      <div class="pers">
           <header>
-            <div class="line"></div>
-            <div class="icon">
-              <i class="las la-user-tie"></i>
+            <div class="img">
+              <!-- <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG4WubjfkOKUg/profile-displayphoto-shrink_800_800/0/1595429954190?e=1642032000&v=beta&t=ZXEkReHLUXgNoRbY2_1L_9wiNcKGKFoZZ7QAvhK_k3I" alt=""> -->
+              <img src="/assets/images/user.jpeg" alt="">
             </div>
+            <div class="full-name">
+              <h4 class="first-name title">{{cv.first_name}}</h4>
+              <h4 class="last-name title">{{cv.last_name}}</h4>
+            </div>
+            <span class="center profession">
+              {{cv.profession}}
+            </span>
           </header>
-          <!-- Email phone-->
-          <div *ngIf='cv.email !== "" || cv.phone !== ""' class="info center">
-            <label class='title'>Contact</label>
-            <span class="value">{{cv.email}}</span>
-            <span class="value">{{cv.phone}}</span>
-          </div>
+          <div class="details-info" *ngIf='cv.email !== "" || cv.phone !== "" || cv.address !== "" || cv.date_birth !== ""'>
+            <header>
+              <div class="line"></div>
+              <div class="icon">
+                <i class="las la-user-tie"></i>
+              </div>
+            </header>
+            <!-- Email phone-->
+            <div *ngIf='cv.email !== "" || cv.phone !== ""' class="info center">
+              <label class='title'>Contact</label>
+              <span class="value">{{cv.email}}</span>
+              <span class="value">{{cv.phone}}</span>
+            </div>
 
-          <!-- address -->
-          <div *ngIf='cv.address !== ""' class="info center">
-            <label class='title'>address</label>
-            <span class="value">{{cv.address}}</span>
+            <!-- address -->
+            <div *ngIf='cv.address !== ""' class="info center">
+              <label class='title'>Address</label>
+              <span class="value">{{cv.address}}</span>
+            </div>
+            <!-- Date of Birth -->
+            <div *ngIf='cv.date_birth !== ""' class="info center">
+              <label class='title'>Date of Birth</label>
+              <span class="value">{{cv.date_birth}}</span>
+            </div>
           </div>
-          <!-- Date of Birth -->
-          <div *ngIf='cv.date_birth !== ""' class="info center">
-            <label class='title'>Date of Birth</label>
-            <span class="value">{{cv.date_birth}}</span>
-          </div>
-        </div>
-    </div>
+      </div>
 
-    <!--  -->
-    <div class="prof">
+      <!--  -->
+      <div class="prof">
 
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="pdf_template" #pdf_template id='pdf_template'></div>
+</section>

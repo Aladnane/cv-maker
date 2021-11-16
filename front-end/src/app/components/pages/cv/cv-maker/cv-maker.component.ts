@@ -12,10 +12,27 @@ import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_m
 })
 export class CvMakerComponent
 {
-  public block_active: string = "download";//"heading";
+  public blocks: string[] = ['heading', 'education', 'work history', 'skills', 'summary', 'finalize', 'download'];
+  public block_active: number = 0;
 
   constructor(private reduce_left_menu_service: ReduceLeftMenuService)
   {
     this.reduce_left_menu_service.left_menu_displayed.next(false);
+  }
+
+  public next_block():void
+  {
+      if(this.block_active == this.blocks.length -1)
+        return;
+
+      this.block_active++;
+  }
+
+  public previous_block():void
+  {
+      if(this.block_active == 0)
+        return;
+
+      this.block_active--;
   }
 }

@@ -17,6 +17,8 @@ export class TokenService {
   public remove()
   {
     localStorage.removeItem("_token");
+    localStorage.removeItem("first_name");
+    localStorage.removeItem("last_name");
   }
 
   public get():string | null

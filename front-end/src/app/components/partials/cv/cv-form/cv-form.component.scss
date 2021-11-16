@@ -10,12 +10,14 @@ form
 
   .block
   {
-    // display: none;
+    display: none;
     position: absolute;
     width: 95%;
-    z-index: 0;
     background: $main-background-color-light;
 
+    &.active{display: block;}
+
+    //Heading
     &.heading
     {
       .block-photo
@@ -91,6 +93,23 @@ form
         {
           grid-column: 3 / 4;
           grid-row: 4 / 5;
+        }
+      }
+    }
+
+    //Education
+    &.education
+    {
+      .fields-block
+      {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .input
+        {
+            width: 49%;
         }
       }
     }

@@ -1,5 +1,8 @@
 <form [formGroup]="cv_form" [class.hidden]='block_active === "download"'>
-  <!-- heading -->
+
+  <!-- ---------------------------------------------- -->
+  <!-- -----------------heading--------------------- -->
+  <!-- ---------------------------------------------- -->
   <div class="heading block" [class.active]='block_active === "heading"'>
 
     <div class="fields-block">
@@ -51,13 +54,57 @@
     </div>
   </div>
 
+  <!-- ---------------------------------------------- -->
+  <!-- --------Trainings And Diplomas---------------- -->
+  <!-- ---------------------------------------------- -->
+  <div class="education block" [class.active]='block_active === "education"'>
+
+    <div class="fields-block">
+
+      <!-- Fields -->
+      <app-input label="{{'Trainings / Diplomas'}}" class="input" data-field='first-name'>
+        <input type="text" placeholder="Trainings / Diplomas" name='trainings_diplomas' formControlName='trainings_diplomas'
+          (input)='this.cv_info_service.change_value("trainings_diplomas", form["trainings_diplomas"].value)' required>
+      </app-input>
+
+      <app-input label="{{'School Name'}}" class="input" data-field='school_name'>
+        <input type="text" placeholder="School Name" name='school_name' formControlName='school_name'
+          (input)='this.cv_info_service.change_value("school_name", form["school_name"].value)' required>
+      </app-input>
+
+      <app-input label="{{'School Location'}}" class="input" data-field='school_localtion'>
+        <input type="text" placeholder="School Location" name='school_localtion' formControlName='school_localtion'
+          (input)='this.cv_info_service.change_value("school_localtion", form["school_localtion"].value)' required>
+      </app-input>
+
+      <app-input label="{{'Field of Study'}}" class="input" data-field='field_study'>
+        <input type="text" placeholder="Field of Study" name='field_study' formControlName='field_study'
+          (input)='this.cv_info_service.change_value("field_study", form["field_study"].value)' required>
+      </app-input>
+
+      <app-input label="{{'Start Date'}}" class="input" data-field='start_date'>
+        <input type="text" placeholder="Start Date" name='start_date' formControlName='start_date'
+          (input)='this.cv_info_service.change_value("start_date", form["start_date"].value)' required>
+      </app-input>
+
+      <app-input label="{{'End Date'}}" class="input" data-field='end_date'>
+        <input type="text" placeholder="End Date" name='end_date' formControlName='end_date'
+          (input)='this.cv_info_service.change_value("end_date", form["end_date"].value)' required>
+      </app-input>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------- -->
+  <!-- ---------------------------------------------- -->
+  <!-- ---------------------------------------------- -->
+
   <!-- Buttons -->
   <div class="buttons">
-    <app-button *ngIf="block_active !== 'heading'" text='{{"Previous"}}' icon_classes='{{"las la-hand-point-left"}}'
+    <app-button *ngIf="block_active !== 'heading'" text='{{"Previous"}}' icon_classes='{{"las la-hand-point-left"}}' (click)='previous_block()'
       btn='flat'></app-button>
 
     <div class='btn-left'>
-      <app-button *ngIf="block_active !== 'finalize'" text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}'
+      <app-button text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}' (click)='next_block()'
         btn='flat' direction='rtl'></app-button>
 
       <!-- <app-button text='{{"Sign-Up"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' type='submit' direction='rtl'></app-button> -->
