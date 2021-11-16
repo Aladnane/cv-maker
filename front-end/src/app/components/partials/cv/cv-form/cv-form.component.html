@@ -17,12 +17,17 @@
       </div>
 
       <!-- Fields -->
-      <app-input label="{{'First Name'}}" class="input" data-field='first-name'>
+      <app-input *ngFor="let input of inputs_list_heading" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
+        <input type="text" placeholder="{{input.label}}" name='{{input.name}}' formControlName='{{input.name}}'
+          (input)='this.cv_info_service.change_value(input.name, form[input.name].value)'>
+      </app-input>
+<!--
+      <app-input label="{{'First Name'}}" class="input" data-field='first_name'>
         <input type="text" placeholder="First Name" name='first_name' formControlName='first_name'
           (input)='this.cv_info_service.change_value("first_name", form["first_name"].value)' required>
       </app-input>
 
-      <app-input label="{{'Last Name'}}" class="input" data-field='last-name'>
+      <app-input label="{{'Last Name'}}" class="input" data-field='last_name'>
         <input type="text" placeholder="Last Name" name='last_name' formControlName='last_name'
           (input)='this.cv_info_service.change_value("last_name", form["last_name"].value)' required>
       </app-input>
@@ -50,46 +55,35 @@
       <app-input label="{{'Date of Birth'}}" class="input" data-field='date_birth'>
         <input type="tel" placeholder="Date of Birth" name='date_birth' formControlName='date_birth'
           (input)='this.cv_info_service.change_value("date_birth", form["date_birth"].value)' required>
-      </app-input>
+      </app-input> -->
     </div>
   </div>
 
   <!-- ---------------------------------------------- -->
   <!-- --------Trainings And Diplomas---------------- -->
   <!-- ---------------------------------------------- -->
-  <div class="education block" [class.active]='block_active === "education"'>
+  <div class="education block" formGroupName='trainings_diplomas' [class.active]='block_active === "education"'>
 
     <div class="fields-block">
-
       <!-- Fields -->
-      <app-input label="{{'Trainings / Diplomas'}}" class="input" data-field='first-name'>
-        <input type="text" placeholder="Trainings / Diplomas" name='trainings_diplomas' formControlName='trainings_diplomas'
-          (input)='this.cv_info_service.change_value("trainings_diplomas", form["trainings_diplomas"].value)' required>
+      <app-input *ngFor="let input of inputs_list_trainings_diplomas" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
+        <input type="text" placeholder="{{input.label}}" name='{{input.name}}' [formControlName]='input.name'
+        (input)='this.cv_info_service.change_value(input.name, form[input.name].value)'>
       </app-input>
 
-      <app-input label="{{'School Name'}}" class="input" data-field='school_name'>
-        <input type="text" placeholder="School Name" name='school_name' formControlName='school_name'
-          (input)='this.cv_info_service.change_value("school_name", form["school_name"].value)' required>
-      </app-input>
+      <app-button text='{{"Add"}}' icon_classes='{{"las la-plus"}}' btn='flat'></app-button>
+    </div>
+  </div>
 
-      <app-input label="{{'School Location'}}" class="input" data-field='school_localtion'>
-        <input type="text" placeholder="School Location" name='school_localtion' formControlName='school_localtion'
-          (input)='this.cv_info_service.change_value("school_localtion", form["school_localtion"].value)' required>
-      </app-input>
-
-      <app-input label="{{'Field of Study'}}" class="input" data-field='field_study'>
-        <input type="text" placeholder="Field of Study" name='field_study' formControlName='field_study'
-          (input)='this.cv_info_service.change_value("field_study", form["field_study"].value)' required>
-      </app-input>
-
-      <app-input label="{{'Start Date'}}" class="input" data-field='start_date'>
-        <input type="text" placeholder="Start Date" name='start_date' formControlName='start_date'
-          (input)='this.cv_info_service.change_value("start_date", form["start_date"].value)' required>
-      </app-input>
-
-      <app-input label="{{'End Date'}}" class="input" data-field='end_date'>
-        <input type="text" placeholder="End Date" name='end_date' formControlName='end_date'
-          (input)='this.cv_info_service.change_value("end_date", form["end_date"].value)' required>
+  <!-- ---------------------------------------------- -->
+  <!-- --------Skills---------------- -->
+  <!-- ---------------------------------------------- -->
+  <div class="skills block" [class.active]='block_active === "skills"'>
+    <div class="fields-block">
+      <!-- Fields -->
+      <app-input *ngFor="let input of inputs_list_skills" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
+        <input type="text" placeholder="{{input.label}}" name='{{input.name}}' formControlName='{{input.name}}'
+          (input)='this.cv_info_service.change_value(input.name, form[input.name].value)'>
       </app-input>
     </div>
   </div>

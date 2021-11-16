@@ -144,10 +144,52 @@
 
           }
       }
+
       .prof
       {
-          flex-grow: 1;
+          padding: 1px 4px;
+          box-sizing: border-box;
+          width: 60%;
           background-color: #FFF;
+
+          .block
+          {
+            position: relative;
+            header
+            {
+              display: flex;
+              align-items: center;
+
+              .line
+              {
+                border-top: 3px dotted #051A37;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+              }
+              i,
+              .title
+              {
+                background-color: white;
+                position: relative;
+                z-index: 1;
+              }
+
+              i
+              {
+                color: #777;
+                font-size: 1.6em;
+
+              }
+              .title
+              {
+                color: #051A37;
+                margin-left: 5px
+              }
+            }
+          }
       }
 
     }

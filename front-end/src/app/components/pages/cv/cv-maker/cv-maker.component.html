@@ -1,40 +1,9 @@
 <section class="cv-maker component-container">
   <header>
     <ul class="progress-bar">
-      <li [class.active]="blocks[block_active] == 'heading'" (click)="block_active = 0">
-        <span class='index'>1</span> Heading
+      <li *ngFor="let block of blocks; let i = index" [class.active]="blocks[block_active] == blocks[i]" (click)="block_active = i">
+        <span class='index'>{{(i+1)}}</span> {{blocks[i]}}
       </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'education'" (click)="block_active = 1">
-        <span class='index'>2</span> Education
-      </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'work history'" (click)="block_active = 2">
-        <span class='index'>3</span> Work History
-      </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'skills'" (click)="block_active = 3">
-        <span class='index'>4</span> Skills
-      </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'summary'" (click)="block_active = 4">
-        <span class='index'>5</span> Summary
-      </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'finalize'" (click)="block_active = 5">
-        <span class='index'>6</span> Finalize
-      </li>
-
-      <div class="separator"></div>
-      <li [class.active]="blocks[block_active] == 'download'" (click)="block_active = 6">
-        <span class='index'>7</span> Download
-      </li>
-
     </ul>
   </header>
 

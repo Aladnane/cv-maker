@@ -18,12 +18,6 @@ export class CvPreviewComponent implements OnInit {
   constructor(private cv_info_service: CvInfoService, private resolver:ComponentFactoryResolver)
   {
     this.cv_info_service.cv_info.subscribe(cv => this.cv = cv);
-    //Test Data
-    this.cv.first_name = "";
-    this.cv.last_name = "";
-    this.cv.profession = "";
-    this.cv.email = "";
-    this.cv.phone = "";
   }
 
   @ViewChild("pdf_template") pdf_template : any;

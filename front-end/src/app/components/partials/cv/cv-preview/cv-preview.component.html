@@ -8,7 +8,6 @@
       <div class="pers">
           <header>
             <div class="img">
-              <!-- <img src="https://media-exp1.licdn.com/dms/image/C4E03AQG4WubjfkOKUg/profile-displayphoto-shrink_800_800/0/1595429954190?e=1642032000&v=beta&t=ZXEkReHLUXgNoRbY2_1L_9wiNcKGKFoZZ7QAvhK_k3I" alt=""> -->
               <img src="/assets/images/user.jpeg" alt="">
             </div>
             <div class="full-name">
@@ -48,7 +47,18 @@
 
       <!--  -->
       <div class="prof">
-
+          <div class="block trainings_diplomas">
+            <header>
+              <div class="line"></div>
+              <i class="las la-graduation-cap"></i>
+              <h4 class="title">Trainings / Diplomas</h4>
+            </header>
+            <ul class="list-trainings-diplomas">
+                <li *ngFor='let formation of cv.trainings_diplomas'>
+                    {{ formation }}
+                </li>
+            </ul>
+          </div>
       </div>
     </div>
   </div>
