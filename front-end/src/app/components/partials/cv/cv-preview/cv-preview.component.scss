@@ -63,14 +63,16 @@
             align-items: center;
             gap: 0 5px;
 
-            .first-name
-            {
-
-            }
+            .first-name,
             .last-name
             {
-
+              font-size: 1.1em;
             }
+
+          }
+          .profession
+          {
+            font-size: .7em;
           }
         }
 
@@ -108,11 +110,11 @@
             .title
             {
               color: white;
-              font-size: .9em;
+              font-size: .8em;
             }
             .value
             {
-                font-size: .8em;
+                font-size: .7em;
                 color: #ccc;
             }
 
@@ -135,5 +137,40 @@
         background-color: #FFF;
     }
 
+  }
+
+  &.full-preview
+  {
+    width: 600px;
+
+    .container
+    {
+      font-size: 1.6rem;
+
+      .pers
+      {
+        header
+        {
+          .img
+          {
+            width: 150px;
+            height: 150px;
+            margin-top: 20px;
+
+            .img
+            {
+
+            }
+          }
+        }
+        .details-info
+        {
+          > header
+          {
+            margin: 20px 0;
+          }
+        }
+      }
+    }
   }
 }

@@ -12,24 +12,10 @@ import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_m
 })
 export class CvMakerComponent
 {
-  public block_active: string = "heading";//"donwload";
-
-  // // @ViewChild('#cv_preview', {static: true}) test?: ElementRef;
-
+  public block_active: string = "download";//"heading";
 
   constructor(private reduce_left_menu_service: ReduceLeftMenuService)
   {
     this.reduce_left_menu_service.left_menu_displayed.next(false);
   }
-
-  // public download_cv()
-  // {
-  //     let cv = new jsPDF('p', 'pt', 'a4');
-
-  //     // cv.text("Younes ADNANE", 10, 10).save();
-
-  //     cv.html(this.test?.nativeElement, {
-  //       callback: (cv)=>{ cv.save("CV.pdf"); }
-  //     });
-  // }
 }

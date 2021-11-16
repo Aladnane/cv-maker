@@ -2,7 +2,7 @@
   <app-button text='{{"Download"}}' icon_classes='{{"las la-hand-point-down"}}' btn='flat' (click)='download_cv()'></app-button>
 </header>
 
-<div class="cv">
+<div class="cv" [class.full-preview]="block_active == 'download'">
   <div class="container" id='pdf'>
     <div class="pers">
         <header>
@@ -14,7 +14,7 @@
             <h4 class="first-name title">{{cv.first_name}}</h4>
             <h4 class="last-name title">{{cv.last_name}}</h4>
           </div>
-          <span class="center info">
+          <span class="center profession">
             {{cv.profession}}
           </span>
         </header>

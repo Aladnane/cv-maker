@@ -31,22 +31,22 @@
       </li>
 
       <div class="separator"></div>
-      <li [class.active]="block_active == 'donwload'" (click)="block_active = 'donwload'">
+      <li [class.active]="block_active == 'download'" (click)="block_active = 'download'">
         <span class='index'>7</span> Download
       </li>
 
     </ul>
   </header>
 
-  <section class="cv-creator" [class.full-preview]="block_active === 'donwload'">
+  <section class="cv-creator" [class.full-preview]="block_active === 'download'">
     <!-- Form -->
-      <section class="form" *ngIf="block_active !== 'donwload'">
+      <section class="form" *ngIf="block_active !== 'download'">
           <app-cv-form [block_active]='block_active'></app-cv-form>
       </section>
 
       <!-- Preview -->
       <section class="preview">
-          <app-cv-preview></app-cv-preview>
+          <app-cv-preview [block_active]='block_active'></app-cv-preview>
       </section>
   </section>
 </section>
