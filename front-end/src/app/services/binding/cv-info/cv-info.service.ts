@@ -26,4 +26,21 @@ export class CvInfoService
       this.cv.trainings_diplomas[index] = Object.assign(this.cv.trainings_diplomas[index], {[input]: value});
       this.cv_info_subject.next(this.cv);
   }
+
+  public add_value_trainings_diplomas()
+  {
+      let index = this.cv.trainings_diplomas.push(Object.assign({}, {
+                                                          trainings_diplomas_name: "",school_name : "",school_localtion : "",field_study : "",start_date : "",end_date : "",
+                                                        })) - 1;
+      this.cv_info_subject.next(this.cv);
+
+      return index;
+  }
+
+  public remove_value_trainings_diplomas(block_index: number)
+  {
+      this.cv.trainings_diplomas.splice(block_index, 1);
+
+      // this.cv_info_subject.next(this.cv);
+  }
 }

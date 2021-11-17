@@ -1,4 +1,7 @@
 @import "/src/assets/styles/global/variables/variables";
+@import "/src/assets/styles/global/components/labels/links/link.scss";
+
+
 form
 {
   position: relative;
@@ -7,8 +10,9 @@ form
   display: flex;
   padding: 5px 10px 10px;
   box-sizing: border-box;
+  overflow: hidden;
 
-  .block
+  > .block
   {
     display: none;
     position: absolute;
@@ -100,16 +104,94 @@ form
     //Education
     &.education
     {
+      height: 100%;
+      // position: relative;
+
       .fields-block
       {
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        height: 78%;
+        overflow: auto;
+        margin-bottom: 5px;
 
-        .input
+
+        .trainings_diplomas
         {
-            width: 49%;
+          box-shadow: 0 4px 7px 2px #00000069;
+          border-radius: 0 0 5px 5px;
+          margin: 5px 0 10px;
+
+          header
+          {
+              display: flex;
+              justify-content: space-between;
+              background-color: $main-color-light-2;
+              padding: 5px;
+              border-radius: 5px 5px 0 0;
+              align-items: center;
+
+              .title
+              {
+
+              }
+              .controls
+              {
+                min-width: max-content;
+                i
+                {
+                  font-size: 1.5em;
+                  color: #ccc;
+                  margin: 0 5px;
+                  cursor: pointer;
+
+                  &:hover{color: #FFF}
+                }
+              }
+          }
+
+          .block
+          {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #0000002e;
+            border-radius: inherit;
+            padding: 5px;
+            box-sizing: border-box;
+            height: 0;
+            overflow:hidden;
+
+            .input
+            {
+                width: 49%;
+            }
+
+            &.active
+            {
+              height: 100%;
+            }
+          }
+        }
+      }
+      .msg-empty
+      {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4em;
+        gap: 13px 0;
+        /* text-align: center; */
+
+        i
+        {
+          filter: drop-shadow(2px 4px 6px black);
+          font-size: 4em;
         }
       }
     }
@@ -123,6 +205,8 @@ form
     margin: 20px 0 10px;
     width: 100%;
     align-self: flex-end;
+    position: relative;
+    z-index: 1;
 
     .btn-left { margin-left: auto; }
   }

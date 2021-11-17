@@ -1,4 +1,3 @@
-import { devOnlyGuardedExpression } from '@angular/compiler';
 import { Component, ComponentFactoryResolver, ElementRef, Input, OnInit, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -23,8 +22,7 @@ export class CvPreviewComponent implements OnInit {
   @ViewChild("pdf_template") pdf_template : any;
   @ViewChild('pdf') pdf: any;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public download_cv()
   {

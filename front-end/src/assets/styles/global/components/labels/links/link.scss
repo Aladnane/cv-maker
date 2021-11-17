@@ -1,0 +1,13 @@
+.link
+{
+  color: $link-color;
+  font-size: .8em;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover,
+  &:active
+  {
+    color: $link-color-active;
+  }
+}

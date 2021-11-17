@@ -22,7 +22,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 95%;
-    margin-top: 200px;//Test
 
     .container
     {
@@ -31,7 +30,7 @@
       display: flex;
       margin: auto;
       overflow: hidden;
-      font-size: .8rem;
+      font-size: .7rem;
 
       .pers,
       .prof
@@ -83,7 +82,7 @@
               .first-name,
               .last-name
               {
-                font-size: 1.1em;
+                font-size: .9em;
               }
 
             }
@@ -152,12 +151,13 @@
           box-sizing: border-box;
           width: 60%;
           background-color: #FFF;
+          color: #555;
 
-          .block
+          > .block
           {
-            position: relative;
             header
             {
+              position: relative;
               display: flex;
               align-items: center;
 
@@ -174,8 +174,10 @@
               .title
               {
                 background-color: white;
+                box-shadow: 0 0 6px 0 #fff;
                 position: relative;
                 z-index: 1;
+                font-size: .8em;
               }
 
               i
@@ -190,6 +192,49 @@
                 margin-left: 5px
               }
             }
+
+            //List trainings diplomas
+            .list-trainings-diplomas
+            {
+
+              .trainings_diplomas
+              {
+                  margin: 3px 0;
+
+                  .header
+                  {
+                    display: flex;
+                    gap: 4px;
+
+                    .date-interval .date,
+                    .title
+                    {
+                      font-size: 0.7em;
+                    }
+
+                    .date-interval
+                    {
+                      min-width: max-content;
+                      font-size: 0.6em;
+                      .date
+                      {
+                        color: #051A37;
+                      }
+                    }
+                    .title
+                    {
+                      color: #2D4765;
+                    }
+                  }
+                  .info
+                  {
+                    color: #ccc;
+                    font-size: 0.6em;
+                  }
+              }
+            }
+
+
           }
       }
 

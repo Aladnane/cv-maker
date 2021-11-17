@@ -2,7 +2,7 @@
   <header *ngIf="block_active === 'download'">
     <app-button text='{{"Download"}}' class='btn' icon_classes='{{"las la-hand-point-down"}}' btn='flat' (click)='download_cv()'></app-button>
   </header>
-  {{ cv | json }}
+
   <div class="cv" [class.full-preview]="block_active == 'download'">
     <div class="container" #pdf>
       <div class="pers">
@@ -47,15 +47,30 @@
 
       <!--  -->
       <div class="prof">
-          <div class="block trainings_diplomas">
+          <div class="block trainings_diplomas" *ngIf='cv.trainings_diplomas.length > 0'>
             <header>
               <div class="line"></div>
               <i class="las la-graduation-cap"></i>
               <h4 class="title">Trainings / Diplomas</h4>
             </header>
             <ul class="list-trainings-diplomas">
-                <li *ngFor='let formation of cv.trainings_diplomas'>
-                    {{ formation }}
+                <li *ngFor='let dip of cv.trainings_diplomas' class='trainings_diplomas'>
+                    <div class="header">
+                      <div class="date-interval">
+                        <span *ngIf="dip.start_date !== '' && dip.end_date !== '' " class="date">></span>
+                        <span class="date">{{dip.start_date}}</span>
+                        <span *ngIf="dip.start_date !== '' && dip.end_date !== '' " class="date">-</span>
+                        <span class="date">{{dip.end_date}}</span>
+                      </div>
+                      <div class="title">
+                        {{ dip.trainings_diplomas_name }}
+                      </div>
+                    </div>
+                    <div class='info'>
+                      <span>{{dip.school_name}}</span>
+                      <span *ngIf="dip.school_name !== '' && dip.school_localtion !== '' ">, </span>
+                      <span>{{dip.school_localtion}}</span>
+                    </div>
                 </li>
             </ul>
           </div>

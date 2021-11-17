@@ -14,7 +14,6 @@ export class CV
           trainings_diplomas_name: "",
           school_name : "",
           school_localtion : "",
-          field_study : "",
           start_date : "",
           end_date : "",
         }
@@ -23,4 +22,29 @@ export class CV
       //Skills
       public skill: string = "",
   ){}
+
+  /*
+  //Test Data
+  {
+    trainings_diplomas_name: "Formation en license professionnelle Informatique de gestion",
+    school_name : "FSJES",
+    school_localtion : "Martil",
+    start_date : "2019",
+    end_date : "2020",
+  },
+  {
+    trainings_diplomas_name: "Formation en license professionnelle Informatique de gestion",
+    school_name : "FSJES",
+    school_localtion : "Martil",
+    start_date : "2019",
+    end_date : "2020",
+  },
+  {
+    trainings_diplomas_name: "Formation en license professionnelle Informatique de gestion",
+    school_name : "FSJES",
+    school_localtion : "Martil",
+    start_date : "2019",
+    end_date : "2020",
+  },
+  */
 }

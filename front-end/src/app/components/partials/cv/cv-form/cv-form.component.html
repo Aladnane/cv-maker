@@ -28,16 +28,38 @@
   <!-- ---------------------------------------------- -->
   <!-- --------Trainings And Diplomas---------------- -->
   <!-- ---------------------------------------------- -->
-  <div class="education block" formGroupName='trainings_diplomas' [class.active]='block_active === "education"'>
+  <div class="education block" [class.active]='block_active === "education"'>
 
-    <div class="fields-block">
-      <!-- Fields -->
-      <app-input *ngFor="let input of inputs_list_trainings_diplomas" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
-        <input type="text" placeholder="{{input.label}}" name='{{input.name}}' [formControlName]='input.name'
-        (input)='this.cv_info_service.change_value_trainings_diplomas(0, input.name, cv_form.get(["trainings_diplomas", input.name])?.value)'>
-      </app-input>
+    <div class="fields-block" formArrayName='trainings_diplomas'>
+      <!-- Fields Group -->
+      <div class="trainings_diplomas" *ngFor="let _trainings_diplomas of trainings_diplomas.controls; let i = index" [attr.data-index]='i'>
+        <!-- Header -->
+        <header>
+          <div class="title">
+            Formation: {{cv_form.get(["trainings_diplomas"])?.value[i]["trainings_diplomas_name"]}}
+          </div>
+          <div class="controls">
+            <i class="las {{(block_active_education === i) ? 'la-hand-point-up' : 'la-pen-alt'}}" (click)='toggle_block_active_education(i)'></i>
+            <i class="las la-trash-alt" (click)='remove_trainings_diplomas(i)'></i>
+          </div>
+        </header>
+        <!-- Fields -->
+          <div [formGroupName]='i' class='block' [class.active]='block_active_education === i'>
+            <app-input *ngFor="let input of inputs_list_trainings_diplomas" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
+              <input type="text" placeholder="{{input.label}}" name='{{input.name}}' [formControlName]='input.name'
+              (input)='this.cv_info_service.change_value_trainings_diplomas(i, input.name, cv_form.get(["trainings_diplomas"])?.value[i][input.name])'>
+            </app-input>
+          </div>
+      </div>
 
-      <app-button text='{{"Add"}}' icon_classes='{{"las la-plus"}}' btn='flat'></app-button>
+    </div>
+
+    <span (click)='add_trainings_diplomas()' class='link' *ngIf='trainings_diplomas.length > 0'>+ Add more Trainings / Diplomas</span>
+
+    <div class="msg-empty"  *ngIf='trainings_diplomas.length === 0'>
+      <i class="las la-inbox"></i>
+      <div class="msg">The List is empty</div>
+      <span (click)='add_trainings_diplomas()' class='link'>+ Add more Trainings / Diplomas</span>
     </div>
   </div>
 
