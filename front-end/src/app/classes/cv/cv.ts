@@ -20,7 +20,13 @@ export class CV
       ],
 
       //Skills
-      public skill: string = "",
+      public skills = [{
+        "specialization_name": "",
+        "specialization": [{
+            title: "",
+            skills: []
+        }]
+      }],
   ){}
 
   /*

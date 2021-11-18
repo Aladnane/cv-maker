@@ -1,8 +1,6 @@
-<div class="input" [class.checkbox]='is_checkbox'>
+<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline'>
   <label>{{label}}</label>
-  <!-- <input type="text" placeholder="{{ label | lowercase }}" type='{{type}}' name='value' [(ngModel)]='value' (ngModelChange)="emitValue()"
-  name='{{name}}' minlength="2"> -->
 
   <ng-content></ng-content>
-  
+
 </div>

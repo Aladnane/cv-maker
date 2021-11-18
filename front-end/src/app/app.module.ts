@@ -26,6 +26,7 @@ import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component
 import { CvMakerComponent } from './components/pages/cv/cv-maker/cv-maker.component';
 import { CvFormComponent } from './components/partials/cv/cv-form/cv-form.component';
 import { CvPreviewComponent } from './components/partials/cv/cv-preview/cv-preview.component';
+import { TagComponent } from './components/partials/tags/tag/tag.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { CvPreviewComponent } from './components/partials/cv/cv-preview/cv-previ
     CvMakerComponent,
     CvFormComponent,
     CvPreviewComponent,
+    TagComponent,
   ],
   imports: [
     BrowserModule,

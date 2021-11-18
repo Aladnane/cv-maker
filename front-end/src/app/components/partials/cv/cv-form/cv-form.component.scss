@@ -18,8 +18,63 @@ form
     position: absolute;
     width: 95%;
     background: $main-background-color-light;
+    height: 100%;
 
     &.active{display: block;}
+
+    //Fields block template
+    .fields-block
+    {
+      .fields-container
+      {
+        box-shadow: 0 4px 7px 2px #00000069;
+        border-radius: 0 0 5px 5px;
+        margin: 5px 0 10px;
+
+        header
+        {
+            display: flex;
+            justify-content: space-between;
+            background-color: $main-color-light-2;
+            padding: 5px;
+            border-radius: 5px 5px 0 0;
+            align-items: center;
+
+            .title
+            {
+
+            }
+            .controls
+            {
+              min-width: max-content;
+              i
+              {
+                font-size: 1.5em;
+                color: #ccc;
+                margin: 0 5px;
+                cursor: pointer;
+
+                &:hover{color: #FFF}
+              }
+            }
+        }
+
+        .block
+        {
+          background-color: #0000002e;
+          border-radius: inherit;
+          padding: 5px;
+          box-sizing: border-box;
+          height: 0;
+          overflow:hidden;
+
+          &.active
+          {
+            height: 100%;
+          }
+        }
+      }
+    }
 
     //Heading
     &.heading
@@ -104,9 +159,6 @@ form
     //Education
     &.education
     {
-      height: 100%;
-      // position: relative;
-
       .fields-block
       {
         height: 78%;
@@ -116,86 +168,88 @@ form
 
         .trainings_diplomas
         {
-          box-shadow: 0 4px 7px 2px #00000069;
-          border-radius: 0 0 5px 5px;
-          margin: 5px 0 10px;
-
-          header
-          {
-              display: flex;
-              justify-content: space-between;
-              background-color: $main-color-light-2;
-              padding: 5px;
-              border-radius: 5px 5px 0 0;
-              align-items: center;
-
-              .title
-              {
-
-              }
-              .controls
-              {
-                min-width: max-content;
-                i
-                {
-                  font-size: 1.5em;
-                  color: #ccc;
-                  margin: 0 5px;
-                  cursor: pointer;
-
-                  &:hover{color: #FFF}
-                }
-              }
-          }
-
           .block
           {
             display: flex;
             width: 100%;
             flex-wrap: wrap;
             justify-content: space-between;
-            background-color: #0000002e;
-            border-radius: inherit;
-            padding: 5px;
-            box-sizing: border-box;
-            height: 0;
-            overflow:hidden;
 
             .input
             {
-                width: 49%;
-            }
-
-            &.active
-            {
-              height: 100%;
+                // width: 49%;
             }
           }
         }
       }
-      .msg-empty
-      {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.4em;
-        gap: 13px 0;
-        /* text-align: center; */
+    }
 
-        i
+    //Skills
+    &.skills
+    {
+      .fields-block
+      {
+        .fields-container
         {
-          filter: drop-shadow(2px 4px 6px black);
-          font-size: 4em;
+            .block
+            {
+              .input{}
+
+              .skills-sub-list
+              {
+                .skills-fields
+                {
+                  padding: 1px;
+                  background-color: #0000006b;
+                  border-radius: 5px;
+                  border: 1px solid #000;
+                  .input
+                  {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    input{max-width:400px}
+                  }
+
+                  .skills-tags
+                  {
+                    background-color: #353340;
+                    padding: 5px;
+                    margin: 5px;
+                    border-radius: 4px;
+                    display: flex;
+                    flex-wrap: wrap;
+                  }
+                }
+              }
+            }
         }
       }
     }
 
+    .msg-empty
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4em;
+      gap: 13px 0;
+      /* text-align: center; */
+
+      i
+      {
+        filter: drop-shadow(2px 4px 6px black);
+        font-size: 4em;
+      }
+    }
   }
 
   .buttons

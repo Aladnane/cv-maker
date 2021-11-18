@@ -8,7 +8,7 @@
       <div class="pers">
           <header>
             <div class="img">
-              <img src="/assets/images/user.jpeg" alt="">
+              <img src="/assets/images/user2.jpg" alt="">
             </div>
             <div class="full-name">
               <h4 class="first-name title">{{cv.first_name}}</h4>
@@ -47,6 +47,7 @@
 
       <!--  -->
       <div class="prof">
+          {{ cv | json}}
           <div class="block trainings_diplomas" *ngIf='cv.trainings_diplomas.length > 0'>
             <header>
               <div class="line"></div>

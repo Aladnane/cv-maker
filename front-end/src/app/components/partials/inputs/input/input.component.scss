@@ -6,6 +6,17 @@
   flex-direction: column;
   gap: 8px 0;
   margin: 5px 0;
+  position: relative;
+
+  &.inline
+  {
+    flex-direction: row;
+    align-items: center;
+    gap: 0 8px;
+    margin: 0 5px;
+
+    input{flex-grow: 1}
+  }
 
   label
   {
@@ -27,5 +38,15 @@
   {
     flex-direction: row-reverse;
     filter: hue-rotate(47deg);
+  }
+
+  .icon
+  {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    cursor: pointer;
   }
 }

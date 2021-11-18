@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service'
   templateUrl: './cv-form.component.html',
   styleUrls: ['../../../pages/connection/layout/connection-block.scss',
     './cv-form.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.None
 })
 
 export class CvFormComponent
@@ -16,7 +16,11 @@ export class CvFormComponent
   @Input() block_active : string = "";
   @Output() next_block_emitter = new EventEmitter<string>();
   @Output() previous_block_emitter = new EventEmitter<string>();
-  public block_active_education : number = 0;
+  public blocks_active = {
+    "education": 0,
+    "skills": 0
+  }
+
   public inputs_list_heading = [
       {label: "First Name"   , name: "first_name"},
       {label: "Last Name"    , name: "last_name"},
@@ -33,19 +37,18 @@ export class CvFormComponent
       {label: "Start Date"           , name: "start_date"},
       {label: "End Date"             , name: "end_date"},
   ];
-  public inputs_list_skills = [
-    {label: "Skill", name: "skill"},
-  ];
+  // public inputs_list_skills = [
+  //   {label: "Specialization", name: "specialization_name"},
+  //   {label: "Title", name: "title"},
+  //   {label: "Skills", name: "skills"},
+  // ];
 
-  get form()
-  {
-    return this.cv_form.controls;
-  }
+  get form(){return this.cv_form.controls;}
 
-  get trainings_diplomas()
-  {
-    return this.form["trainings_diplomas"] as FormArray;
-  }
+  get trainings_diplomas(){return this.form["trainings_diplomas"] as FormArray;}
+
+  get skills(){return this.form["skills"] as FormArray;}
+  get skills_specializations(){return this.cv_form.get(["skills"]) as FormArray}
 
   constructor(
         private form_builder: FormBuilder,
@@ -63,7 +66,7 @@ export class CvFormComponent
         //
         "trainings_diplomas": this.form_builder.array([this.trainings_diplomas_group()]),
         //
-        "skill": ["", [Validators.required, Validators.minLength(2)]],
+        "skills": this.form_builder.array([this.skills_group()]),
       });
   }
 
@@ -77,11 +80,11 @@ export class CvFormComponent
     this.next_block_emitter.emit("");
   }
 
-  public add_trainings_diplomas()
+  public add_trainings_diplomas_group()
   {
     (this.cv_form.controls["trainings_diplomas"] as FormArray).push(this.trainings_diplomas_group());
 
-    this.block_active_education = this.cv_info_service.add_value_trainings_diplomas();
+    this.blocks_active.education = this.cv_info_service.add_value_trainings_diplomas();
   }
 
   public trainings_diplomas_group():FormGroup
@@ -97,15 +100,25 @@ export class CvFormComponent
 
   public toggle_block_active_education(block_index: number)
   {
-    if(this.block_active_education === block_index)
+    if(this.blocks_active.education === block_index)
     {
-      this.block_active_education = -1;
+      this.blocks_active.education = -1;
       return;
     }
 
-    this.block_active_education = block_index;
+    this.blocks_active.education = block_index;
   }
 
+  public toggle_block_active_skills(block_index: number)
+  {
+    if(this.blocks_active.skills === block_index)
+    {
+      this.blocks_active.skills = -1;
+      return;
+    }
+
+    this.blocks_active.skills = block_index;
+  }
 
   public remove_trainings_diplomas(block_index: number)
   {
@@ -115,4 +128,88 @@ export class CvFormComponent
 
     this.cv_info_service.remove_value_trainings_diplomas(block_index)
   }
+
+  //Skills
+  public skills_group():FormGroup
+  {
+    return this.form_builder.group({
+      "specialization_name": ["WEB"],
+      "specialization": this.form_builder.array([
+          this.form_builder.group({
+            "title": ["Back-end"],
+            "skills": [["Laravel"]],
+          })
+      ])
+    });
+  }
+
+  public get_specializations(skill : AbstractControl):AbstractControl[]
+  {
+      let _skill = <FormGroup> skill;
+
+      return (_skill.get("specialization") as FormArray).controls;
+  }
+
+  public add_skills_group()
+  {
+    (this.cv_form.controls["skills"] as FormArray).push(this.skills_group());
+
+    this.blocks_active.skills = this.cv_info_service.add_value_skills();
+  }
+
+
+  public remove_skills_group(block_index: number)
+  {
+    document.querySelector(".skills[data-index='"+block_index+"']")?.remove();
+
+    (this.cv_form.controls["skills"] as FormArray).removeAt(block_index);
+
+    this.cv_info_service.remove_value_skills(block_index)
+  }
+
+  public append_skill(specialization : AbstractControl, value: string, id: string, group_index: number, spec_index: number, with_comma = false)
+  {
+    let _specialization = <FormGroup> specialization;
+
+    let skill = (!with_comma) ? value : value.substring(0, value.length-1);
+
+    (_specialization.get("skills")?.value as string[]).push(skill);
+
+    (<HTMLInputElement>document.getElementById(id)).value = "";
+
+    //Append also into the preview component
+    this.cv_info_service.change_value_skills("skills", this.cv_form.get(["skills"])?.value[group_index]["specialization"][spec_index].skills, group_index, spec_index);
+  }
+
+  public check_key_append_skill(specialization : AbstractControl, event: any, id: string, group_index: number, spec_index: number)
+  {
+    if(event.key !== ',')
+      return;
+
+    this.append_skill(specialization, event.target.value, id, group_index, spec_index, true);
+  }
+
+  public append_skill_by_id(specialization : AbstractControl, id: string, group_index: number, spec_index: number)
+  {
+      let value = (<HTMLInputElement>document.getElementById(id)).value;
+
+      this.append_skill(specialization, value, id, group_index, spec_index);
+  }
+
+  public list_skills_names(spec: AbstractControl):string[]
+  {
+    let _spec = <FormGroup> spec;
+
+    return ((_spec.get("skills") as FormControl).value) as string[];
+  }
+
+  public remove_skill_tag(specialization: AbstractControl, group_index: number, spec_index: number, tag_index: number)
+  {
+    let _specialization = <FormGroup> specialization;
+
+    (_specialization.get("skills")?.value as string[]).splice(tag_index, 1);
+
+    this.cv_info_service.change_value_skills("skills", this.cv_form.get(["skills"])?.value[group_index]["specialization"][spec_index].skills, group_index, spec_index);
+  }
+
 }
