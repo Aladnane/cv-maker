@@ -207,7 +207,7 @@
             .list-trainings-diplomas
             {
 
-              .trainings_diplomas
+              .trainings-diplomas
               {
                   margin: 3px 0;
 
@@ -244,6 +244,47 @@
               }
             }
 
+            //Skills list
+            .list-skills
+            {
+              margin-top: 10px;
+              font-size: .55em;
+
+              .skill
+              {
+                border: 1px solid #1e334f;
+                position: relative;
+                border-radius: 2px;
+                padding-top: 5px;
+
+                .block-title
+                {
+                  background-color: #051A37;
+                  position: absolute;
+                  top: -7px;
+                  left: 5px;
+                  padding: 2px 8px;
+                  color: white;
+                  border-radius: 30px;
+                }
+
+                .skills_details
+                {
+                  margin: 5px;
+                  display: flex;
+
+                  .title
+                  {
+                      color: #1e334f;
+                      min-width: fit-content;
+                  }
+                  .skills_names
+                  {
+
+                  }
+                }
+              }
+            }
 
           }
       }

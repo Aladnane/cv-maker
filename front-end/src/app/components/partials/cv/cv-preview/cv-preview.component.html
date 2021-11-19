@@ -47,15 +47,15 @@
 
       <!--  -->
       <div class="prof">
-          {{ cv | json}}
-          <div class="block trainings_diplomas" *ngIf='cv.trainings_diplomas.length > 0'>
+          <!-- Trainings & Diplomas -->
+          <div class="block" *ngIf='cv.trainings_diplomas.length > 0'>
             <header>
               <div class="line"></div>
               <i class="las la-graduation-cap"></i>
               <h4 class="title">Trainings / Diplomas</h4>
             </header>
             <ul class="list-trainings-diplomas">
-                <li *ngFor='let dip of cv.trainings_diplomas' class='trainings_diplomas'>
+                <li *ngFor='let dip of cv.trainings_diplomas' class='trainings-diplomas'>
                     <div class="header">
                       <div class="date-interval">
                         <span *ngIf="dip.start_date !== '' && dip.end_date !== '' " class="date">></span>
@@ -73,6 +73,26 @@
                       <span>{{dip.school_localtion}}</span>
                     </div>
                 </li>
+            </ul>
+          </div>
+
+          <!-- Skills -->
+          <div class="block" *ngIf='cv.skills.length > 0'>
+            <header>
+              <div class="line"></div>
+              <i class="las la-graduation-cap"></i>
+              <h4 class="title">Skills</h4>
+            </header>
+            <ul class="list-skills">
+              <li *ngFor='let skill of cv.skills' class='skill'>
+                  <span class="block-title">{{skill.specialization_name}}</span>
+                  <ul>
+                      <li class="skills_details" *ngFor='let skills_details of skill.specialization'>
+                          <span class="title" *ngIf='skills_details.title'>{{skills_details.title}} : </span>
+                          <span class="skills_names">{{skills_details.skills}}</span>
+                      </li>
+                  </ul>
+              </li>
             </ul>
           </div>
       </div>
