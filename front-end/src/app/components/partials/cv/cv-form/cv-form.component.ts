@@ -18,7 +18,8 @@ export class CvFormComponent
   @Output() previous_block_emitter = new EventEmitter<string>();
   public blocks_active = {
     "education": 0,
-    "skills": 0
+    "skills": 0,
+    "work_history": 0
   }
 
   public inputs_list_heading = [
@@ -37,15 +38,18 @@ export class CvFormComponent
       {label: "Start Date"           , name: "start_date"},
       {label: "End Date"             , name: "end_date"},
   ];
-  // public inputs_list_skills = [
-  //   {label: "Specialization", name: "specialization_name"},
-  //   {label: "Title", name: "title"},
-  //   {label: "Skills", name: "skills"},
-  // ];
+  public inputs_list_work_history = [
+    {label: "Job",        name: "job"},
+    {label: "Employer",   name: "employer"},
+    {label: "City",       name: "city"},
+    {label: "Start Date", name: "start_date"},
+    {label: "End Date",   name: "end_date"},
+  ];
 
   get form(){return this.cv_form.controls;}
 
   get trainings_diplomas(){return this.form["trainings_diplomas"] as FormArray;}
+  get work_history(){return this.form["work_history"] as FormArray;}
 
   get skills(){return this.form["skills"] as FormArray;}
   get skills_specializations(){return this.cv_form.get(["skills"]) as FormArray}
@@ -67,6 +71,8 @@ export class CvFormComponent
         "trainings_diplomas": this.form_builder.array([this.trainings_diplomas_group()]),
         //
         "skills": this.form_builder.array([this.skills_group()]),
+        //
+        "work_history": this.form_builder.array([this.work_history_group()]),
       });
   }
 
@@ -120,6 +126,17 @@ export class CvFormComponent
     this.blocks_active.skills = block_index;
   }
 
+  public toggle_block_active_work_history(block_index: number)
+  {
+    if(this.blocks_active.work_history === block_index)
+    {
+      this.blocks_active.work_history = -1;
+      return;
+    }
+
+    this.blocks_active.work_history = block_index;
+  }
+
   public remove_trainings_diplomas(block_index: number)
   {
     document.querySelector(".trainings_diplomas[data-index='"+block_index+"']")?.remove();
@@ -133,11 +150,11 @@ export class CvFormComponent
   public skills_group():FormGroup
   {
     return this.form_builder.group({
-      "specialization_name": ["WEB"],
+      "specialization_name": [],
       "specialization": this.form_builder.array([
           this.form_builder.group({
-            "title": ["Back-end"],
-            "skills": [["Laravel"]],
+            "title": [],
+            "skills": [[]],
           })
       ])
     });
@@ -210,6 +227,35 @@ export class CvFormComponent
     (_specialization.get("skills")?.value as string[]).splice(tag_index, 1);
 
     this.cv_info_service.change_value_skills("skills", this.cv_form.get(["skills"])?.value[group_index]["specialization"][spec_index].skills, group_index, spec_index);
+  }
+
+  //work history
+  public work_history_group():FormGroup
+  {
+    return this.form_builder.group(
+    {
+      "job": [""],
+      "employer": [""],
+      "city": [""],
+      "start_date": [""],
+      "end_date": [""],
+    });
+  }
+
+  public add_work_history_group()
+  {
+    (this.cv_form.controls["work_history"] as FormArray).push(this.work_history_group());
+
+    this.blocks_active.work_history = this.cv_info_service.add_value_work_history();
+  }
+
+  public remove_work_history(block_index: number)
+  {
+    document.querySelector(".work_history[data-index='"+block_index+"']")?.remove();
+
+    (this.cv_form.controls["work_history"] as FormArray).removeAt(block_index);
+
+    this.cv_info_service.remove_value_work_history(block_index)
   }
 
 }

@@ -3,7 +3,7 @@
   <!-- ---------------------------------------------- -->
   <!-- -----------------heading--------------------- -->
   <!-- ---------------------------------------------- -->
-  <div class="heading block" [class.active]='block_active === "heading"'>
+  <div class="heading-block block" [class.active]='block_active === "heading"'>
 
     <div class="fields-block">
       <!-- Import Image -->
@@ -28,7 +28,7 @@
   <!-- ---------------------------------------------- -->
   <!-- --------Trainings And Diplomas---------------- -->
   <!-- ---------------------------------------------- -->
-  <div class="education block" [class.active]='block_active === "education"'>
+  <div class="education-block block" [class.active]='block_active === "education"'>
 
     <div class="fields-block" formArrayName='trainings_diplomas'>
       <!-- Fields Group -->
@@ -51,7 +51,6 @@
             </app-input>
           </div>
       </div>
-
     </div>
 
     <span (click)='add_trainings_diplomas_group()' class='link' *ngIf='trainings_diplomas.length > 0'>+ Add more Trainings / Diplomas</span>
@@ -66,7 +65,7 @@
   <!-- ---------------------------------------------- -->
   <!-- --------Skills---------------- -->
   <!-- ---------------------------------------------- -->
-  <div class="skills block" [class.active]='block_active === "skills"'>
+  <div class="skills-block block" [class.active]='block_active === "skills"'>
 
     <div class="fields-block" formArrayName='skills'>
       <!-- Fields Group -->
@@ -88,7 +87,6 @@
             <app-input label="Specialization" class="input" data-field='specialization_name' [inline]='true'>
               <input type="text" placeholder="Specialization" name='specialization_name' formControlName='specialization_name'
               (input)='this.cv_info_service.change_value_skills("specialization_name", cv_form.get(["skills"])?.value[i]["specialization_name"], i)'>
-              >
             </app-input>
 
             <ul formArrayName="specialization" class="skills-sub-list">
@@ -124,6 +122,44 @@
       <i class="las la-inbox"></i>
       <div class="msg">The List is empty</div>
       <span (click)='add_skills_group()' class='link'>+ Add more Skills</span>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------- -->
+  <!-- --------Work history---------------- -->
+  <!-- ---------------------------------------------- -->
+  <div class="work-history-block block" [class.active]='block_active === "work history"'>
+
+    <div class="fields-block" formArrayName='work_history'>
+      <!-- Fields Group -->
+      <div class="work-history fields-container" *ngFor="let _work_history of work_history.controls; let i = index" [attr.data-index]='i'>
+        <!-- Header -->
+        <header>
+          <div class="title">
+            Work History: {{cv_form.get(["work_history"])?.value[i]["job"]}}
+          </div>
+          <div class="controls">
+            <i class="las {{(blocks_active.work_history === i) ? 'la-hand-point-up' : 'la-pen-alt'}}" (click)='toggle_block_active_work_history(i)'></i>
+            <i class="las la-trash-alt" (click)='remove_work_history(i)'>
+            </i>
+          </div>
+        </header>
+        <!-- Fields -->
+          <div [formGroupName]='i' class='block' [class.active]='blocks_active.work_history === i'>
+            <app-input *ngFor="let input of inputs_list_work_history" label="{{input.label}}" class="input" [attr.data-field]='input.name'>
+              <input type="text" placeholder="{{input.label}}" name='{{input.name}}' [formControlName]='input.name'
+              (input)='this.cv_info_service.change_value_work_history(i, input.name, cv_form.get(["work_history"])?.value[i][input.name])'>
+            </app-input>
+          </div>
+      </div>
+    </div>
+
+    <span (click)='add_work_history_group()' class='link' *ngIf='work_history.length > 0'>+ Add more Work History</span>
+
+    <div class="msg-empty"  *ngIf='work_history.length === 0'>
+      <i class="las la-inbox"></i>
+      <div class="msg">The List is empty</div>
+      <span (click)='add_work_history_group()' class='link'>+ Add more Work History</span>
     </div>
   </div>
 

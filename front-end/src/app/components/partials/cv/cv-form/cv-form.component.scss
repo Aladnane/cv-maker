@@ -77,7 +77,7 @@ form
     }
 
     //Heading
-    &.heading
+    &.heading-block
     {
       .block-photo
       {
@@ -157,16 +157,13 @@ form
     }
 
     //Education
-    &.education
+    &.education-block,
+    &.work-history-block
     {
       .fields-block
       {
-        height: 78%;
-        overflow: auto;
-        margin-bottom: 5px;
-
-
-        .trainings_diplomas
+        .trainings_diplomas,
+        .work-history
         {
           .block
           {
@@ -175,9 +172,9 @@ form
             flex-wrap: wrap;
             justify-content: space-between;
 
-            .input
+            > .input
             {
-                // width: 49%;
+                width: 49%;
             }
           }
         }
@@ -185,7 +182,7 @@ form
     }
 
     //Skills
-    &.skills
+    &.skills-block
     {
       .fields-block
       {
@@ -226,6 +223,18 @@ form
               }
             }
         }
+      }
+    }
+
+    &.education-block,
+    &.skills-block,
+    &.work-history-block
+    {
+      .fields-block
+      {
+        height: 78%;
+        overflow: auto;
+        margin-bottom: 5px;
       }
     }
 

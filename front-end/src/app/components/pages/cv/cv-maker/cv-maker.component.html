@@ -2,7 +2,7 @@
   <header>
     <ul class="progress-bar">
       <li *ngFor="let block of blocks; let i = index" [class.active]="blocks[block_active] == blocks[i]" (click)="block_active = i">
-        <span class='index'>{{(i+1)}}</span> {{blocks[i]}}
+        <span class='index'>{{(i+1)}}</span> {{blocks[i] | titlecase }}
       </li>
     </ul>
   </header>

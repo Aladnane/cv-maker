@@ -21,15 +21,22 @@ export class CV
 
       //Skills
       public skills = [{
-        "specialization_name": "Web",
+        "specialization_name": "",
         "specialization": [{
-            title: "Back-end",
-            skills: ["Laravel", "PHP", "WLangage", "Asp.net"]
-        },{
-          title: "Front-end",
-          skills: ["Sass", "Javascript", "JQuery", "Html 5", "Css 3"]
+            title: "",
+            skills: []
         }]
       }],
+      //Work History
+      public work_history = [
+        {
+          "job": "",
+          "employer": "",
+          "city": "",
+          "start_date": "",
+          "end_date": "",
+        }
+      ],
   ){}
 
   /*

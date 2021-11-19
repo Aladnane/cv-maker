@@ -42,5 +42,10 @@ export class CvPreviewComponent implements OnInit {
     });
   }
 
+  public preview_cv()
+  {
+
+  }
+
 
 }

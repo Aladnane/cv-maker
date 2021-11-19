@@ -37,6 +37,12 @@ export class CvInfoService
       this.cv_info_subject.next(this.cv);
   }
 
+  public change_value_work_history(index: number, input: string, value: string)
+  {
+      this.cv.work_history[index] = Object.assign(this.cv.work_history[index], {[input]: value});
+      this.cv_info_subject.next(this.cv);
+  }
+
   /*
   *Trainings diplomas
   */
@@ -73,7 +79,23 @@ export class CvInfoService
   public remove_value_skills(block_index: number)
   {
       this.cv.skills.splice(block_index, 1);
+  }
 
-      // this.cv_info_subject.next(this.cv);
+  /*
+  *Trainings diplomas
+  */
+  public add_value_work_history()
+  {
+      let index = this.cv.work_history.push(Object.assign({}, {
+                                                            "job": "", "employer": "", "city": "", "start_date": "", "end_date": "",
+                                                            })) - 1;
+      this.cv_info_subject.next(this.cv);
+
+      return index;
+  }
+
+  public remove_value_work_history(block_index: number)
+  {
+      this.cv.work_history.splice(block_index, 1);
   }
 }
