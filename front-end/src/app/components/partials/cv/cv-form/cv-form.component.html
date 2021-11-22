@@ -9,11 +9,11 @@
       <!-- Import Image -->
       <div class="block-photo">
         <div class="img">
-          <img src="/assets/images/user-placeholder.jpeg">
+          <img [src]="(cv_info_service.picture) ? cv_info_service.picture : '/assets/images/user-placeholder.jpeg'">
         </div>
 
-        <app-button text='{{"Browse Photo"}}' icon_classes='{{"las la-camera-retro"}}' btn='flat'></app-button>
-        <input type="file" class='hidden'>
+        <app-button text='{{"Browse Photo"}}' icon_classes='{{"las la-camera-retro"}}' btn='flat' (click)='(cv_info_service.picture) ? display_photo_editor.emit(true) : cv_picture.click()'></app-button>
+        <input type="file" #cv_picture class='hidden' (change)='change_selected_picture($event)' >
       </div>
 
       <!-- Fields -->

@@ -1,8 +1,5 @@
 import { Component, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import jsPDF from 'jspdf';
 import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_menu/reduce-left-menu.service';
-
-// declare var jsPDF: any;
 
 @Component({
   selector: 'app-cv-maker',
@@ -10,10 +7,12 @@ import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_m
   styleUrls: ['./cv-maker.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class CvMakerComponent
 {
   public blocks: string[] = ['heading', 'education', 'skills', 'work history', 'download'];//'projects', 'finalize',
   public block_active: number = 0;
+  public display_photo_editor: boolean = false;
 
   constructor(private reduce_left_menu_service: ReduceLeftMenuService)
   {
@@ -34,5 +33,10 @@ export class CvMakerComponent
         return;
 
       this.block_active--;
+  }
+
+  public on_display_photo_editor(display: any)
+  {
+    this.display_photo_editor = display;
   }
 }

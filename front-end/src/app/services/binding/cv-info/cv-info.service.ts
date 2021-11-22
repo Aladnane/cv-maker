@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { CV } from 'src/app/classes/cv/cv';
 
 @Injectable({
@@ -11,9 +11,24 @@ export class CvInfoService
   public cv_info = this.cv_info_subject.asObservable();
   private cv: CV = new CV();
 
+  get picture()
+  {
+    return this.cv.picture;
+  }
+
+  set picture(picture)
+  {
+    this.cv.picture = picture;
+  }
+
   constructor()
   {
     this.cv_info.subscribe(cv => this.cv = cv);
+  }
+
+  public change_picture(picture: string)
+  {
+    this.cv.picture = picture;
   }
 
   public change_value(input: string, value: string)

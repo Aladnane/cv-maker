@@ -10,7 +10,7 @@
   <section class="cv-creator" [class.full-preview]="blocks[block_active] === 'download'">
     <!-- Form -->
       <section class="form" [class.hidden]="blocks[block_active] === 'download'">
-          <app-cv-form [block_active]='blocks[block_active]' (next_block_emitter)='next_block()' (previous_block_emitter)='previous_block()'></app-cv-form>
+          <app-cv-form [block_active]='blocks[block_active]' (next_block_emitter)='next_block()' (previous_block_emitter)='previous_block()' (display_photo_editor)='on_display_photo_editor($event)'></app-cv-form>
       </section>
 
       <!-- Preview -->
@@ -18,4 +18,7 @@
           <app-cv-preview [block_active]='blocks[block_active]'></app-cv-preview>
       </section>
   </section>
+  <!-- <div class="photo-editor"> -->
+    <app-photo-editor *ngIf="display_photo_editor" (display_photo_editor)='on_display_photo_editor($event)'></app-photo-editor>
+  <!-- </div> -->
 </section>

@@ -1,0 +1,12 @@
+<div class="photo-editor">
+  <div class="img-editor">
+    <img [src]="uploded_image_url" id='picture_cv' #cv_picture crossorigin>
+  </div>
+
+  <div class="buttons">
+    <app-button text='{{"Browse Photo"}}' icon_classes='{{"las la-camera-retro"}}' btn='flat' (click)='cv_picture_input.click()'></app-button>
+    <app-button text='{{"Save"}}' icon_classes='{{"las la-save"}}' btn='submit' (click)='display_photo_editor.emit(false)'></app-button>
+  </div>
+
+  <input type="file" #cv_picture_input class='hidden' (change)='on_change_cv_picture($event)'>
+</div>

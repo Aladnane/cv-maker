@@ -10,7 +10,7 @@
       <div class="pers">
           <header>
             <div class="img">
-              <img src="/assets/images/user2.jpg" alt="">
+              <img [src]="(cv.picture) ? cv.picture : '/assets/images/user-placeholder.jpeg'" alt="">
             </div>
             <div class="full-name">
               <h4 class="first-name title">{{cv.first_name}}</h4>

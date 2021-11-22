@@ -6,7 +6,8 @@ import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service'
   selector: 'app-cv-form',
   templateUrl: './cv-form.component.html',
   styleUrls: ['../../../pages/connection/layout/connection-block.scss',
-    './cv-form.component.scss'],
+    './cv-form.component.scss',
+  ],
   encapsulation: ViewEncapsulation.None
 })
 
@@ -16,11 +17,14 @@ export class CvFormComponent
   @Input() block_active : string = "";
   @Output() next_block_emitter = new EventEmitter<string>();
   @Output() previous_block_emitter = new EventEmitter<string>();
+  @Output() display_photo_editor = new EventEmitter<boolean>();
+
   public blocks_active = {
     "education": 0,
     "skills": 0,
     "work_history": 0
   }
+  public cv_user_picture_url = "/assets/images/user-placeholder.jpeg";
 
   public inputs_list_heading = [
       {label: "First Name"   , name: "first_name"},
@@ -86,6 +90,21 @@ export class CvFormComponent
     this.next_block_emitter.emit("");
   }
 
+  public change_selected_picture(event: any)
+  {
+    if(!event.target.files){return;}
+
+    let reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (e: any)=>{
+
+      this.cv_info_service.picture = e.target.result;
+
+      this.display_photo_editor.emit(true);
+    }
+  }
+
+  //Trainings / Diplomas
   public add_trainings_diplomas_group()
   {
     (this.cv_form.controls["trainings_diplomas"] as FormArray).push(this.trainings_diplomas_group());
