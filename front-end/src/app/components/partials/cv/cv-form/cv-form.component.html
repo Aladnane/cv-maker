@@ -1,4 +1,4 @@
-<form [formGroup]="cv_form" [class.hidden]='block_active === "download"'>
+<form [formGroup]="cv_form" [class.hidden]='block_active === "download"' (keydown.enter)='submit($event)'>
 
   <!-- ---------------------------------------------- -->
   <!-- -----------------heading--------------------- -->
@@ -99,7 +99,7 @@
                   <app-input label="Skills" class="input" data-field='skills' [inline]="true">
                     <input type="text" placeholder="Skills" name='skills'
                         (keyup)="check_key_append_skill(spec, $event, 'skill_'+i+'_'+j, i, j)" [id]="'skill_'+i+'_'+j"
-                        (keyup.enter)="append_skill(spec, $any($event.target).value, 'skill_'+i+'_'+j, i, j)"
+                        (keydown.enter)="append_skill(spec, $any($event.target).value, 'skill_'+i+'_'+j, i, j)"
                     >
                     <i class="las la-plus icon" (click)="append_skill_by_id(spec, 'skill_'+i+'_'+j, i, j)"></i>
                   </app-input>

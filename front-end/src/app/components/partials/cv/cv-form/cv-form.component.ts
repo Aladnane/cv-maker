@@ -90,6 +90,11 @@ export class CvFormComponent
     this.next_block_emitter.emit("");
   }
 
+  submit(event: any)
+  {
+    event.preventDefault();
+  }
+
   public change_selected_picture(event: any)
   {
     if(!event.target.files){return;}
