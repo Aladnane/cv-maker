@@ -1,4 +1,4 @@
-import { Component, ElementRef, AfterViewInit, OnInit, ViewChild, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, OnInit, ViewChild, ViewEncapsulation, EventEmitter, Output, Input } from '@angular/core';
 import Cropper from 'cropperjs';
 import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
 
@@ -16,6 +16,7 @@ export class PhotoEditorComponent implements OnInit, AfterViewInit{
   @ViewChild("cv_picture",{static: false}) cv_picture? : ElementRef;
   private cropper? : Cropper;
   @Output() display_photo_editor = new EventEmitter<boolean>();
+  // @Input() displaying_photo_editor : boolean = false;
 
   constructor(private cv_info_service: CvInfoService)
   {
@@ -51,7 +52,9 @@ export class PhotoEditorComponent implements OnInit, AfterViewInit{
         aspectRatio: 1,
         crop: () => {
           const canvas = this.cropper?.getCroppedCanvas();
+
           this.cropped_photo = canvas?.toDataURL("image/png") ?? "";
+          // console.log("inside cropper"+this.displaying_photo_editor);
 
           this.cv_info_service.change_picture(this.cropped_photo);
         }

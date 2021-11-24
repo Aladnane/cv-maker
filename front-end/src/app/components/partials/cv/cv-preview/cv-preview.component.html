@@ -3,7 +3,7 @@
     <app-button *ngIf="block_active === 'download'" text='{{"Download"}}' class='btn' icon_classes='{{"las la-hand-point-down"}}' btn='flat' (click)='download_cv()'></app-button>
     <!-- <app-button *ngIf="block_active !== 'download'" text='Preview' class='btn' icon_classes='{{"las la-eye"}}' btn='flat' (click)='preview_cv()'></app-button> -->
   </header>
-
+  <!-- {{cv | json}} -->
   <div class="cv" [class.full-preview]="block_active == 'download'">
     <div class="container" #pdf>
       <!-- Personnel info -->

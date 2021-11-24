@@ -38,7 +38,12 @@ export class CvPreviewComponent implements OnInit {
       pdf.addImage(contentDataURL, 'PNG', 0, 0, width, height);
       let pdf_name = "CV"+((this.cv.first_name || this.cv.last_name) ? ` - ${this.cv.first_name} ${this.cv.last_name}` : "")+".pdf";
       pdf.save(pdf_name);
+
       pdf_template.removeChild(pdf_template.childNodes[0]);
+
+      //Solution temporaire
+      // this.cv_info_service.change_value("picture", this.cv.picture);
+      this.cv_info_service.cv_info_subject.next(this.cv);
     });
   }
 

@@ -12,12 +12,17 @@
   src: url("../fonts/Inter-Light.ttf");
 }
 
+@font-face {
+  font-family: 'Cairo-Regular';
+  src: url("../fonts/Cairo-Regular.ttf");
+}
+
 
 html, body
 {
   height: 100vh;
   overflow: hidden;
-  font-family: 'Inter-Bold', sans-serif;
+  font-family: 'Cairo-Regular', sans-serif;
   font-size: 15px;
 }
 

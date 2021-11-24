@@ -7,7 +7,16 @@ import { CV } from 'src/app/classes/cv/cv';
 })
 export class CvInfoService
 {
-  public cv_info_subject = new BehaviorSubject<CV>(new CV());
+  public cv_info_subject = new BehaviorSubject<CV>(new CV("", "Younes",
+                                                              "Adnane",
+                                                              "younes.adnane4@gmail.com",
+                                                              "Web Developer","+212 63545454","Lorem Ipsum is simply dummy text of the printing and typesetting",
+                                                              "12/12/1900",
+                                                              this.get_trainings_diplomas_test_data(),
+                                                              this.get_specialization_test_data(),
+                                                              this.get_work_history_test_data(),
+
+                                                              ));
   public cv_info = this.cv_info_subject.asObservable();
   private cv: CV = new CV();
 
@@ -112,5 +121,65 @@ export class CvInfoService
   public remove_value_work_history(block_index: number)
   {
       this.cv.work_history.splice(block_index, 1);
+  }
+
+  //Test Data
+  private get_trainings_diplomas_test_data()
+  {
+    return [{
+            trainings_diplomas_name: "Formation en license professionnelle Informatique de gestion.",
+            school_name : "FSJES",
+            school_localtion : "Martil",
+            start_date : "2019",
+            end_date : "2020",
+          }];
+  }
+  private get_specialization_test_data()
+  {
+    return [{
+            "specialization_name": "WEB",
+            "specialization": [{
+                title: "Back-end",
+                skills: ["Laravel", "PHP", "WLangage", "Asp.net"]
+              },
+              {
+                title: "Front-end",
+                skills: ["Sass", "Javascript", "JQuery", "Html 5", "Css 3"]
+              }]
+            },
+          {
+            "specialization_name": "laravel",
+            "specialization": [{
+                title: "Back-end",
+                skills: ["Livewire"]
+              }]
+          }];
+  }
+
+  public get_work_history_test_data()
+  {
+    return [
+      {
+        "job": "Developpeur Web Et Desktop",
+        "employer": "Association Targa-aide",
+        "city": "Tanger",
+        "start_date": "10/2019",
+        "end_date": "12/2023",
+      },
+      {
+        "job": "Stage en developpement Web",
+        "employer": "Dwave-tech",
+        "city": "Tanger",
+        "start_date": "04/2019",
+        "end_date": "05/2019",
+      },
+      {
+        "job": "Lorem ipsum dolor sit amet consectetur, ",
+        "employer": "adipisicing elit. Officiis, optio.",
+        "city": "Tanger",
+        "start_date": "02/2019",
+        "end_date": "02/2019",
+      },
+    ];
   }
 }

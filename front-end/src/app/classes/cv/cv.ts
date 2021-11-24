@@ -25,7 +25,7 @@ export class CV
         "specialization_name": "",
         "specialization": [{
             title: "",
-            skills: []
+            skills: [""]
         }]
       }],
       //Work History
