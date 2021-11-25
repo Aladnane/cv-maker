@@ -1,9 +1,9 @@
-<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline' [class.error]='field?.touched && errors_list'>
+<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline' [class.error]='field?.touched && (errors_list || form.errors?.password_match.not_match)'>
   <label>{{label}}</label>
 
   <ng-content></ng-content>
 
-  <ul class="errors" *ngIf='field?.touched && errors_list'>
+  <ul class="errors" *ngIf='field?.touched && (errors_list || form.errors?.password_match.not_match)'>
     <li class='error' *ngIf='errors_list?.required'>
       The '{{label}}' field is required
     </li>
@@ -16,5 +16,9 @@
     <li class="error" *ngIf='errors_list?.pattern'>
       Format Invalid
     </li>
+    <li class="error" *ngIf='label == "Confirm Password" && form.errors?.password_match.not_match'>
+      The password confirmation does not match
+    </li>
+
   </ul>
 </div>
