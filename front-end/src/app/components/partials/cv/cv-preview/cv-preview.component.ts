@@ -3,6 +3,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { CV } from 'src/app/classes/cv/cv';
 import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
+import { PhotoEditorService } from 'src/app/services/photo_editor/photo-editor.service';
 
 @Component({
   selector: 'app-cv-preview',
@@ -14,7 +15,9 @@ export class CvPreviewComponent implements OnInit {
   public cv: CV = new CV();
   @Input() block_active : string = "";
 
-  constructor(private cv_info_service: CvInfoService, private resolver:ComponentFactoryResolver)
+  constructor(
+              private cv_info_service: CvInfoService,
+            )
   {
     this.cv_info_service.cv_info.subscribe(cv => this.cv = cv);
   }
@@ -26,6 +29,8 @@ export class CvPreviewComponent implements OnInit {
 
   public download_cv()
   {
+    // this.photo_editor_service.use_photo_editor_subject.next(false);
+
     const pdf = (<ElementRef>this.pdf).nativeElement.cloneNode(true);
     var pdf_template = document.getElementById("pdf_template")  as HTMLElement;
     pdf_template.appendChild(pdf);

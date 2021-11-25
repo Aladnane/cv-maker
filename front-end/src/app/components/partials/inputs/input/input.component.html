@@ -1,6 +1,20 @@
-<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline'>
+<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline' [class.error]='field?.touched && errors_list'>
   <label>{{label}}</label>
 
   <ng-content></ng-content>
 
+  <ul class="errors" *ngIf='field?.touched && errors_list'>
+    <li class='error' *ngIf='errors_list?.required'>
+      The '{{label}}' field is required
+    </li>
+    <li class="error" *ngIf='errors_list?.minlength'>
+      {{"'"+label+"' must contain at least "+errors_list?.minlength?.requiredLength+" characters"}}
+    </li>
+    <li class="error" *ngIf='errors_list?.maxlength'>
+      {{"'"+label+"' must contain at most "+errors_list?.maxlength?.requiredLength+" characters"}}
+    </li>
+    <!-- <li class="error" *ngIf='errors_list?.pattern'>
+      {{"Invalid '"+label+"'"}}
+    </li> -->
+  </ul>
 </div>

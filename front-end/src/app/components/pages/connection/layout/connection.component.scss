@@ -35,11 +35,10 @@
       position: relative;
       padding-top: 7px;
 
-      header,
-      .container
-      {padding: 10px;}
+      > header {padding: 5px;}
+      .container {padding: 10px;}
 
-      header
+      > header
       {
           background-color: $main-background-color-light;
           border-radius: 0 30px 30px 0;

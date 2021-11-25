@@ -2,51 +2,71 @@
 
 .input
 {
-  display: flex;
-  flex-direction: column;
-  gap: 8px 0;
-  margin: 5px 0;
-  position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 8px 0;
+	margin: 5px 0;
+	position: relative;
 
-  &.inline
-  {
-    flex-direction: row;
-    align-items: center;
-    gap: 0 8px;
-    margin: 0 5px;
+	&.inline
+	{
+		flex-direction: row;
+		align-items: center;
+		gap: 0 8px;
+		margin: 0 5px;
 
-    input{flex-grow: 1}
-  }
+		input{flex-grow: 1}
+	}
 
-  label
-  {
-  }
+	// label
+	// {
+	// }
 
-  input
-  {
-    background-color: $input-background-transparent;
-    border: 0;
-    outline: none;
-    padding: 8px 10px;
-    font-size: 1.1rem;
-    border-radius: 3px;
-    box-shadow: 0 0 4px 1px #000000b5 inset;
-    color: $input-color-transparent;
-  }
+	input
+	{
+		background-color: $input-background-transparent;
+		border: 0;
+		outline: none;
+		padding: 8px 10px;
+		font-size: 1.1rem;
+		border-radius: 3px;
+		box-shadow: 0 0 4px 1px #000000b5 inset;
+		color: $input-color-transparent;
+	}
 
-  &.checkbox
-  {
-    flex-direction: row-reverse;
-    filter: hue-rotate(47deg);
-  }
+	&.checkbox
+	{
+		flex-direction: row-reverse;
+		filter: hue-rotate(47deg);
+    line-height: 1.3;
+	}
 
-  .icon
-  {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5em;
-    cursor: pointer;
-  }
+	.icon
+	{
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+
+	&.error
+	{
+		input
+		{
+      box-shadow: 0 0 0px 2px #b9221f;
+		}
+
+    .errors
+    {
+      .error
+      {
+        font-size: .9em;
+        color: #b9221f;
+        line-height: 1.1;
+        font-weight: bold;
+      }
+    }
+	}
 }

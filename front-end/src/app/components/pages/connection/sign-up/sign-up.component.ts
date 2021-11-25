@@ -9,7 +9,8 @@ import { ConnectionComponent } from '../layout/connection.component';
   styleUrls: [
     '../layout/connection-block.scss',
     './sign-up.component.scss'
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class SignUpComponent implements OnInit {
 
@@ -37,7 +38,12 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void { }
 
 
-  public on_submit() {
+  public on_submit()
+  {
+    if(this.form.invalid)
+    {
+      return;
+    }
     this.connection_service.sign_up(this.form);
   }
 

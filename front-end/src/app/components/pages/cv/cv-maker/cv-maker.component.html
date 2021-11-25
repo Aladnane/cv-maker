@@ -19,6 +19,6 @@
       </section>
   </section>
   <!-- <div class="photo-editor"> -->
-    <app-photo-editor *ngIf="display_photo_editor" (display_photo_editor)='on_display_photo_editor($event)'></app-photo-editor>
+    <app-photo-editor [class.hidden]="!display_photo_editor" (display_photo_editor)='on_display_photo_editor($event)'></app-photo-editor>
   <!-- </div> -->
 </section>

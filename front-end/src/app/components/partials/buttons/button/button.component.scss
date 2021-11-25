@@ -18,7 +18,7 @@
   {
     box-shadow: 0 2px 15px 0px #0d0d0da6;
   }
-  
+
   i
   {
       font-size: 1.3rem;
@@ -30,7 +30,7 @@
       order: 2
   }
 
-  
+
   &.flat
   {
     background: $link-color-active;
@@ -42,6 +42,14 @@
     background: $submit-background;
     border-color: $submit-background;
     color: $submit-color;
+  }
+
+  &[disabled='true']
+  {
+    background: #6bc2ff;
+    color: #ffffffa8;
+    box-shadow: none;
+    cursor: default;
   }
 }
 

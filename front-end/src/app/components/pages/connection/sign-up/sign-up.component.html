@@ -10,26 +10,26 @@
           <input type="file" class='hidden'>
       </div>
 
-      <app-input label="{{'Firstname'}}" class="input">
+      <app-input label="{{'Firstname'}}" class="input" [field]="first_name">
         <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='connection_service.change_input_status("first_name",first_name.valid)' (blur)='connection_service.change_input_status("first_name", first_name.valid)' required>
       </app-input>
 
-      <app-input label="{{'Lastname'}}" class="input">
+      <app-input label="{{'Lastname'}}" class="input"  [field]="last_name">
         <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' (input)='connection_service.change_input_status("last_name",last_name.valid)' (blur)='connection_service.change_input_status("last_name", last_name.valid)' required>
       </app-input>
     </div>
 
     <!-- Email + Password -->
     <div class="block" [class.active]='block_active == "connection"'>
-      <app-input label="{{'Email'}}" class="input">
+      <app-input label="{{'Email'}}" class="input"  [field]="email">
         <input type="email" placeholder="Email" name='email' autocomplete="off"  (input)='connection_service.change_input_status("email",email.valid)' (blur)='connection_service.change_input_status("email", email.valid)' formControlName='email' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
       </app-input>
 
-      <app-input label="{{'Password'}}" class="input">
+      <app-input label="{{'Password'}}" class="input"  [field]="password">
         <input type="password" placeholder="Password" name='password' autocomplete="off"  (input)='connection_service.change_input_status("password",password.valid)' (blur)='connection_service.change_input_status("password", password.valid)' formControlName='password' required>
       </app-input>
 
-      <app-input label="{{'Confirm Password'}}" class="input">
+      <app-input label="{{'Confirm Password'}}" class="input"  [field]="password_confirmation">
         <input type="password" placeholder="Password Confirmation" name='password_confirmation' autocomplete="off"  (input)='connection_service.change_input_status("password_confirmation",password_confirmation.valid)' (blur)='connection_service.change_input_status("password_confirmation", password_confirmation.valid)' formControlName='password_confirmation' required>
       </app-input>
 
@@ -47,7 +47,9 @@
       <app-button text='{{"Next"}}' icon_classes='{{"las la-hand-point-right"}}' btn='flat' direction='rtl'
       (click)="block_active = 'connection'" *ngIf='block_active == "personnel"'></app-button>
 
-      <app-button text='{{"Sign-Up"}}' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' type='submit' direction='rtl' *ngIf='block_active == "connection"'></app-button>
+      <div>
+        <app-button text='{{"Sign-Up"}}' [disabled]='form.invalid' icon_classes='{{"las la-sign-in-alt"}}' btn='submit' type='submit' direction='rtl' *ngIf='block_active == "connection"'></app-button>
+      </div>
     </div>
   </div>
 </form>

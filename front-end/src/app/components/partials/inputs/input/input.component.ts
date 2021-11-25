@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormGroupSignUpService } from 'src/app/services/binding/form-group/form-group-sign-up.service';
 
 @Component({
@@ -12,14 +12,15 @@ export class InputComponent implements OnInit {
   @Input() label: string = "";
   @Input() is_checkbox: boolean = false;
   @Input() inline: boolean = false;
+  @Input() field: any;
   public value: string = "";
+  get errors_list() {return this.field?.errors}
 
   get form() { return this.form_group_sign_up_service.form_sign_up; }
 
-
   constructor(public form_group_sign_up_service: FormGroupSignUpService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void{}
 
   public emitValue() {
     this.form.controls["first_name"].setValue(this.value);

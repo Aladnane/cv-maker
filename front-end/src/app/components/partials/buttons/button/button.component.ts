@@ -12,6 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input() type: string = "";
   @Input("btn") btn_class: string = "";
   @Input() direction: string = "ltr";
+  @Input() disabled: boolean = true;
 
   constructor() { }
 

@@ -1,5 +1,7 @@
-import { Component, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_menu/reduce-left-menu.service';
+import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
+import { PhotoEditorService } from 'src/app/services/photo_editor/photo-editor.service';
 
 @Component({
   selector: 'app-cv-maker',
@@ -14,7 +16,11 @@ export class CvMakerComponent
   public block_active: number = 0;
   public display_photo_editor: boolean = false;
 
-  constructor(private reduce_left_menu_service: ReduceLeftMenuService)
+  constructor(
+              private reduce_left_menu_service: ReduceLeftMenuService,
+              private photo_editor_service: PhotoEditorService,
+              // public cv_info_service: CvInfoService
+  )
   {
     this.reduce_left_menu_service.left_menu_displayed.next(false);
   }
@@ -35,8 +41,10 @@ export class CvMakerComponent
       this.block_active--;
   }
 
-  public on_display_photo_editor(display: any)
+  public on_display_photo_editor(display: boolean)
   {
     this.display_photo_editor = display;
+
+    this.photo_editor_service.use_photo_editor_subject.next(display);
   }
 }

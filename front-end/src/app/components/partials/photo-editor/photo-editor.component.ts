@@ -1,6 +1,7 @@
 import { Component, ElementRef, AfterViewInit, OnInit, ViewChild, ViewEncapsulation, EventEmitter, Output, Input } from '@angular/core';
 import Cropper from 'cropperjs';
 import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
+import { PhotoEditorService } from 'src/app/services/photo_editor/photo-editor.service';
 
 @Component({
 	selector: 'app-photo-editor',
@@ -9,22 +10,31 @@ import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service'
   encapsulation: ViewEncapsulation.None
 })
 
-export class PhotoEditorComponent implements OnInit, AfterViewInit{
-
+export class PhotoEditorComponent implements OnInit, AfterViewInit
+{
   public uploded_image_url: string;
   public cropped_photo: string = "";
   @ViewChild("cv_picture",{static: false}) cv_picture? : ElementRef;
   private cropper? : Cropper;
   @Output() display_photo_editor = new EventEmitter<boolean>();
-  // @Input() displaying_photo_editor : boolean = false;
+  private use_photo_editor : boolean = false;
 
-  constructor(private cv_info_service: CvInfoService)
+  public constructor(
+    private cv_info_service: CvInfoService,
+    private photo_editor_service: PhotoEditorService
+  )
   {
     this.uploded_image_url = this.cv_info_service.picture;
+
+    this.cv_info_service.cv_info.subscribe(cv => this.cropper?.replace(cv.picture));
+
+    this.photo_editor_service.use_photo_editor.subscribe(use_photo_editor => {
+      this.use_photo_editor = use_photo_editor;
+      console.log(`this.use_photo_editor: ${this.use_photo_editor}`);
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit()
   {
@@ -51,10 +61,19 @@ export class PhotoEditorComponent implements OnInit, AfterViewInit{
         zoomable: false,
         aspectRatio: 1,
         crop: () => {
+
+          console.log(`cropper_photo: ${this.use_photo_editor}`);
+
+          if(!this.use_photo_editor)
+          {
+            console.log("cancel");
+
+            return
+          }
+
           const canvas = this.cropper?.getCroppedCanvas();
 
           this.cropped_photo = canvas?.toDataURL("image/png") ?? "";
-          // console.log("inside cropper"+this.displaying_photo_editor);
 
           this.cv_info_service.change_picture(this.cropped_photo);
         }

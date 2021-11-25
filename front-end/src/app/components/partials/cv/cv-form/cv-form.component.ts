@@ -103,7 +103,9 @@ export class CvFormComponent
     reader.readAsDataURL(event.target.files[0]);
     reader.onload = (e: any)=>{
 
-      this.cv_info_service.picture = e.target.result;
+      // this.cv_info_service.picture = e.target.result;
+
+      this.cv_info_service.change_value("picture", e.target.result);
 
       this.display_photo_editor.emit(true);
     }
