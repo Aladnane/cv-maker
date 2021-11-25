@@ -13,8 +13,8 @@
     <li class="error" *ngIf='errors_list?.maxlength'>
       {{"'"+label+"' must contain at most "+errors_list?.maxlength?.requiredLength+" characters"}}
     </li>
-    <!-- <li class="error" *ngIf='errors_list?.pattern'>
-      {{"Invalid '"+label+"'"}}
-    </li> -->
+    <li class="error" *ngIf='errors_list?.pattern'>
+      Format Invalid
+    </li>
   </ul>
 </div>

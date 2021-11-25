@@ -11,11 +11,11 @@
       </div>
 
       <app-input label="{{'Firstname'}}" class="input" [field]="first_name">
-        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='connection_service.change_input_status("first_name",first_name.valid)' (blur)='connection_service.change_input_status("first_name", first_name.valid)' required>
+        <input type="text" placeholder="Firstname" name='first_name' formControlName='first_name' (input)='connection_service.change_input_status("first_name",first_name.valid)' (blur)='connection_service.change_input_status("first_name", first_name.valid)' required minlength='3' maxlength='15'>
       </app-input>
 
       <app-input label="{{'Lastname'}}" class="input"  [field]="last_name">
-        <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' (input)='connection_service.change_input_status("last_name",last_name.valid)' (blur)='connection_service.change_input_status("last_name", last_name.valid)' required>
+        <input type="text" placeholder="Lastname" name='last_name' formControlName='last_name' (input)='connection_service.change_input_status("last_name",last_name.valid)' (blur)='connection_service.change_input_status("last_name", last_name.valid)' required minlength='3' maxlength='15'>
       </app-input>
     </div>
 
@@ -34,7 +34,7 @@
       </app-input>
 
       <app-input label="{{'Subscribe to get the following new templates first'}}" class="input" [is_checkbox]=true>
-        <input type="checkbox" name='subscriber' formControlName='subscriber' required>
+        <input type="checkbox" name='subscriber' formControlName='subscriber'>
       </app-input>
     </div>
   </div>

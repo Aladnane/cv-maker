@@ -44,12 +44,17 @@
     color: $submit-color;
   }
 
-  &[disabled='true']
+  &.disabled
   {
     background: #6bc2ff;
     color: #ffffffa8;
     box-shadow: none;
     cursor: default;
+  }
+
+  &:focus
+  {
+    outline: 2px solid #605f63;
   }
 }
 

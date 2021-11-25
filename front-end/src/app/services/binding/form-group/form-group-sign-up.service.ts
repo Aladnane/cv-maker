@@ -17,12 +17,12 @@ export class FormGroupSignUpService
   private initialiserForm(): FormGroup
   {
     return this.form_builder.group({
-      "first_name": ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      "last_name": ["", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
-      "email": ["", [Validators.required, Validators.pattern]],
-      "password": ["", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
-      "password_confirmation": ["", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
-      "subscriber": [],
+      "first_name": ["Younes", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      "last_name": ["Adnane", [Validators.required, Validators.minLength(3), Validators.maxLength(15)]],
+      "email": ["younes@adnane.com", [Validators.required, Validators.pattern]],
+      "password": ["12345678", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
+      "password_confirmation": ["12345678", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
+      "subscriber": [false],
     });
   }
 }
