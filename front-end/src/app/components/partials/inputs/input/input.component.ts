@@ -14,9 +14,13 @@ export class InputComponent implements OnInit {
   @Input() inline: boolean = false;
   @Input() field: any;
   public value: string = "";
-  get errors_list() {return this.field?.errors}
-
   get form() { return this.form_group_sign_up_service.form_sign_up; }
+  get errors_list() {return this.field?.errors}
+  get pasword_does_not_match()
+  {
+    return this.form.hasError("password_match") && this.form.get("password")?.dirty && this.form.get("password_confirmation")?.dirty;
+  }
+
 
   constructor(public form_group_sign_up_service: FormGroupSignUpService) { }
 
