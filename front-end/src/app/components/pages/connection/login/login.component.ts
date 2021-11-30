@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConnectionService } from 'src/app/services/connection/connection.service';
+import { FormService } from 'src/app/services/form/form.service';
 import { ConnectionComponent } from '../layout/connection.component';
 
 @Component({
@@ -22,10 +23,11 @@ export class LoginComponent implements OnInit {
   constructor(
     public connection_service: ConnectionService,
     private form_builder: FormBuilder,
-    private connection_component: ConnectionComponent
+    private connection_component: ConnectionComponent,
+    private form_service: FormService
     )
   {
-      this.form = form_builder.group({
+      this.form = this.form_builder.group({
         "email": ["", [Validators.required, Validators.pattern]],
         "password": ["", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
       });
@@ -37,7 +39,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
 
-  public on_submit() {
+  public on_submit()
+  {
+    if(this.form.invalid)
+    {
+      this.form_service.validateAllFields(this.form);
+      return;
+    }
     this.connection_service.login(this.form);
   }
 }

@@ -16,9 +16,9 @@ export class InputComponent implements OnInit {
   public value: string = "";
   get form() { return this.form_group_sign_up_service.form_sign_up; }
   get errors_list() {return this.field?.errors}
-  get pasword_does_not_match()
+  get password_does_not_match()
   {
-    return this.form.hasError("password_match") && this.form.get("password")?.dirty && this.form.get("password_confirmation")?.dirty;
+    return this.label == "Confirm Password" && this.form.hasError("password_match") && this.form.get("password")?.dirty && this.form.get("password_confirmation")?.dirty;
   }
 
 

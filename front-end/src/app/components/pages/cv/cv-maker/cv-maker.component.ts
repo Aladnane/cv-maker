@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { CV } from 'src/app/classes/cv/cv';
 import { ReduceLeftMenuService } from 'src/app/services/animations/reduce_left_menu/reduce-left-menu.service';
 import { CvInfoService } from 'src/app/services/binding/cv-info/cv-info.service';
 import { PhotoEditorService } from 'src/app/services/photo_editor/photo-editor.service';
@@ -19,10 +20,12 @@ export class CvMakerComponent
   constructor(
               private reduce_left_menu_service: ReduceLeftMenuService,
               private photo_editor_service: PhotoEditorService,
-              // public cv_info_service: CvInfoService
+              public cv_info_service: CvInfoService
   )
   {
     this.reduce_left_menu_service.left_menu_displayed.next(false);
+
+    this.cv_info_service.cv_info_subject.next(new CV());
   }
 
   public next_block():void

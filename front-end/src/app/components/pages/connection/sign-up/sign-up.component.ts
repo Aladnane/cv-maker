@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormGroupSignUpService } from 'src/app/services/binding/form-group/form-group-sign-up.service';
 import { ConnectionService } from 'src/app/services/connection/connection.service';
+import { FormService } from 'src/app/services/form/form.service';
 import { ConnectionComponent } from '../layout/connection.component';
 
 @Component({
@@ -29,7 +30,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private form_group_sign_up_service: FormGroupSignUpService,
     public connection_service: ConnectionService,
-    private connection_component: ConnectionComponent
+    private connection_component: ConnectionComponent,
+    private form_service: FormService
   )
   {
     this.connection_service.type.next("Sign-up");
@@ -43,25 +45,10 @@ export class SignUpComponent implements OnInit {
   {
     if(this.form.invalid)
     {
-      this.validateAllFields(this.form);
+      this.form_service.validateAllFields(this.form);
       return;
     }
     this.connection_service.sign_up(this.form);
   }
-
-  validateAllFields(formGroup: FormGroup)
-  {
-    Object.keys(formGroup.controls).forEach(field => {
-        const control = formGroup.get(field);
-        if (control instanceof FormControl)
-        {
-            control.markAsTouched({ onlySelf: true });
-        }
-        else if (control instanceof FormGroup)
-        {
-            this.validateAllFields(control);
-        }
-    });
-}
 
 }

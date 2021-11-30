@@ -7,16 +7,7 @@ import { CV } from 'src/app/classes/cv/cv';
 })
 export class CvInfoService
 {
-  public cv_info_subject = new BehaviorSubject<CV>(new CV("", "Younes",
-                                                              "Adnane",
-                                                              "younes.adnane4@gmail.com",
-                                                              "Web Developer","+212 63545454","Lorem Ipsum is simply dummy text of the printing and typesetting",
-                                                              "12/12/1900",
-                                                              this.get_trainings_diplomas_test_data(),
-                                                              this.get_specialization_test_data(),
-                                                              this.get_work_history_test_data(),
-
-                                                              ));
+  public cv_info_subject = new BehaviorSubject<CV>(new CV());
   public cv_info = this.cv_info_subject.asObservable();
   private cv: CV = new CV();
 

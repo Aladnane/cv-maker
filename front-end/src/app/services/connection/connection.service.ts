@@ -11,7 +11,7 @@ import { UserService } from "../user/user.service";
 })
 export class ConnectionService implements OnDestroy
 {
-  private server_url: string = "http://localhost:8000/api";
+  private server_url: string = "http://localhost:8000/api";//"https://cvmakerbackend.000webhostapp.com/api";
   private redirect_to: string = "/";
 
   //Connection Types (Login/Sign-Up)
