@@ -1,0 +1,29 @@
+<!-- Filter -->
+<section class="portfolio-list component-container items-list">
+  <ul>
+    <li *ngFor='let portfolio of portfolio_list'>
+      <div class="thumbnail">
+        <img src="{{portfolio.thumbnail_url}}">
+        <div class="tools">
+          <a class='tool' (click)='create_portfolio()'>
+            <i class="las la-pen-alt"></i>
+            <small>Create</small>
+          </a>
+          <div class="separator"></div>
+          <a class='tool'>
+            <i class="las la-expand"></i>
+            <small>Preview</small>
+          </a>
+        </div>
+      </div>
+
+      <div class="presentation">
+        <h2 class="title">{{portfolio.name}}</h2>
+        <p class="desc">{{portfolio.desc}}</p>
+        <ul class="tags">
+          <li *ngFor='let tag of portfolio.tags'>{{tag}}</li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</section>

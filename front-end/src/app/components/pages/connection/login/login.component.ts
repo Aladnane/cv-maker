@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     )
   {
       this.form = this.form_builder.group({
-        "email": ["", [Validators.required, Validators.pattern]],
-        "password": ["", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
+        "email": ["email@email.test", [Validators.required, Validators.pattern]],
+        "password": ["12345678", [Validators.required, Validators.minLength(8), Validators.maxLength(100)]],
       });
 
       this.connection_service.type.next("Login");

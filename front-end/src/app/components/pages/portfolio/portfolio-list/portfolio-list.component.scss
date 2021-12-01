@@ -2,22 +2,21 @@
 {
   > ul
   {
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(2, 40%);
 
     > li
     {
       .thumbnail,
       .presentation
       {
-        width: 280px;
+        width: 100%;
       }
 
       .thumbnail,
       .thumbnail img
       {
-        height: 400px;
+        height: 300px;
       }
-
     }
   }
 }

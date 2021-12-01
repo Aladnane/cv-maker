@@ -1,0 +1,129 @@
+@import "/src/assets/styles/global/variables/variables";
+
+.items-list
+{
+  > ul
+  {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    gap: 80px 0px;
+    justify-content: space-around;
+
+    > li
+    {
+      justify-self: center;
+      background: #353340;
+      padding: 8px;
+      box-sizing: border-box;
+      margin: 0 5px;
+      border-radius: 5px;
+      box-shadow: 0 0 6px 0px #000;
+
+      .thumbnail
+      {
+        position: relative;
+
+        img
+        {
+          width: 100%;
+          border-radius: 5px;
+        }
+        .tools
+        {
+          position: absolute;
+          bottom: 0%;
+          opacity: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #000000e6;
+          border-radius: 5px;
+          padding: 5px 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          grid-gap: 0 7px;
+          gap: 0 15px;
+          transition: all .3s ease-in-out;
+          text-align: center;
+          line-height: 1;
+
+          .tool
+          {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0 5px;
+
+            i
+            {
+              color: #ccc;
+              font-size: 1.5rem;
+            }
+
+            &:hover,
+            &:hover i
+            {
+              color: #FFF;
+            }
+          }
+
+          .separator
+          {
+            width: 2px;
+            height: 27px;
+            background-color: #353340;
+            border-radius: 7px;
+            background-color: $main-background-color-light;
+          }
+        }
+
+        &:hover .tools
+        {
+          bottom: 10px;
+          opacity: 1;
+        }
+      }
+      .presentation
+      {
+        .title
+        {
+          margin: 5px 0px;
+          text-shadow: 0 0 2px #412c3d;
+          color: #8b7386;
+        }
+        .desc
+        {
+          line-height: 1;
+          font-family: 'Inter-Light', 'Inter-Bold';
+        }
+
+        .tags
+        {
+          display: flex;
+          gap: 5px;
+          padding: 0;
+          flex-wrap: wrap;
+          margin-top: 10px;
+
+          li
+          {
+            padding: 3px 7px;
+            background-color: #000000;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.7rem;
+
+            &:hover
+            {
+              background-color: $main-color-light;
+              // border-color: $main-background-color-light;
+              color: $main-background-color-light;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

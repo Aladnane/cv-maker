@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 
 //Components
@@ -28,6 +29,8 @@ import { CvFormComponent } from './components/partials/cv/cv-form/cv-form.compon
 import { CvPreviewComponent } from './components/partials/cv/cv-preview/cv-preview.component';
 import { TagComponent } from './components/partials/tags/tag/tag.component';
 import { PhotoEditorComponent } from './components/partials/photo-editor/photo-editor.component';
+import { PortfolioListComponent } from './components/pages/portfolio/portfolio-list/portfolio-list.component';
+import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-maker/portfolio-maker.component';
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { PhotoEditorComponent } from './components/partials/photo-editor/photo-e
     CvPreviewComponent,
     TagComponent,
     PhotoEditorComponent,
+    PortfolioListComponent,
+    PortfolioMakerComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +65,13 @@ import { PhotoEditorComponent } from './components/partials/photo-editor/photo-e
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    SnotifyModule,
   ],
-  providers: [WithoutSpacesPipe],
+  providers: [
+    WithoutSpacesPipe,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
+    SnotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

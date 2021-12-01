@@ -9,12 +9,14 @@ import { ConnectionComponent } from './components/pages/connection/layout/connec
 import { LoginComponent } from './components/pages/connection/login/login.component';
 import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
 import { CvMakerComponent } from './components/pages/cv/cv-maker/cv-maker.component';
+import { PortfolioListComponent } from './components/pages/portfolio/portfolio-list/portfolio-list.component';
 
 const routes: Routes = [
   {path: "discover", component: DiscoverComponent},
   {path: "", redirectTo: "discover", pathMatch: "full"},
   {path: "trending", component: TrendingComponent},
   {path: "profil", component: ProfilComponent},
+  {path: "portfolio-list", component: PortfolioListComponent},
   {
     path: "",
     component: ConnectionComponent,
