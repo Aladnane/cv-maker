@@ -4,14 +4,14 @@
     <i class="las la-search icon" (click)='focusOnSearchInput()'></i>
   </div>
 
-  <div class="connection"  *ngIf='!this.auth_service.is_authenticated()'>
+  <div class="connection"  *ngIf='!authenticated'>
     <ul>
       <li><a routerLink="login" routerLinkActive="active" class='login'>Login</a></li>
       <li><a routerLink="sign-up" routerLinkActive="active" class='sign-up'>Sign Up</a></li>
     </ul>
   </div>
 
-  <div class="user" *ngIf='this.auth_service.is_authenticated()'>
+  <div class="user" *ngIf='authenticated'>
     <div class="pers-info">
         <div class="img">
           <img src="/assets/images/user-placeholder.jpeg">

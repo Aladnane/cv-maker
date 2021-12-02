@@ -1,0 +1,28 @@
+.combo
+{
+  display: flex;
+  gap: 0 10px;
+  align-items: center;
+
+  .title
+  {
+
+  }
+  .selector
+  {
+    box-shadow: 0 0 2px 0 #000000ad;
+    min-width: 200px;
+    border-radius: 2px;
+    padding: 1px 5px;
+
+    .placeholder
+    {
+      width: 100%;
+      display: block;
+    }
+    .items
+    {
+      display: none;
+    }
+  }
+}

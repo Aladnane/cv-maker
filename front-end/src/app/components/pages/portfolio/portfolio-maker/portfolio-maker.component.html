@@ -1,1 +1,25 @@
-<p>portfolio-maker works!</p>
+<section class="portfolio-maker">
+  <header>
+      <div class="left-side">
+        <h2 class="logo">CV-Maker</h2>
+        <div class="pages-nav">
+          <app-combo title='Pages' placeholder='Select The Pages' [list]='pages_list'></app-combo>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <a href="#" target='_blank'>Preview</a>
+        <app-button text='Save' icon_classes='{{"las la-sign-in-alt"}}' btn='save'></app-button>
+      </div>
+  </header>
+  <section class='editor'>
+    <nav class="tools">
+      <ul>
+        <li><i class="fas fa-plus"></i></li>
+      </ul>
+    </nav>
+    <div class="content">
+
+    </div>
+  </section>
+</section>

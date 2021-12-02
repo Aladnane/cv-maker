@@ -13,6 +13,7 @@ export class TopNavBarComponent implements OnInit {
 
   @ViewChild("search") search: any;
   public user?: User;
+  public authenticated: boolean = false;
 
   constructor(
                 private withoutSpacesPipe: WithoutSpacesPipe,
@@ -21,6 +22,7 @@ export class TopNavBarComponent implements OnInit {
               )
   {
       this.user_service.user.subscribe(user => this.user = user);
+      this.auth_service.auth.subscribe(auth => this.authenticated = auth);
   }
 
   ngOnInit(): void {

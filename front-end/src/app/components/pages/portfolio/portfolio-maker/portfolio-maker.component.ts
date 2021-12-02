@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioMakerComponent implements OnInit {
 
+  public pages_list = ["Home","About","Contact"];
+
   constructor() { }
 
   ngOnInit(): void {

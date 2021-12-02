@@ -3,6 +3,11 @@
   <ul>
     <li *ngFor='let portfolio of portfolio_list'>
       <div class="thumbnail">
+        <header class='window-header'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </header>
         <img src="{{portfolio.thumbnail_url}}">
         <div class="tools">
           <a class='tool' (click)='create_portfolio()'>
@@ -19,10 +24,10 @@
 
       <div class="presentation">
         <h2 class="title">{{portfolio.name}}</h2>
-        <p class="desc">{{portfolio.desc}}</p>
+        <!-- <p class="desc">{{portfolio.desc}}</p>
         <ul class="tags">
           <li *ngFor='let tag of portfolio.tags'>{{tag}}</li>
-        </ul>
+        </ul> -->
       </div>
     </li>
   </ul>

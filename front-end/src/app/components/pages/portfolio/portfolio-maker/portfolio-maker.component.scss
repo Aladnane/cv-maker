@@ -1,0 +1,51 @@
+.portfolio-maker
+{
+  header
+  {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 24px;
+    align-items: center;
+    border: 1px solid #c2c2c280;
+
+    .left-side
+    {
+      display: flex;
+      gap: 0 10px;
+      .logo
+      {
+
+      }
+      .pages-nav
+      {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .right-side
+    {
+      display: flex;
+      gap: 0 10px;
+
+    }
+  }
+
+  .editor
+  {
+    display: flex;
+    height: 100vh;
+
+    .tools
+    {
+        width: 80px;
+        background-color: #FFF;
+        border-right: 1px solid #c2c2c280;
+    }
+    .content
+    {
+        grow: 1;
+    }
+  }
+
+
+}

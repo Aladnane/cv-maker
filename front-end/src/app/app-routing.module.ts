@@ -10,6 +10,10 @@ import { LoginComponent } from './components/pages/connection/login/login.compon
 import { CvListComponent } from './components/pages/cv/cv-list/cv-list.component';
 import { CvMakerComponent } from './components/pages/cv/cv-maker/cv-maker.component';
 import { PortfolioListComponent } from './components/pages/portfolio/portfolio-list/portfolio-list.component';
+import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-maker/portfolio-maker.component';
+import { AuthGuard } from "./gards/authentification/auth/AuthGuard";
+import { NotAuthGuard } from './gards/authentification/not-auth/not-auth.guard';
+
 
 const routes: Routes = [
   {path: "discover", component: DiscoverComponent},
@@ -17,12 +21,13 @@ const routes: Routes = [
   {path: "trending", component: TrendingComponent},
   {path: "profil", component: ProfilComponent},
   {path: "portfolio-list", component: PortfolioListComponent},
+  {path: "portfolio/create", component: PortfolioMakerComponent, canActivate: [AuthGuard]},
   {
     path: "",
     component: ConnectionComponent,
     children: [
-      {path: "sign-up", component: SignUpComponent},
-      {path: "login", component: LoginComponent}
+      {path: "sign-up", component: SignUpComponent, canActivate: [NotAuthGuard]},
+      {path: "login", component: LoginComponent, canActivate: [NotAuthGuard]}
     ]
   },
   {path: "cv-list", component: CvListComponent},

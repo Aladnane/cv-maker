@@ -1,11 +1,11 @@
-<div class="body">
-  <!-- <div class="debug-label">Debug</div> -->
+<div class="body" [class.full-page]='full_page'>
+  <div class="debug-label">Debug</div>
   <div class="container">
 
-    <app-left-nav-bar></app-left-nav-bar>
+    <app-left-nav-bar *ngIf='!full_page'></app-left-nav-bar>
 
     <section class="content">
-      <app-top-nav-bar></app-top-nav-bar>
+      <app-top-nav-bar *ngIf='!full_page'></app-top-nav-bar>
       <router-outlet></router-outlet>
     </section>
   </div>

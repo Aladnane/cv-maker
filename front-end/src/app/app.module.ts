@@ -31,6 +31,7 @@ import { TagComponent } from './components/partials/tags/tag/tag.component';
 import { PhotoEditorComponent } from './components/partials/photo-editor/photo-editor.component';
 import { PortfolioListComponent } from './components/pages/portfolio/portfolio-list/portfolio-list.component';
 import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-maker/portfolio-maker.component';
+import { ComboComponent } from './components/partials/combo/combo.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-
     PhotoEditorComponent,
     PortfolioListComponent,
     PortfolioMakerComponent,
+    ComboComponent,
   ],
   imports: [
     BrowserModule,

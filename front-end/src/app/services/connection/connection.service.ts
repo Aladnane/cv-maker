@@ -3,6 +3,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Observable, Subject, Subscription } from "rxjs";
+import { AuthenticationService } from "../authentication/authentication.service";
 import { NotifyService } from "../notify/notify.service";
 import { TokenService } from "../token/token.service";
 import { UserService } from "../user/user.service";
@@ -32,7 +33,8 @@ export class ConnectionService implements OnDestroy
                 private token_service: TokenService,
                 private router: Router,
                 private user_service: UserService,
-                private notify_service: NotifyService
+                private notify_service: NotifyService,
+                private authentication_service: AuthenticationService
               ) { }
 
   public sign_up(sign_up_form: FormGroup)
@@ -47,6 +49,7 @@ export class ConnectionService implements OnDestroy
             this.user_service.setAttribute("first_name", (<any> response).first_name);
             this.user_service.setAttribute("last_name", (<any> response).last_name);
             this.notify_service.success(`Welcome Mr ${(<any> response).first_name}`);
+            this.authentication_service.auth_subject.next(true);
           },
           error => {
             if(typeof error.error.errors !== 'undefined' && typeof error.error.errors["email"] !== 'undefined')
@@ -70,6 +73,7 @@ export class ConnectionService implements OnDestroy
               this.user_service.setAttribute("first_name", (<any> response).first_name);
               this.user_service.setAttribute("last_name", (<any> response).last_name);
               this.notify_service.success(`Welcome Back Mr ${(<any> response).first_name}`);
+              this.authentication_service.auth_subject.next(true);
           },
           error => {
               this.notify_service.error("The email address or password is incorrect. Please retry...");

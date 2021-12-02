@@ -11,11 +11,22 @@
   background-position: bottom;
   position: relative;
 
-  // .debug-label
-  // {
-  //   position: absolute;
-  //   top: 0
-  // }
+  .debug-label
+  {
+    position: absolute;
+    top: 29px;
+    left: -56px;
+    width: 200px;
+    z-index: 10;
+    background-color: #FF6059;
+    transform: rotate(-44deg);
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 5px 2px #00000073;
+    cursor: default;
+  }
+
 
   .container
   {
@@ -40,7 +51,17 @@
       box-sizing: border-box;
       width: 100%;
       position: relative;
-      // background: $main-background-color;
+    }
+  }
+
+  &.full-page
+  {
+    .container
+    {
+      background: #FFF;
+      color: #0f0d0d;
+
+      .content{padding: 0px;}
     }
   }
 }

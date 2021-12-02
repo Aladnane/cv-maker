@@ -92,4 +92,9 @@ class AuthController extends Controller
             'last_name' => auth()->user()->last_name
         ]);
     }
+
+    public function check_token(Request $request)
+    {
+        return $request->token;
+    }
 }
