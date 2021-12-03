@@ -32,6 +32,14 @@ import { PhotoEditorComponent } from './components/partials/photo-editor/photo-e
 import { PortfolioListComponent } from './components/pages/portfolio/portfolio-list/portfolio-list.component';
 import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-maker/portfolio-maker.component';
 import { ComboComponent } from './components/partials/combo/combo.component';
+import { PortfolioTemplateComponent } from './components/pages/portfolio/portfolio-maker/portfolio-template/portfolio-template.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PortfolioTextEditorDialogComponent } from './components/partials/dialogs/portfolio/text-editor/portfolio-text-editor-dialog.component';
+
+
+// import { MaterialUiModule } from './modules/material-ui/material-ui.module';
+// import { PortfolioTextEditorDialogComponent } from './components/partials/dialogs/portfolio/text-editor/text-editor.component';
 
 
 @NgModule({
@@ -60,7 +68,10 @@ import { ComboComponent } from './components/partials/combo/combo.component';
     PortfolioListComponent,
     PortfolioMakerComponent,
     ComboComponent,
+    PortfolioTemplateComponent,
+    // PortfolioTextEditorDialogComponent,
   ],
+  entryComponents: [PortfolioTextEditorDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -68,6 +79,8 @@ import { ComboComponent } from './components/partials/combo/combo.component';
     FormsModule,
     HttpClientModule,
     SnotifyModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     WithoutSpacesPipe,

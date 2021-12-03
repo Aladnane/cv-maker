@@ -60,6 +60,11 @@
     {
       background: #FFF;
       color: #0f0d0d;
+      position: static;
+      width: 100%;
+      transform: none;
+      height: 100vh;
+      border-radius: 0;
 
       .content{padding: 0px;}
     }

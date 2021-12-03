@@ -1,5 +1,5 @@
 <div class="body" [class.full-page]='full_page'>
-  <div class="debug-label">Debug</div>
+  <div class="debug-label" *ngIf='!full_page'>Debug</div>
   <div class="container">
 
     <app-left-nav-bar *ngIf='!full_page'></app-left-nav-bar>
