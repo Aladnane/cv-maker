@@ -1,0 +1,1 @@
+<input type="text" class='input-editable' (dblclick)='emit_selected_input(input)' [value]='default_value' [placeholder]='placeholder' spellcheck="false" [class.editable]='input_editable === input' (contextmenu)='display_style_menu_emitter.emit()' (blur)='emit_selected_input("")' (keyup.enter)='emit_selected_input("")'>

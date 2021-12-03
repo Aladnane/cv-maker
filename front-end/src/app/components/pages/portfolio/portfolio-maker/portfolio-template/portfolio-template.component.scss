@@ -1,6 +1,7 @@
 .portfolio-template
 {
   overflow-x: hidden;
+  height: -webkit-fill-available;
 
   .container
   {
@@ -28,33 +29,61 @@
     padding: 0;
   }
 
-  .edit:hover
+  .edit
   {
-    outline: 1px solid #ccc;
-    position: relative;
-    border-radius: 3px;
-    cursor:default;
-
-    &::before
+    &:hover
     {
-      content: "Text";
-      position: absolute;
-      top: -18px;
-      left: 0;
-      padding: 2px 7px;
-      border-radius: 2px 2px 0 0;
-      line-height: 1;
-      background-color: #D6E6FF;
-      color: #5496FF;
-      font-size: 0.9rem;
+      outline: 1px solid #ccc;
+      position: relative;
+      border-radius: 3px;
+      cursor:default;
+
+      &::before
+      {
+        content: "Text";
+        position: absolute;
+        top: -18px;
+        left: 0;
+        padding: 2px 7px;
+        border-radius: 2px 2px 0 0;
+        line-height: 1;
+        background-color: #D6E6FF;
+        color: #5496FF;
+        font-size: 0.9rem;
+      }
     }
+
+    // input[type='text']
+    // {
+    //   background-color: transparent;
+    //   border: none;
+    //   outline: none;
+    //   font-size: 1em;
+    //   color: inherit;
+    //   caret-color: transparent;
+    //   user-select:none;
+
+    //   &::selection{background: none}
+    //   &::placeholder{color: #ffffffa1;}
+
+    //   &.editable
+    //   {
+    //     caret-color: #124b3c;
+    //     &::selection{background: #33846F;}
+    //   }
+    // }
+  }
+
+  ::selection {
+    color: #FFF;
+    background: #33846F;
   }
 
 	header
 	{
     background-color: #33846F;
     color: white;
-    padding-top: 20px;
+    padding: 20px 20px 0;
 
     .container
     {
@@ -100,6 +129,12 @@
   {
     height: 600px;
     position: relative;
+
+    > *
+    {
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
     .back
     {

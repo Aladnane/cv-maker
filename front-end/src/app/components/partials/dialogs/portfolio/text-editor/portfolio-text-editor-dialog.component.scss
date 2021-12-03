@@ -1,0 +1,50 @@
+.text-editor
+{
+  min-width: 300px;
+  border-top: 5px solid #116DFF;
+  font-size: 1.1em;
+
+  h3
+  {
+    margin: 0;
+    padding: 0;
+  }
+
+  header,
+  .property
+  {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  header
+  {
+    .title
+    {
+      display: flex;
+      justify-content:space-between;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .property
+  {
+    border-top: .4px solid #ccc;
+    padding: 20px 5px;
+
+    label
+    {
+      font-weight: 100;
+      font-size: .9em;
+      color: #333;
+    }
+
+    &.inline-properties
+    {
+      display: flex;
+      justify-content: space-around;
+      // width: 200px;
+
+    }
+  }
+}

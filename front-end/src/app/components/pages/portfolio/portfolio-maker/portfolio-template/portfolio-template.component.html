@@ -21,8 +21,14 @@
             <img src="/assets/images/user4.jpg">
           </div>
           <div class="info">
-            <h1 class="title edit" (click)='edit_text("Younes")' #fullname>Younes ADNANE</h1>
-            <h3 class="profession edit">Web Developer</h3>
+            <h1 class="title edit">
+              <!-- <input type="text" (dblclick)='input_editable = "firstname"' value='Younes ADNANE' placeholder='Firstname' spellcheck="false" [class.editable]='input_editable === "firstname"' (blur)='input_editable = ""' (keyup.enter)='input_editable = ""'> -->
+              <app-input-editable input='firstname' placeholder='FirstName' default_value='Younes ADNANE' (display_style_menu)='edit_text("")' ></app-input-editable>
+            </h1>
+            <h3 class="profession edit">
+              <!-- <input type="text" (dblclick)='input_editable = "profession"' value='Web Developer' placeholder='Profession' spellcheck="false" [class.editable]='input_editable === "profession"' (blur)='input_editable = ""' (keyup.enter)='input_editable = ""'> -->
+              <app-input-editable input='profession' placeholder='Profession' default_value='Web Developer' (display_style_menu)='edit_text("")' ></app-input-editable>
+            </h3>
             <div class="links">
               <i class="fab fa-linkedin-in"></i>
               <i class="fab fa-twitter"></i>

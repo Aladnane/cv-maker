@@ -10,14 +10,27 @@ import { PortfolioTextEditorDialogComponent } from 'src/app/components/partials/
 })
 export class PortfolioTemplateComponent implements OnInit {
 
+  public input_editable : string = "";
+
   constructor(private mat_dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    // this.edit_text("");
   }
 
-  public edit_text(text: string)
+  public edit_text(text: string, event?: any)
   {
+    // if(typeof event != undefined)
+    // {
+    //   event.preventDefault();
+    // }
     this.mat_dialog.open(PortfolioTextEditorDialogComponent);
   }
+
+  // public make_input_editable(input: HTMLInputElement)
+  // {
+  //   input.addClass("editable");
+  // }
 
 }

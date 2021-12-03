@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
-// import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
-// const material = [
-//     MatDialogModule,
-//     MatDialog
-// ];
+const material = [
+    MatDialogModule
+];
 
 
 @NgModule({
   declarations: [],
-  // imports: [material],
-  // exports: [material]
+  imports: [material],
+  exports: [material]
 })
 
 export class MaterialUiModule { }

@@ -36,6 +36,8 @@ import { PortfolioTemplateComponent } from './components/pages/portfolio/portfol
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PortfolioTextEditorDialogComponent } from './components/partials/dialogs/portfolio/text-editor/portfolio-text-editor-dialog.component';
+import { MaterialUiModule } from './modules/material-ui/material-ui.module';
+import { InputEditableComponent } from './components/partials/inputs/input-editable/input-editable.component';
 
 
 // import { MaterialUiModule } from './modules/material-ui/material-ui.module';
@@ -69,7 +71,8 @@ import { PortfolioTextEditorDialogComponent } from './components/partials/dialog
     PortfolioMakerComponent,
     ComboComponent,
     PortfolioTemplateComponent,
-    // PortfolioTextEditorDialogComponent,
+    PortfolioTextEditorDialogComponent,
+    InputEditableComponent,
   ],
   entryComponents: [PortfolioTextEditorDialogComponent],
   imports: [
@@ -80,7 +83,7 @@ import { PortfolioTextEditorDialogComponent } from './components/partials/dialog
     HttpClientModule,
     SnotifyModule,
     BrowserAnimationsModule,
-    MatDialogModule,
+    MaterialUiModule
   ],
   providers: [
     WithoutSpacesPipe,

@@ -1,0 +1,19 @@
+.input-editable
+{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: inherit;
+  caret-color: transparent;
+  user-select:none;
+
+  &::selection{background: none}
+  &::placeholder{color: #ffffffa1;}
+
+  &.editable
+  {
+    caret-color: #124b3c;
+    &::selection{background: #33846F;}
+  }
+}
