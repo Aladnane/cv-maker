@@ -11,13 +11,11 @@ import { PortfolioTextEditorDialogComponent } from 'src/app/components/partials/
 export class PortfolioTemplateComponent implements OnInit {
 
   public input_editable : string = "";
+  public services_list = this.services_test_data();
 
   constructor(private mat_dialog: MatDialog) { }
 
-  ngOnInit(): void
-  {
-    // this.edit_text("");
-  }
+  ngOnInit(): void{}
 
   public edit_text(text: string, event?: any)
   {
@@ -33,4 +31,24 @@ export class PortfolioTemplateComponent implements OnInit {
   //   input.addClass("editable");
   // }
 
+  private services_test_data()
+  {
+    return [
+      this.service_test_data(),
+      this.service_test_data(),
+      this.service_test_data(),
+      this.service_test_data(),
+      this.service_test_data(),
+      this.service_test_data()
+    ];
+  }
+
+  private service_test_data()
+  {
+    return {
+        title: "Data Analysis",
+        type: "chart",
+        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, rerum."
+      };
+  }
 }

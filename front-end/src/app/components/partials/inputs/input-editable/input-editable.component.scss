@@ -1,19 +1,90 @@
 .input-editable
 {
-  background-color: transparent;
-  border: none;
+  position: relative;
   outline: none;
-  font-size: 1em;
-  color: inherit;
-  caret-color: transparent;
-  user-select:none;
 
-  &::selection{background: none}
-  &::placeholder{color: #ffffffa1;}
-
-  &.editable
+  .actions
   {
-    caret-color: #124b3c;
-    &::selection{background: #33846F;}
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: -70%;
+    left: 0;
+    transform: translateY(-15px);
+
+    .btn
+    {
+      background-color: #FFF;
+      color: #777;
+      border-radius: 30px;
+      box-shadow: 0 0 2px #000;
+      padding: 6px 10px;
+      font-weight: bold;
+      margin-right: 10px;
+
+      &:hover{color: #555;}
+    }
   }
+
+  &.selected
+  {
+    .actions{display: flex}
+  }
+
+  .input
+  {
+    input,
+    textarea
+    {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 1em;
+      color: inherit;
+      caret-color: transparent;
+      user-select:none;
+      width: 100%;
+
+      &::selection{background: none}
+      // &::placeholder{color: #ffffffa1;}
+      &::placeholder{color: #33846f61;}
+
+      &.editable
+      {
+        caret-color: #124b3c;
+        &::selection{background: #33846F;}
+      }
+    }
+
+    textarea
+    {
+      width: -webkit-fill-available;
+      resize: none;
+      min-height: 100px;
+    }
+  }
+
+  .input:hover,
+  &.selected .input
+  {
+    outline: 1px solid #ccc;
+    position: relative;
+    border-radius: 3px;
+    cursor:default;
+
+    &::before
+    {
+      content: "Text";
+      position: absolute;
+      top: -18px;
+      left: 0;
+      padding: 2px 7px;
+      border-radius: 2px 2px 0 0;
+      line-height: 1;
+      background-color: #D6E6FF;
+      color: #5496FF;
+      font-size: 0.9rem;
+    }
+  }
+
 }

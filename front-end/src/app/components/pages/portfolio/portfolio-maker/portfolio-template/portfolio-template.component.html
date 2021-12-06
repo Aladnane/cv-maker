@@ -14,7 +14,8 @@
       </div>
     </header>
 
-    <div class="pers-info">
+    <!-- Personnel Info -->
+    <section class="pers-info">
       <div class="back"></div>
       <div class="content">
           <div class="image">
@@ -35,12 +36,48 @@
               <i class="fas fa-phone"></i>
             </div>
             <p class="description edit">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Vel consequuntur alias, aliquid ea voluptates fuga non cum aperiam laborum excepturi.
+              <app-input-editable input='desc_user' placeholder='Description' [multiline]='true' (display_style_menu)='edit_text("")'
+              default_value='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel consequuntur alias, aliquid ea voluptates fuga non cum aperiam laborum excepturi.'>
+              </app-input-editable>
             </p>
 
             <app-button text='About Me' icon_classes='{{"las la-sign-in-alt"}}'></app-button>
           </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <header>
+        <div class="container">
+          <h1 class="title">
+            <app-input-editable input='title_block_service' placeholder='Service Title' default_value='My Offered Services' (display_style_menu)='edit_text("")' ></app-input-editable>
+          </h1>
+          <p class="desc">
+            <app-input-editable input='desc_block_service' placeholder='Service Description' [multiline]='true' (display_style_menu)='edit_text("")'
+            default_value='Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit labore id iure nesciunt quas dolor debitis, quaerat dolorem dicta adipisci!'>
+            </app-input-editable>
+          </p>
+        </div>
+      </header>
+
+      <div class="container">
+        <ul class="services-list">
+          <li *ngFor='let service of services_list' class="service">
+            <div class="title">
+              <!-- ngSwitch -->
+              <i class="far fa-chart-bar"></i>
+              <span>
+                <app-input-editable input='title_service' placeholder='Service' [default_value]='service.title' (display_style_menu)='edit_text("")' ></app-input-editable>
+              </span>
+            </div>
+            <p class="desc">
+              <app-input-editable input='desc_service' placeholder='Description' [multiline]='true' (display_style_menu)='edit_text("")'
+              [default_value]='service.desc'>
+              </app-input-editable>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
 </section>

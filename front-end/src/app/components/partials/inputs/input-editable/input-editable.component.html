@@ -1,1 +1,14 @@
-<input type="text" class='input-editable' (dblclick)='emit_selected_input(input)' [value]='default_value' [placeholder]='placeholder' spellcheck="false" [class.editable]='input_editable === input' (contextmenu)='display_style_menu_emitter.emit()' (blur)='emit_selected_input("")' (keyup.enter)='emit_selected_input("")'>
+<div class="input-editable" [class.selected]='input_selected === input' (focusout)='focusout()'>
+  <ul class="actions">
+    <li><app-button (mousedown)='btn_click()' text='Edit Text' *ngIf='input_editable === ""'></app-button></li>
+    <li><app-button text='Edit Style'></app-button></li>
+  </ul>
+
+  <div class="input" (click)='select_input()' (contextmenu)='select_input($event)'>
+    <input *ngIf='!multiline' type="text" #input_field (dblclick)='emit_selected_input()' [value]='default_value' [placeholder]='placeholder' spellcheck="false" [class.editable]='input_editable === input' (blur)='emit_selected_input("")' (keyup.enter)='emit_selected_input("")'>
+
+    <textarea *ngIf='multiline' #textarea_field (dblclick)='emit_selected_input()' [placeholder]='placeholder' spellcheck="false" [class.editable]='input_editable === input' (blur)='emit_selected_input("")' (keyup.enter)='emit_selected_input("")'
+    >{{default_value}}</textarea>
+  </div>
+</div>
+<!-- (contextmenu)='display_style_menu_emitter.emit()' -->

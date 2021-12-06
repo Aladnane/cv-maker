@@ -1,3 +1,6 @@
+//Variables
+$template-main-color: #33846F;
+
 .portfolio-template
 {
   overflow-x: hidden;
@@ -12,7 +15,7 @@
 
   .btn
   {
-    background-color: #33846F;
+    background-color: $template-main-color;
     box-shadow: 0 1px 7px 0px #161616b8;
     color: white;
     padding: 7px 14px;
@@ -29,59 +32,14 @@
     padding: 0;
   }
 
-  .edit
-  {
-    &:hover
-    {
-      outline: 1px solid #ccc;
-      position: relative;
-      border-radius: 3px;
-      cursor:default;
-
-      &::before
-      {
-        content: "Text";
-        position: absolute;
-        top: -18px;
-        left: 0;
-        padding: 2px 7px;
-        border-radius: 2px 2px 0 0;
-        line-height: 1;
-        background-color: #D6E6FF;
-        color: #5496FF;
-        font-size: 0.9rem;
-      }
-    }
-
-    // input[type='text']
-    // {
-    //   background-color: transparent;
-    //   border: none;
-    //   outline: none;
-    //   font-size: 1em;
-    //   color: inherit;
-    //   caret-color: transparent;
-    //   user-select:none;
-
-    //   &::selection{background: none}
-    //   &::placeholder{color: #ffffffa1;}
-
-    //   &.editable
-    //   {
-    //     caret-color: #124b3c;
-    //     &::selection{background: #33846F;}
-    //   }
-    // }
-  }
-
   ::selection {
     color: #FFF;
-    background: #33846F;
+    background: $template-main-color;
   }
 
-	header
+	> header
 	{
-    background-color: #33846F;
+    background-color: $template-main-color;
     color: white;
     padding: 20px 20px 0;
 
@@ -113,7 +71,7 @@
             .btn
             {
               background-color: #FFF;
-              color: #33846F;
+              color: $template-main-color;
             }
 
             &.active,
@@ -129,6 +87,7 @@
   {
     height: 600px;
     position: relative;
+    padding-bottom: 50px;
 
     > *
     {
@@ -140,7 +99,7 @@
     {
       height: 50%;
       overflow: hidden;
-      background: linear-gradient(180deg, #33846F, #6bbba6);
+      background: linear-gradient(180deg, $template-main-color, #6bbba6);
       box-shadow: 0 14px 9px 4px #67b8a3;
 
       img
@@ -215,5 +174,80 @@
         }
       }
     }
+  }
+
+  .services
+  {
+      min-height: 600px;
+      text-align: center;
+      padding: 50px 0;
+      font-size: 1.1em;
+
+      header
+      {
+        margin-bottom: 70px;
+
+        .container
+        {
+          max-width: 500px;
+
+          .title
+          {
+            font-size: 2em;
+            color: #33846F;
+            margin-bottom: 10px;
+          }
+          .desc
+          {
+        }
+        }
+      }
+
+      .services-list
+      {
+        display: grid;
+        grid-template-columns: repeat(3, 25%);
+        gap: 100px 20px;
+        justify-content: space-around;
+
+        .service
+        {
+          .title
+          {
+            display: flex;
+            flex-direction: column;
+            gap: 20px 0;
+            margin-bottom: 15px;
+            color: #333;
+
+            i
+            {
+              font-size: 3em;
+            }
+            span
+            {
+              font-weight: 500;
+            }
+          }
+
+          .desc
+          {
+            font-weight: 100;
+          }
+          &:hover
+          {
+            .title
+            {
+              color: $template-main-color;
+            }
+          }
+        }
+      }
+
+      .desc{color: #555;}
+
+      .input-editable input,
+      .input-editable textarea
+      {text-align: center !important;}
   }
 }
