@@ -9,11 +9,13 @@ import { FormGroupSignUpService } from 'src/app/services/binding/form-group/form
 })
 export class InputComponent implements OnInit {
 
-  @Input() label: string = "";
+  @Input() label?: string;
   @Input() is_checkbox: boolean = false;
   @Input() inline: boolean = false;
   @Input() field: any;
-  public value: string = "";
+  @Input() type?: string;
+  public value?: string;
+
   get form() { return this.form_group_sign_up_service.form_sign_up; }
   get errors_list() {return this.field?.errors}
   get password_does_not_match()

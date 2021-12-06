@@ -3,6 +3,7 @@
   min-width: 300px;
   border-top: 5px solid #116DFF;
   font-size: 1.1em;
+  overflow: hidden;
 
   h3
   {
@@ -31,6 +32,11 @@
   {
     border-top: .4px solid #ccc;
     padding: 20px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+
+    .combo {width: 100%}
 
     label
     {
@@ -43,8 +49,26 @@
     {
       display: flex;
       justify-content: space-around;
-      // width: 200px;
+      flex-direction: row;
+    }
 
+    .icon
+    {
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+
+      &.active
+      {
+        background: #116dff;
+        border-radius: 50%;
+        color: white;
+      }
+
+      &:hover
+      {
+        transform: translateY(-3px);
+      }
     }
   }
 }

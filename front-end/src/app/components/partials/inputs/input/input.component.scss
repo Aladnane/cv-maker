@@ -5,7 +5,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 8px 0;
-	margin: 5px 0;
 	position: relative;
 
 	&.inline
@@ -18,10 +17,6 @@
 		input{flex-grow: 1}
 	}
 
-	// label
-	// {
-	// }
-
 	input
 	{
 		background-color: $input-background-transparent;
@@ -33,6 +28,16 @@
 		box-shadow: 0 0 4px 1px #000000b5 inset;
 		color: $input-color-transparent;
 	}
+
+  &.simple input
+  {
+    background: #FFF;
+    box-shadow: 0 0 2px 0px #000;
+    border-radius: 2px;
+    color: #444;
+
+    &::placeholder{color: #ccc;}
+  }
 
 	&.checkbox
 	{

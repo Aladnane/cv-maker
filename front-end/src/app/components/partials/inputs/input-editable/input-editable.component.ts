@@ -1,4 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PortfolioTextEditorDialogComponent } from '../../dialogs/portfolio/text-editor/portfolio-text-editor-dialog.component';
 
 @Component({
   selector: 'app-input-editable',
@@ -21,7 +23,7 @@ export class InputEditableComponent implements OnInit {
   private input_focusout: boolean = false;
   private btn_focusout: boolean = false;
 
-  constructor() {};
+  constructor(private dialog: MatDialog) {};
 
 
   ngOnInit(): void{}
@@ -61,7 +63,7 @@ export class InputEditableComponent implements OnInit {
     }, 50);
   }
 
-  public btn_click()
+  public make_input_editable()
   {
     setTimeout(() => {
       this.input_focusout = true;
@@ -69,6 +71,11 @@ export class InputEditableComponent implements OnInit {
       this.emit_selected_input();
       this.input_field?.nativeElement.focus();
     }, 0);
+  }
+
+  public open_style_dialog_box()
+  {
+    this.dialog.open(PortfolioTextEditorDialogComponent, {data: {input: (!this.multiline) ? this.input_field : this.textarea_field}});
   }
 
 }

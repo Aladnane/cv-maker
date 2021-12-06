@@ -1,9 +1,12 @@
-<div class="combo">
+<div class="combo" [class.active]='active' (click)='toggle_display()'>
   <span class="title">{{title}}</span>
   <div class="selector">
-    <span class="placeholder">{{placeholder}}</span>
+    <header>
+      <span class="placeholder">{{placeholder}}</span>
+      <i class="fas" [class]='active ? "fa-chevron-up": "fa-chevron-down"'></i>
+    </header>
     <ul class="items">
-      <li *ngFor='let item of list'>{{item}}</li>
+      <li class='item' *ngFor='let item of list' (click)='selected_item(item)'>{{item.value}}</li>
     </ul>
   </div>
 </div>

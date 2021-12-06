@@ -1,5 +1,6 @@
 //Variables
 $template-main-color: #33846F;
+$template-main-color-light: #87cfbc;
 
 .portfolio-template
 {
@@ -34,7 +35,7 @@ $template-main-color: #33846F;
 
   ::selection {
     color: #FFF;
-    background: $template-main-color;
+    background: $template-main-color !important;
   }
 
 	> header
@@ -163,6 +164,8 @@ $template-main-color: #33846F;
           {
             color: #eee;
             cursor: pointer;
+            text-shadow: 0 0 2px black;
+
             &:hover{color: #fff;}
           }
         }
@@ -250,4 +253,16 @@ $template-main-color: #33846F;
       .input-editable textarea
       {text-align: center !important;}
   }
+
+}
+
+//Selection
+::-webkit-scrollbar-thumb
+{
+  background-color: $template-main-color-light;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+  background-color: $template-main-color;
 }

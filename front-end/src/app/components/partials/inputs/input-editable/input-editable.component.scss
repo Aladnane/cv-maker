@@ -8,7 +8,7 @@
     display: none;
     position: absolute;
     z-index: 10;
-    top: -70%;
+    top: -33px;
     left: 0;
     transform: translateY(-15px);
 
@@ -31,7 +31,7 @@
     .actions{display: flex}
   }
 
-  .input
+  .input-field
   {
     input,
     textarea
@@ -42,11 +42,13 @@
       font-size: 1em;
       color: inherit;
       caret-color: transparent;
-      user-select:none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       width: 100%;
 
       &::selection{background: none}
-      // &::placeholder{color: #ffffffa1;}
       &::placeholder{color: #33846f61;}
 
       &.editable
@@ -64,8 +66,8 @@
     }
   }
 
-  .input:hover,
-  &.selected .input
+  .input-field:hover,
+  &.selected .input-field
   {
     outline: 1px solid #ccc;
     position: relative;

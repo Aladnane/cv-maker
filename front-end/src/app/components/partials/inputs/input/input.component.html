@@ -1,4 +1,4 @@
-<div class="input" [class.checkbox]='is_checkbox' [class.inline]='inline' [class.error]='field?.touched && (errors_list || password_does_not_match)'>
+<div class="input" [class]='type' [class.checkbox]='is_checkbox' [class.inline]='inline' [class.error]='field?.touched && (errors_list || password_does_not_match)'>
   <label>{{label}}</label>
 
   <ng-content></ng-content>

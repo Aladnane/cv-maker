@@ -10,25 +10,26 @@
 
   <div class="property">
     <label>Text</label>
-    <app-input class="input">
-      <input type="text" name='name' autocomplete="off">
+    <app-input class="input" type='simple'>
+      <input type="text" name='name' autocomplete="off" #input (input)='on_text_change($event)'>
     </app-input>
   </div>
 
   <div class="property">
     <label>Fonts</label>
-    <app-combo></app-combo>
+    <app-combo title='' placeholder='' [list]='fonts'></app-combo>
   </div>
 
   <div class="property">
     <label>Font size (px)</label>
+    <mat-slider thumbLabel #font_size_slider [displayWith]="display_slider_value" [(ngModel)]='font_size' (input)='change_input_font_size($event.value)' tickInterval="20" step="0.5" min="8" max="80" aria-label="units"></mat-slider>
   </div>
 
   <div class="property inline-properties">
-    <i class="fas fa-bold"></i>
-    <i class="fas fa-italic"></i>
-    <i class="fas fa-underline"></i>
-    <i class="fas fa-link"></i>
-    <i class="fas fa-paragraph"></i>
+    <i class="fas fa-bold icon"       [class.active]='font_styles.indexOf("bold") !== -1'       (click)='toggle_font_style("bold")'></i>
+    <i class="fas fa-italic icon"     [class.active]='font_styles.indexOf("italic") !== -1'     (click)='toggle_font_style("italic")'></i>
+    <i class="fas fa-underline icon"  [class.active]='font_styles.indexOf("underline") !== -1'  (click)='toggle_font_style("underline")'></i>
+    <i class="fas fa-link icon"       [class.active]='font_styles.indexOf("link") !== -1'       (click)='toggle_font_style("link")'></i>
+    <i class="fas fa-paragraph icon"  [class.active]='font_styles.indexOf("paragraph") !== -1'  (click)='toggle_font_style("paragraph")'></i>
   </div>
 </div>

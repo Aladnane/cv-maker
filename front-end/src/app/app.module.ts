@@ -34,11 +34,10 @@ import { PortfolioMakerComponent } from './components/pages/portfolio/portfolio-
 import { ComboComponent } from './components/partials/combo/combo.component';
 import { PortfolioTemplateComponent } from './components/pages/portfolio/portfolio-maker/portfolio-template/portfolio-template.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
 import { PortfolioTextEditorDialogComponent } from './components/partials/dialogs/portfolio/text-editor/portfolio-text-editor-dialog.component';
 import { MaterialUiModule } from './modules/material-ui/material-ui.module';
 import { InputEditableComponent } from './components/partials/inputs/input-editable/input-editable.component';
-
+import { MatSliderModule } from '@angular/material/slider';
 
 // import { MaterialUiModule } from './modules/material-ui/material-ui.module';
 // import { PortfolioTextEditorDialogComponent } from './components/partials/dialogs/portfolio/text-editor/text-editor.component';
@@ -83,7 +82,8 @@ import { InputEditableComponent } from './components/partials/inputs/input-edita
     HttpClientModule,
     SnotifyModule,
     BrowserAnimationsModule,
-    MaterialUiModule
+    MaterialUiModule,
+    MatSliderModule
   ],
   providers: [
     WithoutSpacesPipe,
