@@ -3,7 +3,7 @@
     <h3 class="title">
       <span>Text Settings</span>
       <span>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times close-dialog" mat-dialog-close></i>
       </span>
     </h3>
   </header>
@@ -16,20 +16,54 @@
   </div>
 
   <div class="property">
+    <label>Color</label>
+    <ul class="inline-properties colors">
+      <li class="color" (click)='toggle_style_multi_value("color", "black")'   [class.active]='styles_properties.color === "black"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "white")'   [class.active]='styles_properties.color === "white"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#33846F")' [class.active]='styles_properties.color === "#33846F"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#E12B20")' [class.active]='styles_properties.color === "#E12B20"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#DF9A00")' [class.active]='styles_properties.color === "#DF9A00"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#EBF203")' [class.active]='styles_properties.color === "#EBF203"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#7CDA23")' [class.active]='styles_properties.color === "#7CDA23"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#0D71C6")' [class.active]='styles_properties.color === "#0D71C6"'></li>
+      <li class="color" (click)='toggle_style_multi_value("color", "#8400E9")' [class.active]='styles_properties.color === "#8400E9"'></li>
+    </ul>
+  </div>
+
+  <div class="property">
+    <label>Background Color</label>
+    <ul class="inline-properties colors">
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "black")'   [class.active]='styles_properties.backgroundColor === "black"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "white")'   [class.active]='styles_properties.backgroundColor === "white"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#33846F")' [class.active]='styles_properties.backgroundColor === "#33846F"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#E12B20")' [class.active]='styles_properties.backgroundColor === "#E12B20"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#DF9A00")' [class.active]='styles_properties.backgroundColor === "#DF9A00"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#EBF203")' [class.active]='styles_properties.backgroundColor === "#EBF203"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#7CDA23")' [class.active]='styles_properties.backgroundColor === "#7CDA23"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#0D71C6")' [class.active]='styles_properties.backgroundColor === "#0D71C6"'></li>
+      <li class="color"   (click)='toggle_style_multi_value("backgroundColor", "#8400E9")' [class.active]='styles_properties.backgroundColor === "#8400E9"'></li>
+    </ul>
+  </div>
+
+  <div class="property">
     <label>Fonts</label>
-    <app-combo title='' placeholder='' [list]='fonts'></app-combo>
+    <app-combo title='' [placeholder]='font_family' [list_enum]='fonts' (change_value)='change_input_style("fontFamily", $event)'></app-combo>
   </div>
 
   <div class="property">
     <label>Font size (px)</label>
-    <mat-slider thumbLabel #font_size_slider [displayWith]="display_slider_value" [(ngModel)]='font_size' (input)='change_input_font_size($event.value)' tickInterval="20" step="0.5" min="8" max="80" aria-label="units"></mat-slider>
+    <mat-slider thumbLabel #font_size_slider [displayWith]="display_slider_value" [(ngModel)]='this.styles_properties.fontSize' (input)='change_input_style("fontSize", $event.value+"px")' tickInterval="20" step="0.5" min="8" max="80" aria-label="units"></mat-slider>
   </div>
 
-  <div class="property inline-properties">
-    <i class="fas fa-bold icon"       [class.active]='font_styles.indexOf("bold") !== -1'       (click)='toggle_font_style("bold")'></i>
-    <i class="fas fa-italic icon"     [class.active]='font_styles.indexOf("italic") !== -1'     (click)='toggle_font_style("italic")'></i>
-    <i class="fas fa-underline icon"  [class.active]='font_styles.indexOf("underline") !== -1'  (click)='toggle_font_style("underline")'></i>
-    <i class="fas fa-link icon"       [class.active]='font_styles.indexOf("link") !== -1'       (click)='toggle_font_style("link")'></i>
-    <i class="fas fa-paragraph icon"  [class.active]='font_styles.indexOf("paragraph") !== -1'  (click)='toggle_font_style("paragraph")'></i>
+  <div class="property">
+    <div class="inline-properties">
+      <i class="fas fa-bold icon"         [class.active]='styles_properties.fontWeight === "bold"'            (click)='toggle_style("fontWeight", "bold")'></i>
+      <i class="fas fa-italic icon"       [class.active]='styles_properties.fontStyle === "italic"'           (click)='toggle_style("fontStyle", "italic")'></i>
+      <i class="fas fa-underline icon"    [class.active]='styles_properties.textDecoration === "underline"'   (click)='toggle_style("textDecoration", "underline")'></i>
+      <i class="fas fa-align-left icon"   [class.active]='styles_properties.textAlign === "left"'             (click)='toggle_style_multi_value("textAlign", "left")'></i>
+      <i class="fas fa-align-center icon" [class.active]='styles_properties.textAlign === "center"'           (click)='toggle_style_multi_value("textAlign", "center")'></i>
+      <i class="fas fa-align-right icon"  [class.active]='styles_properties.textAlign === "right"'            (click)='toggle_style_multi_value("textAlign", "right")'></i>
+    </div>
   </div>
+
 </div>

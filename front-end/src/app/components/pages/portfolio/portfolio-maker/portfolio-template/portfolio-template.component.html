@@ -11,7 +11,7 @@
             <li>About</li>
             <li>Project</li>
             <li>Contact</li>
-            <li><app-button text='Download CV' icon_classes='{{"las la-sign-in-alt"}}'></app-button></li>
+            <li><app-button text='Download CV' icon_classes='las la-sign-in-alt' class='flat-btn'></app-button></li>
           </ul>
         </nav>
       </div>
@@ -81,6 +81,25 @@
             </p>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="about-me">
+      <div class="container">
+        <div class="description">
+          <h1 class="title"><app-input-editable input='title_about_me' placeholder='About Me' default_value='About Me' (display_style_menu)='edit_text("")' ></app-input-editable></h1>
+          <!-- <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aspernatur dolore reprehenderit officia impedit sed harum voluptatem nulla cum error.</p> -->
+          <p class="desc">
+            <app-input-editable input='desc_pers' placeholder='Description' [multiline]='true' (display_style_menu)='edit_text("")'
+              default_value='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates aspernatur dolore reprehenderit officia impedit sed harum voluptatem nulla cum error.'>
+              </app-input-editable>
+          </p>
+          <app-button text='Download CV' icon_classes='las la-sign-in-alt' class='flat-btn'></app-button>
+        </div>
+        <div class="image">
+          <img src="/assets/images/user4.jpg">
+        </div>
       </div>
     </section>
 </section>

@@ -5,8 +5,11 @@
       <span class="placeholder">{{placeholder}}</span>
       <i class="fas" [class]='active ? "fa-chevron-up": "fa-chevron-down"'></i>
     </header>
-    <ul class="items">
+    <ul class="items" *ngIf='list.length > 0 && !list_enum'>
       <li class='item' *ngFor='let item of list' (click)='selected_item(item)'>{{item.value}}</li>
+    </ul>
+    <ul class="items" *ngIf='list.length === 0 && list_enum'>
+      <li class='item' *ngFor='let item of list_enum | keyvalue' (click)='selected_enum_item(item.key, item.value)'>{{item.value}}</li>
     </ul>
   </div>
 </div>

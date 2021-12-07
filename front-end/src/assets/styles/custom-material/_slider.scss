@@ -13,6 +13,13 @@ $dark-accent: mat-palette($mat-orange,800);
 
 $dark-theme: mat-dark-theme($primary, $accent);
 
-.material-dark-theme {
+.material-dark-theme
+{
   @include angular-material-theme($dark-theme);
+}
+
+.mat-slider-horizontal
+{
+  height: 37px !important;
+  padding: 0 !important;
 }

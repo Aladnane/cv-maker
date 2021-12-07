@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Fonts } from 'src/app/enums/fonts/fonts';
 import { IDictionary } from 'src/app/interfaces/dictionary/IDictionary';
 
 
@@ -10,21 +11,32 @@ import { IDictionary } from 'src/app/interfaces/dictionary/IDictionary';
 })
 export class PortfolioTextEditorDialogComponent implements AfterViewInit
 {
-
-  public fonts : IDictionary[] = [
-    {key: "robot", value: "Robot"},
-    {key: "cairo", value: "Cairo"},
-    {key: "open_sans", value: "Open Sans"},
-    {key: "readex_pro", value: "Readex Pro"},
-    {key: "corinthia", value: "Corinthia"},
+  public _fonts : IDictionary[] = [
+    {key: "Arial", value: "Arial"},
+    {key: "cursive", value: "Cursive"},
+    {key: "fantasy", value: "Fantasy"},
+    {key: "monospace", value: "Monospace"}
   ];
-  public font_styles : string[] = [];
+  public fonts = Fonts;
+
   private input_field : ElementRef;
   private field() {return this.input_field.nativeElement;}
   @ViewChild("input") input_text? :any;
   @ViewChild("font_size_slider") font_size_slider? :any;
-  public font_size: number = 0;
 
+  public styles_properties: {[key: string] :string|number} = {
+    fontSize: 0,
+    fontFamily: "",
+    fontWeight: 0,
+    fontStyle: "",
+    textDecoration: "",
+    textAlign: "",
+    backgroundColor: "",
+    color: "",
+  };
+
+  //Getters
+  get font_family(){ return this.styles_properties.fontFamily as string; }
 
   constructor(
       @Inject(MAT_DIALOG_DATA) public data: {input: ElementRef},
@@ -43,24 +55,36 @@ export class PortfolioTextEditorDialogComponent implements AfterViewInit
     return value+"px";
   }
 
-  public change_input_font_size(font_size:number | null)
+  public change_input_style(property: string, value: string)
   {
-    this.field().style.fontSize = `${font_size}px`;
+    this.field().style[property] = value;
   }
 
-
-
-  public toggle_font_style(style_key: string)
+  public toggle_style(property: string, style_key: string)
   {
-      if(this.font_styles.indexOf(style_key) === -1)
-      {
-        this.font_styles.push(style_key);
-      }
-      else
-      {
-        let index = this.font_styles.indexOf(style_key);
-        this.font_styles.splice(index, 1);
+    if(this.styles_properties[property] === "")
+    {
+      this.styles_properties[property] = style_key;
+      this.change_input_style(property, style_key);
+    }
+    else
+    {
+      this.styles_properties[property] = "";
+      this.change_input_style(property, "");
+    }
+  }
 
+  public toggle_style_multi_value(property: string, value: string)
+  {
+      if(this.styles_properties[property] === "" || this.styles_properties[property] !== value)
+      {
+        this.styles_properties[property] = value;
+        this.change_input_style(property, value);
+      }
+      else if(this.styles_properties[property] === value)
+      {
+        this.styles_properties[property] = "";
+        this.change_input_style(property, "");
       }
   }
 
@@ -71,15 +95,25 @@ export class PortfolioTextEditorDialogComponent implements AfterViewInit
 
   public initialize_inputs()
   {
+    //Input Value
     this.input_text.nativeElement.value = this.field().value;
-    // console.log(this.field().style);
 
-    // console.log(window.getComputedStyle(this.field()).fontSize);
-    let font_size = window.getComputedStyle(this.field()).fontSize;
+    //Get the list of element styles to edit it after
+    let styles = window.getComputedStyle(this.field());
 
-    this.font_size = +font_size.substr(0, font_size.length-2);
+    //Font Size
+    this.styles_properties.fontSize = +styles.fontSize.substr(0, styles.fontSize.length-2);
+    //Font Family
+    this.styles_properties.fontFamily = styles.fontFamily;
+    //Font Weight
+    this.styles_properties.fontWeight = (+styles.fontWeight >= 700) ? 'bold' : '';
+    //Font fontStyle
+    this.styles_properties.fontStyle = (styles.fontStyle === "italic") ? "italic" : "";
+    //Font textDecoration
+    this.styles_properties.textDecoration = (styles.textDecorationLine === "underline") ? "underline" : "";
+    //Font textAlign
+    this.styles_properties.textAlign = (["right", 'center', 'left'].indexOf(styles.textAlign) !== -1) ? styles.textAlign : "";
+
     this.cdr.detectChanges();
-    // console.log(font_size.substr(0, font_size.length-2));
-
   }
 }

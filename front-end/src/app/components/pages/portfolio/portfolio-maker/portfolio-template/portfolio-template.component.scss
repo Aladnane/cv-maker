@@ -22,6 +22,12 @@ $template-main-color-light: #87cfbc;
     padding: 7px 14px;
     border: none;
     &:focus{outline: none;}
+
+  }
+  .flat-btn .btn
+  {
+    background-color: #FFF;
+    color: $template-main-color;
   }
 
   h1,
@@ -68,12 +74,6 @@ $template-main-color-light: #87cfbc;
           {
             font-size: 1.2em;
             cursor: pointer;
-
-            .btn
-            {
-              background-color: #FFF;
-              color: $template-main-color;
-            }
 
             &.active,
             &:hover
@@ -126,13 +126,13 @@ $template-main-color-light: #87cfbc;
       .image
       {
         text-align: center;
-
         img
         {
           max-width: 400px;
           height: 500px;
-          border-radius: 5px;
-          box-shadow: 0 0 19px 5px #0000002b;
+          border: 3px solid $template-main-color;
+          border-radius: 6px;
+          box-shadow: 0 0 19px 5px #0000002b, 0 0 5px 0px $template-main-color;
         }
       }
 
@@ -200,9 +200,6 @@ $template-main-color-light: #87cfbc;
             color: #33846F;
             margin-bottom: 10px;
           }
-          .desc
-          {
-        }
         }
       }
 
@@ -254,6 +251,70 @@ $template-main-color-light: #87cfbc;
       {text-align: center !important;}
   }
 
+  .about-me
+  {
+    min-height: 500px;
+    padding: 100px 0;
+
+    .container
+    {
+      height: 400px;
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #121f29f5;
+      border-radius: 10px;
+      box-shadow: 0 0 5px 3px #0000003d;
+
+      .description,
+      .image
+      {
+        width: fit-content;
+      }
+
+      .description
+      {
+        text-align: left;
+        color: white;
+        font-size: 1.2em;
+        min-width: 40%;
+        justify-self: flex-end;
+
+        .title
+        {
+          font-size: 2em;
+          input
+          {
+            font-weight: bold;
+          }
+        }
+        .desc
+        {
+          margin: 20px 0 40px;
+          max-width: 500px;
+        }
+      }
+      .image
+      {
+        text-align: center;
+        width: 400px;
+        height: 520px;
+        border-radius: 10px;
+        border: 3px solid #33846f;
+        padding: 3px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        img
+        {
+          border-radius: inherit;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
 }
 
 //Selection

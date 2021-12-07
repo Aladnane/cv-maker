@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PortfolioTextEditorDialogComponent } from 'src/app/components/partials/dialogs/portfolio/text-editor/portfolio-text-editor-dialog.component';
 
@@ -12,6 +12,7 @@ export class PortfolioTemplateComponent implements OnInit {
 
   public input_editable : string = "";
   public services_list = this.services_test_data();
+  // @ViewChild("portfolio_template") portfolio_template? = //Scroll bar
 
   constructor(private mat_dialog: MatDialog) { }
 
@@ -19,17 +20,8 @@ export class PortfolioTemplateComponent implements OnInit {
 
   public edit_text(text: string, event?: any)
   {
-    // if(typeof event != undefined)
-    // {
-    //   event.preventDefault();
-    // }
     this.mat_dialog.open(PortfolioTextEditorDialogComponent);
   }
-
-  // public make_input_editable(input: HTMLInputElement)
-  // {
-  //   input.addClass("editable");
-  // }
 
   private services_test_data()
   {
